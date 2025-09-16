@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Zap, Users, Menu, X, Award, Clock, Target, ArrowLeft, Calendar, User } from 'lucide-react';
+import { CheckCircle, Zap, Users, Menu, X, Award, Clock, Target, ArrowLeft, Calendar, User, Phone, Mail, MapPin } from 'lucide-react';
 
 const QualityFirstWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,54 +61,61 @@ const QualityFirstWebsite = () => {
     <div className="min-h-screen bg-white">
       <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center bg-purple-600 px-8 py-4 rounded-lg">
-                <div className="w-14 h-14 bg-gray-400 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-purple-600">QF</span>
+              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
+                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
+                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
                 </div>
-                <span className="text-4xl font-bold text-white">QualityFirst</span>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
               </div>
             </div>
             
             <button 
               onClick={() => setSelectedPost(null)}
-              className="flex items-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              className="flex items-center bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
+              <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Back to Blog</span>
+              <span className="sm:hidden">Back</span>
             </button>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20">
         <div className="bg-white">
-          <div className="flex items-center text-sm text-gray-500 mb-6">
-            <Calendar className="w-4 h-4 mr-1" />
-            <span className="mr-3">{post.date}</span>
-            <User className="w-4 h-4 mr-1" />
-            <span className="mr-3">{post.author}</span>
-            <Clock className="w-4 h-4 mr-1" />
-            <span>{post.readTime}</span>
+          <div className="flex flex-wrap items-center text-sm text-gray-500 mb-6 gap-2 sm:gap-0">
+            <div className="flex items-center mr-4">
+              <Calendar className="w-4 h-4 mr-1" />
+              <span>{post.date}</span>
+            </div>
+            <div className="flex items-center mr-4">
+              <User className="w-4 h-4 mr-1" />
+              <span>{post.author}</span>
+            </div>
+            <div className="flex items-center">
+              <Clock className="w-4 h-4 mr-1" />
+              <span>{post.readTime}</span>
+            </div>
           </div>
           
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
             {post.title}
           </h1>
           
-          <div className="text-lg text-gray-700 leading-relaxed mb-8">
+          <div className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">
             {post.content}
           </div>
           
-          <div className="mt-12 p-6 bg-purple-50 rounded-lg border border-purple-200">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">Ready to Improve Your QA Strategy?</h3>
-            <p className="text-gray-700 mb-4">
+          <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-purple-50 rounded-lg border border-purple-200">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Ready to Improve Your QA Strategy?</h3>
+            <p className="text-gray-700 mb-4 text-sm sm:text-base">
               Get expert advice tailored to your specific needs. Our QA specialists are ready to help you implement the strategies discussed in this article.
             </p>
             <button 
               onClick={() => { setCurrentPage('home'); setSelectedPost(null); }}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
+              className="bg-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-purple-700 transition-colors text-sm sm:text-base"
             >
               Contact QualityFirst
             </button>
@@ -122,59 +129,61 @@ const QualityFirstWebsite = () => {
     <div className="min-h-screen bg-white">
       <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center bg-purple-600 px-8 py-4 rounded-lg">
-                <div className="w-14 h-14 bg-gray-400 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-purple-600">QF</span>
+              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
+                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
+                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
                 </div>
-                <span className="text-4xl font-bold text-white">QualityFirst</span>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
               </div>
             </div>
             
             <button 
               onClick={() => setCurrentPage('home')}
-              className="flex items-center bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              className="flex items-center bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
+              <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Back to Home</span>
+              <span className="sm:hidden">Home</span>
             </button>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             QualityFirst <span className="text-purple-600">Blog</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Insights, best practices, and industry knowledge from our QA experts
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
           {blogPosts.map((post) => (
-            <div key={post.id} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
-              <div className="flex items-center text-sm text-gray-500 mb-3">
-                <Calendar className="w-4 h-4 mr-1" />
-                <span className="mr-3">{post.date}</span>
-                <User className="w-4 h-4 mr-1" />
-                <span className="mr-3">{post.author}</span>
+            <div key={post.id} className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
+              <div className="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 mb-3 gap-2">
+                <div className="flex items-center">
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                  <span>{post.date}</span>
+                </div>
+                <span className="hidden sm:inline">•</span>
                 <span>{post.readTime}</span>
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-purple-600 cursor-pointer">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 hover:text-purple-600 cursor-pointer leading-tight">
                 {post.title}
               </h3>
               
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed">
                 {post.excerpt}
               </p>
               
               <button 
                 onClick={() => setSelectedPost(post)}
-                className="text-purple-600 font-medium hover:text-purple-700 transition-colors"
+                className="text-purple-600 font-medium hover:text-purple-700 transition-colors text-sm sm:text-base"
               >
                 Read More →
               </button>
@@ -196,14 +205,20 @@ const QualityFirstWebsite = () => {
     <div className="min-h-screen bg-white">
       <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center bg-purple-600 px-8 py-4 rounded-lg">
-                <div className="w-14 h-14 bg-gray-400 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-xl font-bold text-purple-600">QF</span>
+              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
+                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
+                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
                 </div>
-                <span className="text-4xl font-bold text-white">QualityFirst</span>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
               </div>
+            </div>
+            
+            {/* Business Hours Badge - Mobile & Desktop */}
+            <div className="hidden sm:flex items-center bg-purple-600 text-white px-3 py-1 rounded-full text-sm mr-4">
+              <Clock className="w-4 h-4 mr-1" />
+              <span className="font-medium">Evening Hours: 5-7 PM GMT</span>
             </div>
             
             <div className="hidden md:block">
@@ -216,7 +231,7 @@ const QualityFirstWebsite = () => {
             </div>
 
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 p-2">
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
@@ -226,6 +241,10 @@ const QualityFirstWebsite = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-purple-100 border-t">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div className="flex items-center bg-purple-600 text-white px-3 py-2 rounded-lg mx-3 mb-2">
+                <Clock className="w-4 h-4 mr-2" />
+                <span className="text-sm font-medium">Evening Hours: 5-7 PM GMT</span>
+              </div>
               <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-purple-600">Home</a>
               <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Services</a>
               <a href="#about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">About</a>
@@ -235,40 +254,68 @@ const QualityFirstWebsite = () => {
         )}
       </nav>
 
-      <section id="home" className="bg-gradient-to-br from-purple-50 via-gray-50 to-purple-100 py-20">
+      <section id="home" className="bg-gradient-to-br from-purple-50 via-gray-50 to-purple-100 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
               Enterprise-Grade 
               <span className="text-purple-600 block">QA Testing Services</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               Ensure your software meets the highest quality standards with our comprehensive testing solutions. We love what we do, we work hard and we charge best price.
             </p>
+            
+            {/* Professional Business Hours Description */}
+            <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg text-gray-700 bg-white rounded-xl p-4 sm:p-6 shadow-md border border-purple-100 leading-relaxed">
+                QualityFirst offers focused quality assurance testing during convenient evening hours (5-7 PM GMT, Monday-Friday). 
+                Our evening schedule allows us to test your applications during off-peak times, minimizing disruption to your business operations. 
+                <span className="text-purple-600 font-medium"> For urgent projects, weekend appointments may be available.</span>
+              </p>
+            </div>
+            
+            {/* Professional Business Hours Highlight */}
+            <div className="inline-flex items-center bg-white border-2 border-purple-200 rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg mb-6 sm:mb-8">
+              <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mr-3" />
+              <div className="text-left">
+                <div className="font-semibold text-gray-900 text-sm sm:text-base">Evening Consultation Hours</div>
+                <div className="text-purple-600 font-bold text-sm sm:text-lg">5:00 - 7:00 PM GMT • Monday - Friday</div>
+                <div className="text-gray-600 text-xs sm:text-sm">Focused testing sessions during your off-peak hours</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="#contact" className="w-full sm:w-auto bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-purple-700 transition-colors text-center">
+                Get Free Consultation
+              </a>
+              <a href="#services" className="w-full sm:w-auto border border-gray-300 text-gray-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-50 transition-colors text-center">
+                View Services
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="py-12 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Comprehensive Testing Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               From manual testing to advanced automation, we provide end-to-end QA solutions tailored to your needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
+              <div key={index} className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
                 <div className="text-purple-600 mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
+                    <li key={idx} className="flex items-center text-gray-700 text-sm sm:text-base">
                       <CheckCircle className="w-4 h-4 text-purple-500 mr-2 flex-shrink-0" />
                       {feature}
                     </li>
@@ -280,71 +327,71 @@ const QualityFirstWebsite = () => {
         </div>
       </section>
 
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Why Choose QualityFirst?
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 With over a wide experience in software quality assurance, we are the best people that can help you to deliver flawless software products to market.
               </p>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-start space-x-4">
-                  <Award className="w-6 h-6 text-gray-500 mt-1" />
+                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Certified Professionals</h4>
-                    <p className="text-gray-600">Our team holds industry certifications including ISTQB</p>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Certified Professionals</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Our team holds industry certifications including ISTQB</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <Clock className="w-6 h-6 text-purple-600 mt-1" />
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Faster Time to Market</h4>
-                    <p className="text-gray-600">Our parallel testing approach reduces testing cycles by up to 60%</p>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Evening Availability</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Specialized evening hours (5-7 PM GMT) to minimize disruption to your operations</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <Users className="w-6 h-6 text-purple-600 mt-1" />
+                  <Users className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Dedicated Teams</h4>
-                    <p className="text-gray-600">Scalable teams that integrate seamlessly with your development process</p>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Dedicated Teams</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Scalable teams that integrate seamlessly with your development process</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Users className="w-6 h-6 text-purple-600 mt-1" />
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Best Price</h4>
-                    <p className="text-gray-600">We do our best to give the best price possible</p>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Best Price</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">We do our best to give the best price possible</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-gradient-to-br from-purple-600 via-gray-600 to-purple-700 rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Our Process</h3>
-                <div className="space-y-4">
+            <div className="relative mt-8 lg:mt-0">
+              <div className="bg-gradient-to-br from-purple-600 via-gray-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Our Process</h3>
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm">1</div>
-                    <span>Requirements Analysis & Test Planning</span>
+                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                    <span className="text-sm sm:text-base">Requirements Analysis & Test Planning</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm">2</div>
-                    <span>Test Case Design & Environment Setup</span>
+                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                    <span className="text-sm sm:text-base">Test Case Design & Environment Setup</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm">3</div>
-                    <span>Test Execution & Defect Reporting</span>
+                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                    <span className="text-sm sm:text-base">Test Execution & Defect Reporting</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm">4</div>
-                    <span>Results Analysis & Final Report</span>
+                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                    <span className="text-sm sm:text-base">Results Analysis & Final Report</span>
                   </div>
                 </div>
               </div>
@@ -353,71 +400,96 @@ const QualityFirstWebsite = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-gray-50">
+      <section id="contact" className="py-12 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <p className="text-xl text-gray-600">Get in touch with our QA experts today</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Get in touch with our QA experts today</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <div className="text-center p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
-              <div className="text-4xl mb-4">📞</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-              <a href="tel:+442071234567" className="text-lg text-gray-700 hover:text-gray-800 font-medium">
+          {/* Business Hours Prominent Display */}
+          <div className="max-w-2xl mx-auto mb-8 sm:mb-12">
+            <div className="bg-gradient-to-r from-purple-600 to-gray-600 rounded-2xl p-6 sm:p-8 text-white text-center">
+              <div className="flex items-center justify-center mb-4">
+                <Clock className="w-8 h-8 mr-3" />
+                <h3 className="text-xl sm:text-2xl font-bold">Evening Consultation Hours</h3>
+              </div>
+              <div className="text-2xl sm:text-3xl font-bold mb-2">5:00 - 7:00 PM GMT</div>
+              <div className="text-lg opacity-90 mb-4">Monday through Friday</div>
+              <div className="text-sm sm:text-base opacity-80">
+                Focused testing sessions and consultations during your off-peak hours. 
+                <br className="hidden sm:block" />
+                QualityFirst offers focused quality assurance testing during convenient evening hours, minimizing disruption to your business operations.
+                <br className="hidden sm:block" />
+                For urgent projects, weekend appointments may be available.
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 max-w-4xl mx-auto">
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
+              <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
+              <a href="tel:+442071234567" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
                 +44 20 7123 4567
               </a>
-              <p className="text-gray-600 mt-2">Mon - Fri: 9:00 AM - 6:00 PM</p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-7 PM GMT</p>
             </div>
             
-            <div className="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
-              <div className="text-4xl mb-4">📧</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
-              <a href="mailto:hello@qualityfirst.com" className="text-lg text-purple-700 hover:text-purple-800 font-medium">
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+              <Mail className="w-8 h-8 mx-auto text-purple-600 mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
+              <a href="mailto:hello@qualityfirst.com" className="text-base sm:text-lg text-purple-700 hover:text-purple-800 font-medium block break-all">
                 hello@qualityfirst.com
               </a>
-              <p className="text-gray-600 mt-2">We'll respond within 24 hours</p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">We'll respond within 24 hours</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-purple-600 via-gray-600 to-purple-700">
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-purple-600 via-gray-600 to-purple-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             Ready to Elevate Your Software Quality?
           </h2>
-          <p className="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-white opacity-90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
             Get a free consultation and discover how our QA experts can help you deliver flawless software
           </p>
-          <div className="flex justify-center">
-            <a href="#contact" className="bg-white text-purple-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#contact" className="bg-white text-purple-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors">
               Contact Us
             </a>
+            <button 
+              onClick={() => setCurrentPage('blog')}
+              className="border border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition-colors"
+            >
+              Read Our Blog
+            </button>
           </div>
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-gray-900 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div className="col-span-1 sm:col-span-2 md:col-span-1">
               <div className="flex items-center mb-4">
-                <div className="bg-purple-600 p-3 rounded-lg flex items-center">
-                  <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-sm font-bold text-purple-600">QF</span>
+                <div className="bg-purple-600 p-2 sm:p-3 rounded-lg flex items-center">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                    <span className="text-xs sm:text-sm font-bold text-purple-600">QF</span>
                   </div>
-                  <span className="text-xl font-bold text-white">QualityFirst</span>
+                  <span className="text-lg sm:text-xl font-bold text-white">QualityFirst</span>
                 </div>
               </div>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                 Professional QA testing services for modern software development teams.
               </p>
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="font-semibold mb-4 text-sm sm:text-base">Services</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
                 <li><a href="#services" className="hover:text-white transition-colors">Manual Testing</a></li>
                 <li><a href="#services" className="hover:text-white transition-colors">Test Automation</a></li>
                 <li><a href="#services" className="hover:text-white transition-colors">Performance Testing</a></li>
@@ -425,8 +497,8 @@ const QualityFirstWebsite = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
+              <h4 className="font-semibold mb-4 text-sm sm:text-base">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
                 <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
                 <li><button onClick={() => setCurrentPage('blog')} className="hover:text-white transition-colors text-left">Blog</button></li>
                 <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
@@ -434,16 +506,20 @@ const QualityFirstWebsite = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <div className="text-gray-400 space-y-2">
-                <p>hello@qualityfirst.com</p>
+              <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
+              <div className="text-gray-400 space-y-2 text-sm sm:text-base">
+                <p className="break-all">hello@qualityfirst.com</p>
                 <p>+44 20 7123 4567</p>
                 <p>London, United Kingdom</p>
+                <div className="mt-3 pt-2 border-t border-gray-800">
+                  <p className="text-purple-400 font-medium">Evening Hours:</p>
+                  <p>5-7 PM GMT, Mon-Fri</p>
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
             <p>&copy; 2025 QualityFirst. All rights reserved.</p>
           </div>
         </div>
