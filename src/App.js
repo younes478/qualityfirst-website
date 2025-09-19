@@ -599,8 +599,8 @@ const QualityFirstWebsite = () => {
             <div>
               <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
               <div className="text-gray-400 space-y-2 text-sm sm:text-base">
-                <p className="break-all">hello@qualityfirst.com</p>
-                <p>+44 20 7123 4567</p>
+                <p className="break-all">qalityfirst.test@gmail.com</p>
+                <p>+44 1628304410</p>
                 <p>London, United Kingdom</p>
                 <div className="mt-3 pt-2 border-t border-gray-800">
                   <p className="text-purple-400 font-medium">Evening Hours:</p>
