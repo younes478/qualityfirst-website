@@ -521,8 +521,8 @@ const QualityFirstWebsite = () => {
             <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
               <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-              <a href="tel:+442071234567" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
-                +44 20 7123 4567
+              <a href="tel:+441628304410" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
+                +44 1628 304410
               </a>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-8 PM GMT</p>
             </div>
@@ -530,8 +530,8 @@ const QualityFirstWebsite = () => {
             <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
               <Mail className="w-8 h-8 mx-auto text-purple-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
-              <a href="mailto:hello@qualityfirst.com" className="text-base sm:text-lg text-purple-700 hover:text-purple-800 font-medium block break-all">
-                hello@qualityfirst.com
+              <a href="mailto:qualityfirst.test@gmail.com" className="text-base sm:text-lg text-purple-700 hover:text-purple-800 font-medium block break-all">
+                qualityfirst.test@gmail.com
               </a>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">We'll respond within 24 hours</p>
             </div>
