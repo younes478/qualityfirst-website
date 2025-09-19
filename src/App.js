@@ -505,7 +505,7 @@ const QualityFirstWebsite = () => {
                 <Clock className="w-8 h-8 mr-3" />
                 <h3 className="text-xl sm:text-2xl font-bold">Evening Consultation Hours</h3>
               </div>
-              <div className="text-2xl sm:text-3xl font-bold mb-2">5:00 - 7:00 PM GMT</div>
+              <div className="text-2xl sm:text-3xl font-bold mb-2">5:00 - 8:00 PM GMT</div>
               <div className="text-lg opacity-90 mb-4">Monday through Friday</div>
               <div className="text-sm sm:text-base opacity-80">
                 Focused testing sessions and consultations during your off-peak hours. 
@@ -524,7 +524,7 @@ const QualityFirstWebsite = () => {
               <a href="tel:+442071234567" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
                 +44 20 7123 4567
               </a>
-              <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-7 PM GMT</p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-8 PM GMT</p>
             </div>
             
             <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
