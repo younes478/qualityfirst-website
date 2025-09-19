@@ -218,7 +218,7 @@ const QualityFirstWebsite = () => {
             {/* Business Hours Badge - Mobile & Desktop */}
             <div className="hidden sm:flex items-center bg-purple-600 text-white px-3 py-1 rounded-full text-sm mr-4">
               <Clock className="w-4 h-4 mr-1" />
-              <span className="font-medium">Evening Hours: 5-7 PM GMT</span>
+              <span className="font-medium">Evening Hours: 5-8 PM GMT</span>
             </div>
             
             <div className="hidden md:block">
@@ -226,6 +226,7 @@ const QualityFirstWebsite = () => {
                 <a href="#home" className="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
                 <a href="#services" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
                 <a href="#about" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                <a href="#values" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Values</a>
                 <a href="#contact" className="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">Contact Us</a>
               </div>
             </div>
@@ -243,11 +244,12 @@ const QualityFirstWebsite = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <div className="flex items-center bg-purple-600 text-white px-3 py-2 rounded-lg mx-3 mb-2">
                 <Clock className="w-4 h-4 mr-2" />
-                <span className="text-sm font-medium">Evening Hours: 5-7 PM GMT</span>
+                <span className="text-sm font-medium">Evening Hours: 5-8 PM GMT</span>
               </div>
               <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-purple-600">Home</a>
               <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Services</a>
               <a href="#about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">About</a>
+              <a href="#values" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Values</a>
               <a href="#contact" className="block px-3 py-2 text-base font-medium bg-gray-600 text-white rounded-lg mx-3">Contact Us</a>
             </div>
           </div>
@@ -276,11 +278,14 @@ const QualityFirstWebsite = () => {
             
             {/* Professional Business Hours Highlight */}
             <div className="inline-flex items-center bg-white border-2 border-purple-200 rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg mb-6 sm:mb-8">
-              <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mr-3" />
+              <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mr-3 flex-shrink-0" />
               <div className="text-left">
-                <div className="font-semibold text-gray-900 text-sm sm:text-base">Evening Consultation Hours</div>
-                <div className="text-purple-600 font-bold text-sm sm:text-lg">5:00 - 7:00 PM GMT • Monday - Friday</div>
-                <div className="text-gray-600 text-xs sm:text-sm">Focused testing sessions during your off-peak hours</div>
+                <div className="font-semibold text-gray-900 text-sm sm:text-base">Consultation Hours</div>
+                <div className="text-purple-600 font-bold text-sm sm:text-lg mb-1">5:00 - 8:00 PM GMT • Monday - Friday</div>
+                <div className="text-gray-600 text-xs sm:text-sm border-t border-gray-200 pt-2 mt-2">
+                  <strong className="text-gray-800">Daily Check-in:</strong> 12:00 PM GMT (45 minutes) - Discuss project updates, issues resolution, and requirements clarification
+                </div>
+                <div className="text-gray-600 text-xs sm:text-sm mt-1">Focused testing sessions during your off-peak hours</div>
               </div>
             </div>
 
@@ -335,8 +340,19 @@ const QualityFirstWebsite = () => {
                 Why Choose QualityFirst?
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                With over a wide experience in software quality assurance, we are the best people that can help you to deliver flawless software products to market.
+                We combine extensive software quality assurance expertise with exceptional value pricing to deliver flawless software products to market. Our proven methodologies, flexible scheduling, and commitment to excellence make us your ideal QA partner.
               </p>
+              
+              <div className="bg-purple-50 border-l-4 border-purple-500 p-4 sm:p-6 rounded-r-lg mb-6 sm:mb-8">
+                <div className="flex items-center mb-3">
+                  <Award className="w-6 h-6 text-purple-600 mr-3" />
+                  <h3 className="text-lg font-bold text-gray-900">Quality Guarantee</h3>
+                </div>
+                <p className="text-gray-700 text-sm sm:text-base">
+                  We stand behind our work with comprehensive testing coverage, detailed reporting, and ongoing support. 
+                  Your satisfaction and software quality are our top priorities.
+                </p>
+              </div>
               
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-start space-x-4">
@@ -351,7 +367,7 @@ const QualityFirstWebsite = () => {
                   <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Evening Availability</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">Specialized evening hours (5-7 PM GMT) to minimize disruption to your operations</p>
+                    <p className="text-gray-600 text-sm sm:text-base">Specialized evening hours (5-8 PM GMT) and daily check-ins (12 PM GMT) to minimize disruption to your operations</p>
                   </div>
                 </div>
                 
@@ -366,8 +382,8 @@ const QualityFirstWebsite = () => {
                 <div className="flex items-start space-x-4">
                   <Target className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Best Price</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">We do our best to give the best price possible</p>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Competitive Pricing</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Premium QA services at unbeatable prices. We deliver exceptional value without compromising on quality or thoroughness</p>
                   </div>
                 </div>
               </div>
@@ -395,6 +411,81 @@ const QualityFirstWebsite = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="values" className="py-12 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Values
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              QualityFirst's values ensure we all have a high level of professionalism and integrity at work
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-blue-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Collaboration</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We believe in the power of teamwork. By fostering diverse perspectives and inclusive partnerships, we create stronger solutions for our clients and build lasting relationships that drive mutual success.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-green-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Growth</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We pursue continuous improvement and innovation in everything we do. By investing in our people and processes, we deliver exceptional value and create new opportunities for our clients and team.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-purple-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Accountability</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We take ownership of our commitments and stand behind our work. By maintaining transparency and following through on promises, we build trust and deliver consistent, reliable results.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-red-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mr-4">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Integrity</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We conduct business with honesty and ethical principles at every level. Our transparent communication and principled decision-making create the foundation for long-term client relationships.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-indigo-500 md:col-span-2 xl:col-span-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mr-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Ownership</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We embrace responsibility for outcomes and proactively solve challenges. By taking initiative and demonstrating resilience, we ensure our clients receive the highest quality service and support.
+              </p>
             </div>
           </div>
         </div>
@@ -513,7 +604,7 @@ const QualityFirstWebsite = () => {
                 <p>London, United Kingdom</p>
                 <div className="mt-3 pt-2 border-t border-gray-800">
                   <p className="text-purple-400 font-medium">Evening Hours:</p>
-                  <p>5-7 PM GMT, Mon-Fri</p>
+                  <p>5-8 PM GMT, Mon-Fri</p>
                 </div>
               </div>
             </div>
