@@ -270,7 +270,7 @@ const QualityFirstWebsite = () => {
             {/* Professional Business Hours Description */}
             <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
               <p className="text-base sm:text-lg text-gray-700 bg-white rounded-xl p-4 sm:p-6 shadow-md border border-purple-100 leading-relaxed">
-                QualityFirst offers focused quality assurance testing during convenient evening hours (5-7 PM GMT, Monday-Friday). 
+                QualityFirst offers focused quality assurance testing during convenient evening hours (5-8 PM GMT, Monday-Friday). 
                 Our evening schedule allows us to test your applications during off-peak times, minimizing disruption to your business operations. 
                 <span className="text-purple-600 font-medium"> For urgent projects, weekend appointments may be available.</span>
               </p>
@@ -522,7 +522,7 @@ const QualityFirstWebsite = () => {
               <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
               <a href="tel:+441628304410" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
-                +44 1628 304410
+                +44 1628 
               </a>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-8 PM GMT</p>
             </div>
@@ -599,7 +599,7 @@ const QualityFirstWebsite = () => {
             <div>
               <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
               <div className="text-gray-400 space-y-2 text-sm sm:text-base">
-                <p className="break-all">qalityfirst.test@gmail.com</p>
+                <p className="break-all">qalityfirst1team@gmail.com</p>
                 <p>+44 1628304410</p>
                 <p>London, United Kingdom</p>
                 <div className="mt-3 pt-2 border-t border-gray-800">
