@@ -531,7 +531,7 @@ const QualityFirstWebsite = () => {
               <Mail className="w-8 h-8 mx-auto text-purple-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
               <a href="mailto:qualityfirst.test@gmail.com" className="text-base sm:text-lg text-purple-700 hover:text-purple-800 font-medium block break-all">
-                qualityfirst.test@gmail.com
+              qualityfirst1team@gmail.com
               </a>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">We'll respond within 24 hours</p>
             </div>
@@ -599,7 +599,7 @@ const QualityFirstWebsite = () => {
             <div>
               <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
               <div className="text-gray-400 space-y-2 text-sm sm:text-base">
-                <p className="break-all">qalityfirst1team@gmail.com</p>
+                <p className="break-all">qualityfirst1team@gmail.com</p>
                 <p>+44 1628304410</p>
                 <p>London, United Kingdom</p>
                 <div className="mt-3 pt-2 border-t border-gray-800">
