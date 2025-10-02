@@ -117,7 +117,7 @@ const QualityFirstWebsite = () => {
               onClick={() => { setCurrentPage('home'); setSelectedPost(null); }}
               className="bg-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-purple-700 transition-colors text-sm sm:text-base"
             >
-              Contact QualityFirst
+              Contact QualityFirst1
             </button>
           </div>
         </div>
@@ -211,7 +211,7 @@ const QualityFirstWebsite = () => {
                 <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
                   <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
                 </div>
-                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst1</span>
               </div>
             </div>
             
@@ -270,7 +270,7 @@ const QualityFirstWebsite = () => {
             {/* Professional Business Hours Description */}
             <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
               <p className="text-base sm:text-lg text-gray-700 bg-white rounded-xl p-4 sm:p-6 shadow-md border border-purple-100 leading-relaxed">
-                QualityFirst offers focused quality assurance testing during convenient evening hours (5-8 PM GMT, Monday-Friday). 
+                QualityFirst1 offers focused quality assurance testing during convenient evening hours (5-8 PM GMT, Monday-Friday). 
                 Our evening schedule allows us to test your applications during off-peak times, minimizing disruption to your business operations. 
                 <span className="text-purple-600 font-medium"> For urgent projects, weekend appointments may be available.</span>
               </p>
@@ -423,7 +423,7 @@ const QualityFirstWebsite = () => {
               Our Values
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              QualityFirst's values ensure we all have a high level of professionalism and integrity at work
+              QualityFirst1's values ensure we all have a high level of professionalism and integrity at work
             </p>
           </div>
 
@@ -510,7 +510,7 @@ const QualityFirstWebsite = () => {
               <div className="text-sm sm:text-base opacity-80">
                 Focused testing sessions and consultations during your off-peak hours. 
                 <br className="hidden sm:block" />
-                QualityFirst offers focused quality assurance testing during convenient evening hours, minimizing disruption to your business operations.
+                QualityFirst1 offers focused quality assurance testing during convenient evening hours, minimizing disruption to your business operations.
                 <br className="hidden sm:block" />
                 For urgent projects, weekend appointments may be available.
               </div>
@@ -570,7 +570,7 @@ const QualityFirstWebsite = () => {
                   <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-3">
                     <span className="text-xs sm:text-sm font-bold text-purple-600">QF</span>
                   </div>
-                  <span className="text-lg sm:text-xl font-bold text-white">QualityFirst</span>
+                  <span className="text-lg sm:text-xl font-bold text-white">QualityFirst1</span>
                 </div>
               </div>
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
@@ -600,7 +600,7 @@ const QualityFirstWebsite = () => {
               <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
               <div className="text-gray-400 space-y-2 text-sm sm:text-base">
                 <p className="break-all">qualityfirst1team@gmail.com</p>
-                <p>+44 1628304410</p>
+                <p>+44 1628</p>
                 <p>London, United Kingdom</p>
                 <div className="mt-3 pt-2 border-t border-gray-800">
                   <p className="text-purple-400 font-medium">Evening Hours:</p>
@@ -611,7 +611,7 @@ const QualityFirstWebsite = () => {
           </div>
           
           <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-            <p>&copy; 2025 QualityFirst. All rights reserved.</p>
+            <p>&copy; 2025 QualityFirst1. All rights reserved.</p>
           </div>
         </div>
       </footer>
