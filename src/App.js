@@ -30,7 +30,6 @@ const DateFruitWebsite = () => {
       callUs: "Call Us",
       emailUs: "Email Us",
       location: "Our Location",
-      available: "Available: 5-8 PM GMT",
       response: "24 hour response",
       serving: "Serving UK nationwide",
       freeDelivery: "Free UK Delivery",
