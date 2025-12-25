@@ -67,7 +67,7 @@ const DateFruitWebsite = () => {
       callUs: "اتصل بنا",
       emailUs: "راسلنا",
       location: "موقعنا",
-      available: "متاح: ٨ صباحاً - ٨ مساءً GMT، كل يوم",
+      available: "Available: 8 AM - 8 PM GMT, Every Day",
       response: "رد خلال ٢٤ ساعة",
       serving: "خدمة في جميع أنحاء المملكة المتحدة",
       freeDelivery: "توصيل مجاني",
