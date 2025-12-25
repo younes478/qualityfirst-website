@@ -139,10 +139,7 @@ const DateFruitWebsite = () => {
     }
   ];
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
+ 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
       <nav className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-700 shadow-lg sticky top-0 z-50">
