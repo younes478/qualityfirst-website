@@ -29,7 +29,7 @@ const DateFruitWebsite = () => {
       callUs: "Call Us",
       emailUs: "Email Us",
       location: "Our Location",
-      available: "Available: 5-8 PM GMT",
+      available: "Available: 8 AM To 8 PM GMT",
       response: "24 hour response",
       serving: "Serving UK nationwide",
       freeDelivery: "Free UK Delivery",
@@ -513,8 +513,8 @@ const DateFruitWebsite = () => {
             <div className="bg-white rounded-xl p-8 text-center shadow-md border-2 border-green-500 hover:shadow-lg transition-all">
               <Phone className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-3 text-xl">{t.callUs}</h3>
-              <a href="tel:01628304410" className="text-amber-700 font-bold text-xl block">
-                01628 304410
+              <a href="tel:016283" className="text-amber-700 font-bold text-xl block">
+                01628 30
               </a>
               <p className="text-sm text-gray-600 mt-3">{t.available}</p>
             </div>
