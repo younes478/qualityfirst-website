@@ -3,7 +3,6 @@ import { ShoppingCart, Menu, X, Star, Package, Truck, Shield, Phone, Mail, MapPi
 
 const DateFruitWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cart, setCart] = useState([]);
   const [language, setLanguage] = useState('en');
 
   const translations = {
@@ -19,6 +18,7 @@ const DateFruitWebsite = () => {
       products: "Products",
       about: "About",
       contact: "Contact",
+      cart: "Cart",
       productTitle: "Deglet Nour Collection",
       productSubtitle: "Premium Deglet Nour dates from Algeria's desert oases",
       aboutTitle: "Algeria's Desert Treasure",
@@ -29,6 +29,7 @@ const DateFruitWebsite = () => {
       callUs: "Call Us",
       emailUs: "Email Us",
       location: "Our Location",
+      available: "Available: 5-8 PM GMT",
       response: "24 hour response",
       serving: "Serving UK nationwide",
       freeDelivery: "Free UK Delivery",
@@ -37,6 +38,7 @@ const DateFruitWebsite = () => {
       satisfaction: "100% Satisfaction",
       fresh: "Desert Fresh",
       direct: "Direct from oases",
+      addToCart: "Add to Cart",
       why1: "Authentic Deglet Nour from Algeria",
       why2: "Traditional desert harvesting",
       why3: "Algeria to UK in 2-3 days",
@@ -54,6 +56,7 @@ const DateFruitWebsite = () => {
       products: "المنتجات",
       about: "من نحن",
       contact: "اتصل بنا",
+      cart: "السلة",
       productTitle: "مجموعة دقلة نور",
       productSubtitle: "تمور دقلة نور الفاخرة من واحات الصحراء الجزائرية",
       aboutTitle: "كنز الصحراء الجزائرية",
@@ -64,7 +67,7 @@ const DateFruitWebsite = () => {
       callUs: "اتصل بنا",
       emailUs: "راسلنا",
       location: "موقعنا",
-      available: "متاح: ٥-٨ مساءً GMT",
+      available: "متاح: ٨ صباحاً - ٨ مساءً GMT، كل يوم",
       response: "رد خلال ٢٤ ساعة",
       serving: "خدمة في جميع أنحاء المملكة المتحدة",
       freeDelivery: "توصيل مجاني",
@@ -73,6 +76,7 @@ const DateFruitWebsite = () => {
       satisfaction: "١٠٠٪ رضا",
       fresh: "طازج من الصحراء",
       direct: "مباشرة من الواحات",
+      addToCart: "أضف للسلة",
       why1: "دقلة نور أصلية من الجزائر",
       why2: "حصاد تقليدي من الصحراء",
       why3: "من الجزائر إلى بريطانيا في ٢-٣ أيام",
@@ -86,17 +90,17 @@ const DateFruitWebsite = () => {
     {
       id: 1,
       name: {
-        en: "Deglet Nour - Premium",
-        ar: "دقلة نور - فاخر"
+        en: "Deglet Nour - 500g",
+        ar: "دقلة نور - ٥٠٠ جرام"
       },
       description: {
-        en: "The legendary golden date from Algeria. Translucent, honey-sweet, and naturally delicious. The true queen of dates.",
-        ar: "التمر الذهبي الأسطوري من الجزائر. شفاف، حلو كالعسل، ولذيذ طبيعياً. ملكة التمور الحقيقية."
+        en: "The legendary golden date from Algeria. Translucent, honey-sweet, and naturally delicious. Perfect for trying our premium Deglet Nour.",
+        ar: "التمر الذهبي الأسطوري من الجزائر. شفاف، حلو كالعسل، ولذيذ طبيعياً. مثالي لتجربة دقلة نور الفاخرة."
       },
-      price: 14.99,
+      price: 4.00,
       unit: {
-        en: "per 500g",
-        ar: "لكل ٥٠٠ جرام"
+        en: "500g pack",
+        ar: "عبوة ٥٠٠ جرام"
       },
       image: "👑",
       origin: {
@@ -106,6 +110,31 @@ const DateFruitWebsite = () => {
       features: {
         en: ["Premium Quality", "Golden Color", "Honey Sweet", "100% Natural"],
         ar: ["جودة فاخرة", "لون ذهبي", "حلو كالعسل", "١٠٠٪ طبيعي"]
+      }
+    },
+    {
+      id: 2,
+      name: {
+        en: "Deglet Nour - 1kg",
+        ar: "دقلة نور - ١ كيلو"
+      },
+      description: {
+        en: "Best value family pack. The same premium Algerian Deglet Nour in a larger size. Great for families and sharing.",
+        ar: "أفضل قيمة للعائلة. نفس دقلة نور الجزائرية الفاخرة بحجم أكبر. رائع للعائلات والمشاركة."
+      },
+      price: 7.00,
+      unit: {
+        en: "1kg pack",
+        ar: "عبوة ١ كيلو"
+      },
+      image: "🎁",
+      origin: {
+        en: "Algerian Desert",
+        ar: "الصحراء الجزائرية"
+      },
+      features: {
+        en: ["Best Value", "Family Pack", "Premium Quality", "100% Natural"],
+        ar: ["أفضل قيمة", "عبوة عائلية", "جودة فاخرة", "١٠٠٪ طبيعي"]
       }
     }
   ];
@@ -151,15 +180,6 @@ const DateFruitWebsite = () => {
               <a href="#products" className="text-white hover:text-amber-200 font-medium transition-colors">{t.products}</a>
               <a href="#about" className="text-white hover:text-amber-200 font-medium transition-colors">{t.about}</a>
               <a href="#contact" className="text-white hover:text-amber-200 font-medium transition-colors">{t.contact}</a>
-              <button className="relative bg-white text-amber-800 px-6 py-2 rounded-lg hover:bg-amber-50 transition-colors shadow-lg font-semibold">
-                <ShoppingCart className="w-5 h-5 inline mr-2" />
-                {t.cart} ({cart.length})
-                {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
-                    {cart.length}
-                  </span>
-                )}
-              </button>
             </div>
 
             <div className="md:hidden">
@@ -192,9 +212,6 @@ const DateFruitWebsite = () => {
               <a href="#products" className="block py-2 text-white hover:text-amber-200">{t.products}</a>
               <a href="#about" className="block py-2 text-white hover:text-amber-200">{t.about}</a>
               <a href="#contact" className="block py-2 text-white hover:text-amber-200">{t.contact}</a>
-              <button className="w-full bg-white text-amber-800 px-4 py-2 rounded-lg font-semibold">
-                {t.cart} ({cart.length})
-              </button>
             </div>
           </div>
         )}
@@ -230,8 +247,8 @@ const DateFruitWebsite = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a href="#products" className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg">
-                🛒 {t.shopNow}
+              <a href="#contact" className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg">
+                📞 {language === 'en' ? 'Contact Us' : 'اتصل بنا'}
               </a>
               <a href="#about" className="bg-white text-amber-800 px-10 py-4 rounded-lg font-bold text-lg border-2 border-amber-600 hover:bg-amber-50 transition-all shadow-lg">
                 🌴 {t.ourStory}
@@ -287,15 +304,15 @@ const DateFruitWebsite = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {products.map((product) => (
               <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-amber-300">
-                <div className="h-64 flex flex-col items-center justify-center relative bg-gradient-to-br from-amber-50 to-orange-50">
+                <div className="h-56 flex flex-col items-center justify-center relative bg-gradient-to-br from-amber-50 to-orange-50">
                   <div className="absolute top-2 left-2 text-3xl opacity-20">🌴</div>
                   <div className="absolute top-2 right-2 text-3xl opacity-20">🌴</div>
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-2xl opacity-20">💧</div>
                   
-                  <div className="text-9xl mb-2">{product.image}</div>
+                  <div className="text-8xl mb-2">{product.image}</div>
                   <div className="text-3xl">🌴</div>
                 </div>
                 
@@ -335,13 +352,13 @@ const DateFruitWebsite = () => {
                       </div>
                       <div className="text-sm text-gray-500">{product.unit[language]}</div>
                     </div>
-                    <button 
-                      onClick={() => addToCart(product)}
+                    <a 
+                      href="#contact"
                       className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all flex items-center shadow-md font-semibold text-lg"
                     >
-                      <ShoppingCart className={`w-5 h-5 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
-                      {t.addToCart}
-                    </button>
+                      <Phone className={`w-5 h-5 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
+                      {language === 'en' ? 'Contact to Order' : 'اتصل للطلب'}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -500,7 +517,7 @@ const DateFruitWebsite = () => {
               <Phone className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="font-bold text-gray-900 mb-3 text-xl">{t.callUs}</h3>
               <a href="tel:01628304410" className="text-amber-700 font-bold text-xl block">
-                01628 
+                01628 304410
               </a>
               <p className="text-sm text-gray-600 mt-3">{t.available}</p>
             </div>
@@ -541,11 +558,11 @@ const DateFruitWebsite = () => {
             {language === 'en' ? 'From the Algerian desert to your home. Experience The Golden Queen.' : 'من الصحراء الجزائرية إلى منزلك. جرب الملكة الذهبية.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#products" className="inline-block bg-white text-amber-700 px-12 py-5 rounded-lg font-bold text-lg hover:bg-amber-50 transition-all shadow-xl border-2 border-amber-300">
-              🛒 {t.shopNow}
+            <a href="#contact" className="inline-block bg-white text-amber-700 px-12 py-5 rounded-lg font-bold text-lg hover:bg-amber-50 transition-all shadow-xl border-2 border-amber-300">
+              📞 {language === 'en' ? 'Order Now' : 'اطلب الآن'}
             </a>
-            <a href="#contact" className="inline-block bg-green-600 text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-xl border-2 border-green-400">
-              📞 {language === 'en' ? 'Contact Us' : 'اتصل بنا'}
+            <a href="#about" className="inline-block bg-green-600 text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-xl border-2 border-green-400">
+              🌴 {language === 'en' ? 'Learn More' : 'اعرف المزيد'}
             </a>
           </div>
         </div>
@@ -585,11 +602,11 @@ const DateFruitWebsite = () => {
               <h4 className="font-bold mb-4 text-amber-200 text-lg">{t.contact}</h4>
               <div className="text-amber-200 text-sm space-y-2">
                 <p>📧 qualityfirst.test@gmail.com</p>
-                <p>📞 01628 </p>
+                <p>📞 01628 304410</p>
                 <p>📍 London, United Kingdom</p>
                 <div className="mt-4 pt-4 border-t border-amber-700">
                   <p className="font-medium text-amber-200">{language === 'en' ? 'Business Hours:' : 'ساعات العمل:'}</p>
-                  <p>🕐 Mon-Sun</p>
+                  <p>🕐 5-8 PM GMT, Mon-Fri</p>
                 </div>
               </div>
             </div>
@@ -604,17 +621,7 @@ const DateFruitWebsite = () => {
         </div>
       </footer>
 
-      {cart.length > 0 && (
-        <div className="fixed bottom-6 right-6 bg-green-600 text-white px-8 py-4 rounded-xl shadow-2xl border-2 border-green-400">
-          <div className="flex items-center gap-3">
-            <div className="text-3xl">✓</div>
-            <div>
-              <div className="font-bold">{language === 'en' ? 'Added to Cart!' : 'أضيف للسلة!'}</div>
-              <div className="text-sm text-green-100">🛒 {cart.length} {language === 'en' ? 'items' : 'عناصر'}</div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Removed cart notification */}
     </div>
   );
 };
