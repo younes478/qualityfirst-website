@@ -599,11 +599,11 @@ const DateFruitWebsite = () => {
               <h4 className="font-bold mb-4 text-amber-200 text-lg">{t.contact}</h4>
               <div className="text-amber-200 text-sm space-y-2">
                 <p>📧 qualityfirst.test@gmail.com</p>
-                <p>📞 01628 304410</p>
+                <p>📞 01628 </p>
                 <p>📍 London, United Kingdom</p>
                 <div className="mt-4 pt-4 border-t border-amber-700">
                   <p className="font-medium text-amber-200">{language === 'en' ? 'Business Hours:' : 'ساعات العمل:'}</p>
-                  <p>🕐 5-8 PM GMT, Mon-Fri</p>
+                  <p>🕐 8 AM - 8 PM GMT, Every Day</p>
                 </div>
               </div>
             </div>
