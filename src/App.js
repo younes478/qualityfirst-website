@@ -215,11 +215,6 @@ const QualityFirstWebsite = () => {
               </div>
             </div>
             
-            <div className="hidden sm:flex items-center bg-purple-600 text-white px-3 py-1 rounded-full text-sm mr-4">
-              <Clock className="w-4 h-4 mr-1" />
-              <span className="font-medium">Evening Hours: 5-8 PM GMT</span>
-            </div>
-            
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
                 <a href="#home" className="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
@@ -241,10 +236,6 @@ const QualityFirstWebsite = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-purple-100 border-t">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <div className="flex items-center bg-purple-600 text-white px-3 py-2 rounded-lg mx-3 mb-2">
-                <Clock className="w-4 h-4 mr-2" />
-                <span className="text-sm font-medium">Evening Hours: 5-8 PM GMT</span>
-              </div>
               <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-purple-600">Home</a>
               <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Services</a>
               <a href="#about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">About</a>
@@ -265,26 +256,6 @@ const QualityFirstWebsite = () => {
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               Ensure your software meets the highest quality standards with our comprehensive testing solutions. We love what we do, we work hard and we charge best price.
             </p>
-            
-            <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
-              <p className="text-base sm:text-lg text-gray-700 bg-white rounded-xl p-4 sm:p-6 shadow-md border border-purple-100 leading-relaxed">
-                QualityFirst offers focused quality assurance testing during convenient evening hours (5-8 PM GMT, Monday-Friday). 
-                Our evening schedule allows us to test your applications during off-peak times, minimizing disruption to your business operations. 
-                <span className="text-purple-600 font-medium"> For urgent projects, weekend appointments may be available.</span>
-              </p>
-            </div>
-            
-            <div className="inline-flex items-center bg-white border-2 border-purple-200 rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg mb-6 sm:mb-8">
-              <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mr-3 flex-shrink-0" />
-              <div className="text-left">
-                <div className="font-semibold text-gray-900 text-sm sm:text-base">Consultation Hours</div>
-                <div className="text-purple-600 font-bold text-sm sm:text-lg mb-1">5:00 - 8:00 PM GMT • Monday - Friday</div>
-                <div className="text-gray-600 text-xs sm:text-sm border-t border-gray-200 pt-2 mt-2">
-                  <strong className="text-gray-800">Daily Check-in:</strong> 12:00 PM GMT (45 minutes) - Discuss project updates, issues resolution, and requirements clarification
-                </div>
-                <div className="text-gray-600 text-xs sm:text-sm mt-1">Focused testing sessions during your off-peak hours</div>
-              </div>
-            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a href="#contact" className="w-full sm:w-auto bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-purple-700 transition-colors text-center">
@@ -357,14 +328,6 @@ const QualityFirstWebsite = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Certified Professionals</h4>
                     <p className="text-gray-600 text-sm sm:text-base">Our team holds industry certifications including ISTQB</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Evening Availability</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">Specialized evening hours (5-8 PM GMT) and daily check-ins (12 PM GMT) to minimize disruption to your operations</p>
                   </div>
                 </div>
                 
@@ -495,45 +458,14 @@ const QualityFirstWebsite = () => {
             <p className="text-lg sm:text-xl text-gray-600">Get in touch with our QA experts today</p>
           </div>
           
-          <div className="max-w-2xl mx-auto mb-8 sm:mb-12">
-            <div className="bg-gradient-to-r from-purple-600 to-gray-600 rounded-2xl p-6 sm:p-8 text-white text-center">
-              <div className="flex items-center justify-center mb-4">
-                <Clock className="w-8 h-8 mr-3" />
-                <h3 className="text-xl sm:text-2xl font-bold">Our Schedule</h3>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
-                <div className="bg-white bg-opacity-20 rounded-lg p-4">
-                  <div className="text-lg font-bold mb-2">Evening Consultation Hours</div>
-                  <div className="text-2xl sm:text-3xl font-bold mb-2">5:00 - 8:00 PM GMT</div>
-                  <div className="text-sm opacity-90">Monday through Friday</div>
-                  <div className="text-xs mt-2 opacity-80">Focused testing sessions and project work</div>
-                </div>
-                
-                <div className="bg-white bg-opacity-20 rounded-lg p-4">
-                  <div className="text-lg font-bold mb-2">Daily Check-in</div>
-                  <div className="text-2xl sm:text-3xl font-bold mb-2">12:00 PM GMT</div>
-                  <div className="text-sm opacity-90">45 minutes • Monday - Friday</div>
-                  <div className="text-xs mt-2 opacity-80">Project updates, issue resolution & requirements discussion</div>
-                </div>
-              </div>
-              
-              <div className="text-sm sm:text-base opacity-80 mt-4 text-center">
-                QualityFirst offers focused quality assurance testing during convenient hours, minimizing disruption to your business operations.
-                <br className="hidden sm:block" />
-                For urgent projects, weekend appointments may be available.
-              </div>
-            </div>
-          </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 max-w-4xl mx-auto">
             <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
               <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-              <a href="tel:+4416283" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
-                +44 1628 
+              <a href="tel:+441628304410" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
+                +44 1628 304410
               </a>
-              <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-8 PM GMT</p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">Available for inquiries</p>
             </div>
             
             <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
@@ -609,13 +541,8 @@ const QualityFirstWebsite = () => {
               <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
               <div className="text-gray-400 space-y-2 text-sm sm:text-base">
                 <p className="break-all">qualityfirst.test@gmail.com</p>
-                <p>+44 1628 </p>
+                <p>+44 1628 304410</p>
                 <p>London, United Kingdom</p>
-                <div className="mt-3 pt-2 border-t border-gray-800">
-                  <p className="text-purple-400 font-medium">Evening Hours:</p>
-                  <p>5-8 PM GMT, Mon-Fri</p>
-                  <p className="text-xs mt-1">Daily Check-in: 12 PM GMT (45 min)</p>
-                </div>
               </div>
             </div>
           </div>
