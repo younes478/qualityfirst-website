@@ -531,7 +531,7 @@ const QualityFirstWebsite = () => {
               <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
               <a href="tel:+4416283" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
-                +44 1628 304410
+                +44 1628 
               </a>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-8 PM GMT</p>
             </div>
