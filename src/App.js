@@ -462,8 +462,8 @@ const QualityFirstWebsite = () => {
             <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
               <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-              <a href="tel:+441628304410" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
-                +44 1628 304410
+              <a href="tel:+44162830" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
+                +44 1628 30
               </a>
               <p className="text-gray-600 mt-2 text-sm sm:text-base">Available for inquiries</p>
             </div>
@@ -541,7 +541,7 @@ const QualityFirstWebsite = () => {
               <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
               <div className="text-gray-400 space-y-2 text-sm sm:text-base">
                 <p className="break-all">qualityfirst.test@gmail.com</p>
-                <p>+44 1628 304410</p>
+                <p>+44 1628 304</p>
                 <p>London, United Kingdom</p>
               </div>
             </div>
