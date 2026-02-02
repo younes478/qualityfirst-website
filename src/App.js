@@ -1,186 +1,237 @@
 import React, { useState } from 'react';
-import { ShoppingCart, Menu, X, Star, Package, Truck, Shield, Phone, Mail, MapPin, Heart } from 'lucide-react';
+import { CheckCircle, Zap, Users, Menu, X, Award, Clock, Target, ArrowLeft, Calendar, User, Phone, Mail } from 'lucide-react';
 
-const DateFruitWebsite = () => {
+const QualityFirstWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedPost, setSelectedPost] = useState(null);
 
-  const translations = {
-    en: {
-      brand: "The Golden Queen",
-      tagline: "From the Algerian Desert",
-      hero: "Deglet Nour from the Algerian Desert",
-      heroDesc: "Authentic Deglet Nour dates from Algeria's desert oases. Sun-ripened in the Sahara, delivered fresh to your home",
-      natural: "100% Natural • No Additives • Desert Fresh",
-      shopNow: "Shop Deglet Nour",
-      ourStory: "Our Story",
-      home: "Home",
-      products: "Products",
-      about: "About",
-      contact: "Contact",
-      cart: "Cart",
-      productTitle: "Deglet Nour Collection",
-      productSubtitle: "Premium Deglet Nour dates from Algeria's desert oases",
-      aboutTitle: "Algeria's Desert Treasure",
-      aboutDesc: "The Deglet Nour date, meaning 'Date of Light', has been cultivated in Algeria's Saharan oases for over 2,000 years. Known for its translucent golden color and exceptional sweetness, it's truly nature's candy from the desert.",
-      whyTitle: "Why The Golden Queen?",
-      contactTitle: "Get in Touch",
-      contactSubtitle: "Questions about our Deglet Nour dates? We're here to help!",
-      callUs: "Call Us",
-      emailUs: "Email Us",
-      location: "Our Location",
-      available: "Available: 8 AM To 8 PM GMT",
-      response: "24 hour response",
-      serving: "Serving UK nationwide",
-      freeDelivery: "Free UK Delivery",
-      orders: "Orders over £30",
-      quality: "Quality Guarantee",
-      satisfaction: "100% Satisfaction",
-      fresh: "Desert Fresh",
-      direct: "Direct from oases",
-      addToCart: "Add to Cart",
-      why1: "Authentic Deglet Nour from Algeria",
-      why2: "Traditional desert harvesting",
-      why3: "Algeria to UK in 2-3 days",
-      why4: "Support Algerian family farms"
-    },
-    ar: {
-      brand: "الملكة الذهبية",
-      tagline: "من الصحراء الجزائرية",
-      hero: "دقلة نور من الصحراء الجزائرية",
-      heroDesc: "تمور دقلة نور أصلية من واحات الصحراء الجزائرية. ناضجة تحت شمس الصحراء، تُسلم طازجة إلى منزلك",
-      natural: "١٠٠٪ طبيعي • بدون إضافات • طازج من الصحراء",
-      shopNow: "تسوق دقلة نور",
-      ourStory: "قصتنا",
-      home: "الرئيسية",
-      products: "المنتجات",
-      about: "من نحن",
-      contact: "اتصل بنا",
-      cart: "السلة",
-      productTitle: "مجموعة دقلة نور",
-      productSubtitle: "تمور دقلة نور الفاخرة من واحات الصحراء الجزائرية",
-      aboutTitle: "كنز الصحراء الجزائرية",
-      aboutDesc: "تمر دقلة نور، والذي يعني 'تمر النور'، يُزرع في واحات الصحراء الجزائرية منذ أكثر من ٢٠٠٠ عام. معروف بلونه الذهبي الشفاف وحلاوته الاستثنائية، إنه حقاً حلوى الطبيعة من الصحراء.",
-      whyTitle: "لماذا الملكة الذهبية؟",
-      contactTitle: "تواصل معنا",
-      contactSubtitle: "أسئلة حول تمور دقلة نور؟ نحن هنا للمساعدة!",
-      callUs: "اتصل بنا",
-      emailUs: "راسلنا",
-      location: "موقعنا",
-      available: "Available: 8 AM - 8 PM GMT, Every Day",
-      response: "رد خلال ٢٤ ساعة",
-      serving: "خدمة في جميع أنحاء المملكة المتحدة",
-      freeDelivery: "توصيل مجاني",
-      orders: "للطلبات +٣٠ جنيه",
-      quality: "ضمان الجودة",
-      satisfaction: "١٠٠٪ رضا",
-      fresh: "طازج من الصحراء",
-      direct: "مباشرة من الواحات",
-      addToCart: "أضف للسلة",
-      why1: "دقلة نور أصلية من الجزائر",
-      why2: "حصاد تقليدي من الصحراء",
-      why3: "من الجزائر إلى بريطانيا في ٢-٣ أيام",
-      why4: "دعم المزارع العائلية الجزائرية"
-    }
-  };
-
-  const t = translations[language];
-
-  const products = [
+  const services = [
     {
-      id: 1,
-      name: {
-        en: "Deglet Nour - 500g",
-        ar: "دقلة نور - ٥٠٠ جرام"
-      },
-      description: {
-        en: "The legendary golden date from Algeria. Translucent, honey-sweet, and naturally delicious. Perfect for trying our premium Deglet Nour.",
-        ar: "التمر الذهبي الأسطوري من الجزائر. شفاف، حلو كالعسل، ولذيذ طبيعياً. مثالي لتجربة دقلة نور الفاخرة."
-      },
-      price: 4.00,
-      unit: {
-        en: "500g pack",
-        ar: "عبوة ٥٠٠ جرام"
-      },
-      image: "👑",
-      origin: {
-        en: "Algerian Desert",
-        ar: "الصحراء الجزائرية"
-      },
-      features: {
-        en: ["Premium Quality", "Golden Color", "Honey Sweet", "100% Natural"],
-        ar: ["جودة فاخرة", "لون ذهبي", "حلو كالعسل", "١٠٠٪ طبيعي"]
-      }
+      icon: <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center"><span className="text-white font-bold">M</span></div>,
+      title: "Manual Testing",
+      description: "Comprehensive manual testing services covering functional, usability, and exploratory testing.",
+      features: ["UI/UX Testing", "Cross-browser Compatibility", "User Experience Validation", "Edge Case Discovery"]
     },
     {
-      id: 2,
-      name: {
-        en: "Deglet Nour - 1kg",
-        ar: "دقلة نور - ١ كيلو"
-      },
-      description: {
-        en: "Best value family pack. The same premium Algerian Deglet Nour in a larger size. Great for families and sharing.",
-        ar: "أفضل قيمة للعائلة. نفس دقلة نور الجزائرية الفاخرة بحجم أكبر. رائع للعائلات والمشاركة."
-      },
-      price: 7.00,
-      unit: {
-        en: "1kg pack",
-        ar: "عبوة ١ كيلو"
-      },
-      image: "🎁",
-      origin: {
-        en: "Algerian Desert",
-        ar: "الصحراء الجزائرية"
-      },
-      features: {
-        en: ["Best Value", "Family Pack", "Premium Quality", "100% Natural"],
-        ar: ["أفضل قيمة", "عبوة عائلية", "جودة فاخرة", "١٠٠٪ طبيعي"]
-      }
+      icon: <Zap className="w-8 h-8" />,
+      title: "Test Automation", 
+      description: "Automated testing solutions to accelerate your release cycles and improve reliability.",
+      features: ["Cypress", "API Testing", "Data testing", "Regression"]
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Performance Testing",
+      description: "Load, stress, and performance testing to ensure your applications scale under pressure.",
+      features: ["Load Testing", "Stress Testing", "Scalability Analysis", "Performance Optimization"]
     }
   ];
 
- 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
-      <nav className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-700 shadow-lg sticky top-0 z-50">
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Why 90% of Software Bugs Could Be Prevented with Better QA Strategy",
+      excerpt: "Most software defects are preventable with proper testing methodology. Learn the proven strategies that industry leaders use to prevent bugs before they reach production.",
+      date: "September 10, 2025",
+      author: "QualityFirst Team",
+      readTime: "6 min read",
+      content: "After analyzing over 500+ projects across different industries, we've discovered that an overwhelming 90% of software bugs could be prevented with better QA strategy implementation. Research consistently shows that fixing a bug in production costs 10-100x more than catching it during development. We've seen companies spend £50,000 fixing issues that would have cost £500 to prevent with proper testing. Our five key prevention strategies include: Early Test Planning during requirements gathering, Risk-Based Testing focusing on high-impact areas, Continuous Integration Testing with automated checks, User Story Validation with clear acceptance criteria, and Cross-functional Collaboration between QA and development teams. Companies like Netflix and Amazon prevent bugs not through more testing, but through smarter testing strategies that catch issues before they become expensive problems."
+    },
+    {
+      id: 2,
+      title: "Cypress vs Selenium: Which Testing Framework Saves More Time and Money?",
+      excerpt: "A comprehensive comparison of modern testing frameworks. We tested both tools across 50+ real-world projects to determine which delivers better ROI.",
+      date: "September 7, 2025", 
+      author: "QualityFirst Team",
+      readTime: "8 min read",
+      content: "We've implemented both Cypress and Selenium across 50+ client projects over the past two years. Here's our analysis: Setup and Learning - Cypress wins with 2-hour setup vs Selenium's 8-12 hours. Execution Speed - Selenium wins with 40% faster parallel execution for large test suites. Maintenance Costs - Cypress wins with 60% less maintenance due to automatic waiting. Browser Support - Selenium wins with complete browser coverage. Our recommendation: Choose Cypress for startups and small teams needing faster setup. Choose Selenium for enterprise-scale applications requiring extensive browser coverage and dedicated QA teams."
+    },
+    {
+      id: 3,
+      title: "The Hidden Costs of Skipping QA: Real Client Case Studies",
+      excerpt: "Three real examples of companies that tried to cut QA costs and the expensive lessons they learned. From £2M product recalls to startups losing 60% of users overnight.",
+      date: "September 3, 2025",
+      author: "QualityFirst Team", 
+      readTime: "10 min read",
+      content: "These anonymized case studies show why investing in proper QA is always more cost-effective than dealing with production failures. Case 1: IoT manufacturer skipped performance testing, resulted in £2.1M product recall vs £15K prevention cost. Case 2: Mobile startup skipped cross-device testing, lost 60% of users and missed funding round vs £8K testing cost. Case 3: E-commerce platform skipped security testing, faced £1.5M+ in fines and legal costs vs £12K security testing. In every case, skipping QA resulted in costs 20-100x higher than proper testing would have required. QualityFirst clients typically see 10-50x ROI on QA investment through prevented issues and faster time-to-market."
+    }
+  ];
+
+  const BlogPostPage = ({ post }) => (
+    <div className="min-h-screen bg-white">
+      <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex items-center">
-              <div className="flex items-center space-x-3">
-                <div className="text-4xl">👑</div>
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold text-white">
-                    {t.brand}
-                  </div>
-                  <div className="text-xs text-amber-100">{t.tagline}</div>
+              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
+                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
+                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
                 </div>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
               </div>
             </div>
+            
+            <button 
+              onClick={() => setSelectedPost(null)}
+              className="flex items-center bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
+            >
+              <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Back to Blog</span>
+              <span className="sm:hidden">Back</span>
+            </button>
+          </div>
+        </div>
+      </nav>
 
-            <div className="hidden md:flex items-center space-x-6">
-              <div className="flex items-center space-x-2 bg-white bg-opacity-20 rounded-lg px-3 py-1">
-                <button 
-                  onClick={() => setLanguage('en')}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-colors ${language === 'en' ? 'bg-white text-amber-800' : 'text-white hover:text-amber-200'}`}
-                >
-                  🇬🇧 EN
-                </button>
-                <button 
-                  onClick={() => setLanguage('ar')}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-colors ${language === 'ar' ? 'bg-white text-amber-800' : 'text-white hover:text-amber-200'}`}
-                >
-                  🇸🇦 AR
-                </button>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20">
+        <div className="bg-white">
+          <div className="flex flex-wrap items-center text-sm text-gray-500 mb-6 gap-2 sm:gap-0">
+            <div className="flex items-center mr-4">
+              <Calendar className="w-4 h-4 mr-1" />
+              <span>{post.date}</span>
+            </div>
+            <div className="flex items-center mr-4">
+              <User className="w-4 h-4 mr-1" />
+              <span>{post.author}</span>
+            </div>
+            <div className="flex items-center">
+              <Clock className="w-4 h-4 mr-1" />
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+          
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            {post.title}
+          </h1>
+          
+          <div className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">
+            {post.content}
+          </div>
+          
+          <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-purple-50 rounded-lg border border-purple-200">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Ready to Improve Your QA Strategy?</h3>
+            <p className="text-gray-700 mb-4 text-sm sm:text-base">
+              Get expert advice tailored to your specific needs. Our QA specialists are ready to help you implement the strategies discussed in this article.
+            </p>
+            <button 
+              onClick={() => { setCurrentPage('home'); setSelectedPost(null); }}
+              className="bg-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-purple-700 transition-colors text-sm sm:text-base"
+            >
+              Contact QualityFirst
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const BlogPage = () => (
+    <div className="min-h-screen bg-white">
+      <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
+            <div className="flex items-center">
+              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
+                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
+                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
+                </div>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
+              </div>
+            </div>
+            
+            <button 
+              onClick={() => setCurrentPage('home')}
+              className="flex items-center bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
+            >
+              <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Back to Home</span>
+              <span className="sm:hidden">Home</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            QualityFirst <span className="text-purple-600">Blog</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Insights, best practices, and industry knowledge from our QA experts
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+          {blogPosts.map((post) => (
+            <div key={post.id} className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
+              <div className="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 mb-3 gap-2">
+                <div className="flex items-center">
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                  <span>{post.date}</span>
+                </div>
+                <span className="hidden sm:inline">•</span>
+                <span>{post.readTime}</span>
               </div>
               
-              <a href="#home" className="text-white hover:text-amber-200 font-medium transition-colors">{t.home}</a>
-              <a href="#products" className="text-white hover:text-amber-200 font-medium transition-colors">{t.products}</a>
-              <a href="#about" className="text-white hover:text-amber-200 font-medium transition-colors">{t.about}</a>
-              <a href="#contact" className="text-white hover:text-amber-200 font-medium transition-colors">{t.contact}</a>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 hover:text-purple-600 cursor-pointer leading-tight">
+                {post.title}
+              </h3>
+              
+              <p className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed">
+                {post.excerpt}
+              </p>
+              
+              <button 
+                onClick={() => setSelectedPost(post)}
+                className="text-purple-600 font-medium hover:text-purple-700 transition-colors text-sm sm:text-base"
+              >
+                Read More →
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  if (currentPage === 'blog') {
+    if (selectedPost) {
+      return <BlogPostPage post={selectedPost} />;
+    }
+    return <BlogPage />;
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
+            <div className="flex items-center">
+              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
+                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
+                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
+                </div>
+                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
+              </div>
+            </div>
+            
+            <div className="hidden sm:flex items-center bg-purple-600 text-white px-3 py-1 rounded-full text-sm mr-4">
+              <Clock className="w-4 h-4 mr-1" />
+              <span className="font-medium">Evening Hours: 5-8 PM GMT</span>
+            </div>
+            
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-8">
+                <a href="#home" className="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                <a href="#services" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                <a href="#about" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                <a href="#values" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Values</a>
+                <a href="#contact" className="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">Contact Us</a>
+              </div>
             </div>
 
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white p-2">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 p-2">
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
@@ -188,439 +239,394 @@ const DateFruitWebsite = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden bg-amber-800 border-t border-amber-600">
-            <div className="px-4 py-3 space-y-2">
-              <div className="flex items-center justify-center space-x-2 mb-3 bg-white bg-opacity-20 rounded-lg p-2">
-                <button 
-                  onClick={() => setLanguage('en')}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-colors ${language === 'en' ? 'bg-white text-amber-800' : 'text-white'}`}
-                >
-                  🇬🇧 EN
-                </button>
-                <button 
-                  onClick={() => setLanguage('ar')}
-                  className={`px-3 py-1 rounded text-sm font-medium transition-colors ${language === 'ar' ? 'bg-white text-amber-800' : 'text-white'}`}
-                >
-                  🇸🇦 AR
-                </button>
+          <div className="md:hidden bg-purple-100 border-t">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <div className="flex items-center bg-purple-600 text-white px-3 py-2 rounded-lg mx-3 mb-2">
+                <Clock className="w-4 h-4 mr-2" />
+                <span className="text-sm font-medium">Evening Hours: 5-8 PM GMT</span>
               </div>
-              
-              <a href="#home" className="block py-2 text-white hover:text-amber-200">{t.home}</a>
-              <a href="#products" className="block py-2 text-white hover:text-amber-200">{t.products}</a>
-              <a href="#about" className="block py-2 text-white hover:text-amber-200">{t.about}</a>
-              <a href="#contact" className="block py-2 text-white hover:text-amber-200">{t.contact}</a>
+              <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-purple-600">Home</a>
+              <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Services</a>
+              <a href="#about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">About</a>
+              <a href="#values" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Values</a>
+              <a href="#contact" className="block px-3 py-2 text-base font-medium bg-gray-600 text-white rounded-lg mx-3">Contact Us</a>
             </div>
           </div>
         )}
       </nav>
 
-      <section id="home" className="relative bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 py-20 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 text-8xl">🌴</div>
-          <div className="absolute top-32 right-20 text-7xl">🌴</div>
-          <div className="absolute bottom-20 left-32 text-8xl">🌴</div>
-          <div className="absolute bottom-10 right-10 text-7xl">🌴</div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section id="home" className="bg-gradient-to-br from-purple-50 via-gray-50 to-purple-100 py-12 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="flex justify-center items-center gap-4 mb-6">
-              <div className="text-6xl">🌴</div>
-              <div className="text-8xl sm:text-9xl">👑</div>
-              <div className="text-6xl">🌴</div>
-            </div>
-            
-            <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold text-amber-900 mb-6 ${language === 'ar' ? 'text-right' : ''}`}>
-              {t.brand}
-              <span className="block text-orange-700 text-3xl sm:text-4xl mt-2">{t.hero}</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              Enterprise-Grade 
+              <span className="text-purple-600 block">QA Testing Services</span>
             </h1>
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+              Ensure your software meets the highest quality standards with our comprehensive testing solutions. We love what we do, we work hard and we charge best price.
+            </p>
             
-            <div className={`bg-white rounded-2xl p-6 max-w-3xl mx-auto mb-8 shadow-xl border-2 border-amber-300 ${language === 'ar' ? 'text-right' : ''}`}>
-              <p className="text-lg sm:text-xl text-gray-800 leading-relaxed">
-                🏜️ {t.heroDesc} 🌴
-                <br/>
-                <span className="text-green-700 font-semibold">{t.natural}</span>
+            <div className="max-w-4xl mx-auto mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg text-gray-700 bg-white rounded-xl p-4 sm:p-6 shadow-md border border-purple-100 leading-relaxed">
+                QualityFirst offers focused quality assurance testing during convenient evening hours (5-8 PM GMT, Monday-Friday). 
+                Our evening schedule allows us to test your applications during off-peak times, minimizing disruption to your business operations. 
+                <span className="text-purple-600 font-medium"> For urgent projects, weekend appointments may be available.</span>
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a href="#contact" className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg">
-                📞 {language === 'en' ? 'Contact Us' : 'اتصل بنا'}
-              </a>
-              <a href="#about" className="bg-white text-amber-800 px-10 py-4 rounded-lg font-bold text-lg border-2 border-amber-600 hover:bg-amber-50 transition-all shadow-lg">
-                🌴 {t.ourStory}
-              </a>
+            
+            <div className="inline-flex items-center bg-white border-2 border-purple-200 rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg mb-6 sm:mb-8">
+              <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mr-3 flex-shrink-0" />
+              <div className="text-left">
+                <div className="font-semibold text-gray-900 text-sm sm:text-base">Consultation Hours</div>
+                <div className="text-purple-600 font-bold text-sm sm:text-lg mb-1">5:00 - 8:00 PM GMT • Monday - Friday</div>
+                <div className="text-gray-600 text-xs sm:text-sm border-t border-gray-200 pt-2 mt-2">
+                  <strong className="text-gray-800">Daily Check-in:</strong> 12:00 PM GMT (45 minutes) - Discuss project updates, issues resolution, and requirements clarification
+                </div>
+                <div className="text-gray-600 text-xs sm:text-sm mt-1">Focused testing sessions during your off-peak hours</div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-green-500">
-                <Truck className="w-10 h-10 text-green-600 mx-auto mb-3" />
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">{t.freeDelivery}</h3>
-                <p className="text-sm text-gray-600">{t.orders}</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-red-500">
-                <Shield className="w-10 h-10 text-red-600 mx-auto mb-3" />
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">{t.quality}</h3>
-                <p className="text-sm text-gray-600">{t.satisfaction}</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-amber-500">
-                <Package className="w-10 h-10 text-amber-600 mx-auto mb-3" />
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">{t.fresh}</h3>
-                <p className="text-sm text-gray-600">{t.direct}</p>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="#contact" className="w-full sm:w-auto bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-purple-700 transition-colors text-center">
+                Get Free Consultation
+              </a>
+              <a href="#services" className="w-full sm:w-auto border border-gray-300 text-gray-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-50 transition-colors text-center">
+                View Services
+              </a>
             </div>
           </div>
-        </div>
-        
-        <div className="absolute bottom-0 left-0 right-0 flex justify-around opacity-20">
-          <div className="text-8xl">🌴</div>
-          <div className="text-7xl">🌴</div>
-          <div className="text-8xl">🌴</div>
-          <div className="text-7xl">🌴</div>
-          <div className="text-8xl">🌴</div>
         </div>
       </section>
 
-      <section id="products" className="py-16 sm:py-24 bg-white relative">
-        <div className="absolute top-10 left-10 text-5xl opacity-5">🌴</div>
-        <div className="absolute top-10 right-10 text-5xl opacity-5">🌴</div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className={`text-center mb-12 ${language === 'ar' ? 'text-right' : ''}`}>
-            <div className="flex justify-center items-center gap-3 mb-4">
-              <div className="text-3xl">🌴</div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-amber-800">
-                {t.productTitle}
-              </h2>
-              <div className="text-3xl">🌴</div>
-            </div>
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              {t.productSubtitle}
+      <section id="services" className="py-12 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Comprehensive Testing Services
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              From manual testing to advanced automation, we provide end-to-end QA solutions tailored to your needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {products.map((product) => (
-              <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-amber-300">
-                <div className="h-56 flex flex-col items-center justify-center relative bg-gradient-to-br from-amber-50 to-orange-50">
-                  <div className="absolute top-2 left-2 text-3xl opacity-20">🌴</div>
-                  <div className="absolute top-2 right-2 text-3xl opacity-20">🌴</div>
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-2xl opacity-20">💧</div>
-                  
-                  <div className="text-8xl mb-2">{product.image}</div>
-                  <div className="text-3xl">🌴</div>
-                </div>
-                
-                <div className={`p-8 ${language === 'ar' ? 'text-right' : ''}`}>
-                  <div className={`flex items-center justify-between mb-3 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-                    <span className="text-sm bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-1 rounded-full font-medium">
-                      {product.origin[language]}
-                    </span>
-                    <div className="flex items-center">
-                      {[1,2,3,4,5].map((star) => (
-                        <Star key={star} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-amber-800 mb-3">
-                    {product.name[language]}
-                  </h3>
-                  <p className="text-gray-600 text-base mb-6 leading-relaxed">{product.description[language]}</p>
-                  
-                  <div className={`flex flex-wrap gap-2 mb-6 ${language === 'ar' ? 'justify-end' : ''}`}>
-                    {product.features[language].map((feature, idx) => (
-                      <span key={idx} className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        idx % 3 === 0 ? 'bg-amber-100 text-amber-700' : 
-                        idx % 3 === 1 ? 'bg-red-100 text-red-700' : 
-                        'bg-green-100 text-green-700'
-                      }`}>
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className={`flex items-center justify-between mt-6 pt-6 border-t-2 border-amber-200 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-                    <div className={language === 'ar' ? 'text-right' : ''}>
-                      <div className="text-3xl font-bold text-amber-700">
-                        £{product.price}
-                      </div>
-                      <div className="text-sm text-gray-500">{product.unit[language]}</div>
-                    </div>
-                    <a 
-                      href="#contact"
-                      className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all flex items-center shadow-md font-semibold text-lg"
-                    >
-                      <Phone className={`w-5 h-5 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
-                      {language === 'en' ? 'Contact to Order' : 'اتصل للطلب'}
-                    </a>
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
+                <div className="text-purple-600 mb-4">{service.icon}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-700 text-sm sm:text-base">
+                      <CheckCircle className="w-4 h-4 text-purple-500 mr-2 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="about" className="py-16 sm:py-24 bg-gradient-to-br from-amber-50 to-orange-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-10 text-8xl">🌴</div>
-          <div className="absolute top-0 right-10 text-8xl">🌴</div>
-          <div className="absolute bottom-0 left-1/4 text-7xl">🌴</div>
-          <div className="absolute bottom-0 right-1/4 text-7xl">🌴</div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-amber-300">
-              <div className="text-5xl mb-4 text-center">🏜️🌴💧</div>
-              <h2 className={`text-3xl sm:text-4xl font-bold text-amber-800 mb-6 text-center ${language === 'ar' ? 'text-right' : ''}`}>
-                {t.aboutTitle}
+      <section id="about" className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Why Choose QualityFirst?
               </h2>
-              <p className={`text-lg text-gray-700 mb-6 leading-relaxed ${language === 'ar' ? 'text-right' : ''}`}>
-                {t.aboutDesc}
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                We combine extensive software quality assurance expertise with exceptional value pricing to deliver flawless software products to market. Our proven methodologies, flexible scheduling, and commitment to excellence make us your ideal QA partner.
               </p>
               
-              <div className="space-y-4">
-                <div className={`flex items-start space-x-3 ${language === 'ar' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                  <div className="bg-amber-100 rounded-full p-3 border-2 border-amber-400">
-                    <Star className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div className={language === 'ar' ? 'text-right' : ''}>
-                    <h4 className="font-bold text-gray-900 mb-1 text-lg">{language === 'en' ? '100% Algerian Authentic' : '١٠٠٪ أصلية جزائرية'}</h4>
-                    <p className="text-gray-600 text-sm">{language === 'en' ? 'Deglet Nour from Algeria\'s desert palm oases' : 'دقلة نور من واحات النخيل الصحراوية الجزائرية'}</p>
+              <div className="bg-purple-50 border-l-4 border-purple-500 p-4 sm:p-6 rounded-r-lg mb-6 sm:mb-8">
+                <div className="flex items-center mb-3">
+                  <Award className="w-6 h-6 text-purple-600 mr-3" />
+                  <h3 className="text-lg font-bold text-gray-900">Quality Guarantee</h3>
+                </div>
+                <p className="text-gray-700 text-sm sm:text-base">
+                  We stand behind our work with comprehensive testing coverage, detailed reporting, and ongoing support. 
+                  Your satisfaction and software quality are our top priorities.
+                </p>
+              </div>
+              
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start space-x-4">
+                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Certified Professionals</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Our team holds industry certifications including ISTQB</p>
                   </div>
                 </div>
                 
-                <div className={`flex items-start space-x-3 ${language === 'ar' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                  <div className="bg-red-100 rounded-full p-3 border-2 border-red-400">
-                    <Heart className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div className={language === 'ar' ? 'text-right' : ''}>
-                    <h4 className="font-bold text-gray-900 mb-1 text-lg">{language === 'en' ? 'Desert Superfood' : 'سوبرفود الصحراء'}</h4>
-                    <p className="text-gray-600 text-sm">{language === 'en' ? 'Naturally rich in nutrients from Saharan sunshine' : 'غني بالعناصر الغذائية من شمس الصحراء'}</p>
+                <div className="flex items-start space-x-4">
+                  <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Evening Availability</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Specialized evening hours (5-8 PM GMT) and daily check-ins (12 PM GMT) to minimize disruption to your operations</p>
                   </div>
                 </div>
                 
-                <div className={`flex items-start space-x-3 ${language === 'ar' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                  <div className="bg-green-100 rounded-full p-3 border-2 border-green-400">
-                    <Package className="w-6 h-6 text-green-600" />
+                <div className="flex items-start space-x-4">
+                  <Users className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Dedicated Teams</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Scalable teams that integrate seamlessly with your development process</p>
                   </div>
-                  <div className={language === 'ar' ? 'text-right' : ''}>
-                    <h4 className="font-bold text-gray-900 mb-1 text-lg">{language === 'en' ? 'Desert to Your Door' : 'من الصحراء إلى بابك'}</h4>
-                    <p className="text-gray-600 text-sm">{language === 'en' ? 'Supporting traditional Algerian family farms' : 'دعم المزارع العائلية الجزائرية التقليدية'}</p>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Competitive Pricing</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">Premium QA services at unbeatable prices. We deliver exceptional value without compromising on quality or thoroughness</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl p-8 shadow-xl text-white border-2 border-amber-400">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="text-4xl">🌴</div>
-                <h3 className={`text-2xl font-bold ${language === 'ar' ? 'text-right' : ''}`}>{t.whyTitle}</h3>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4 bg-white bg-opacity-20 rounded-lg p-4">
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-amber-700 font-bold text-lg">1</div>
-                  <span className="text-white font-medium">{t.why1} 🏜️</span>
+            <div className="relative mt-8 lg:mt-0">
+              <div className="bg-gradient-to-br from-purple-600 via-gray-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Our Process</h3>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                    <span className="text-sm sm:text-base">Requirements Analysis & Test Planning</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                    <span className="text-sm sm:text-base">Test Case Design & Environment Setup</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                    <span className="text-sm sm:text-base">Test Execution & Defect Reporting</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                    <span className="text-sm sm:text-base">Results Analysis & Final Report</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-4 bg-white bg-opacity-20 rounded-lg p-4">
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-amber-700 font-bold text-lg">2</div>
-                  <span className="text-white font-medium">{t.why2} 🌴</span>
-                </div>
-                <div className="flex items-center space-x-4 bg-white bg-opacity-20 rounded-lg p-4">
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-amber-700 font-bold text-lg">3</div>
-                  <span className="text-white font-medium">{t.why3} 🚚</span>
-                </div>
-                <div className="flex items-center space-x-4 bg-white bg-opacity-20 rounded-lg p-4">
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-amber-700 font-bold text-lg">4</div>
-                  <span className="text-white font-medium">{t.why4} 👨‍🌾</span>
-                </div>
-              </div>
-              
-              <div className="mt-6 text-center text-5xl">
-                🌴 💧 🏜️
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 text-8xl">🌴</div>
-          <div className="absolute top-20 right-20 text-8xl">🌴</div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <div className="text-6xl mb-4">👑</div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-amber-800 mb-4">
-              {language === 'en' ? 'Deglet Nour - "Date of Light"' : 'دقلة نور - "تمر النور"'}
+      <section id="values" className="py-12 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Values
             </h2>
-            <p className="text-lg text-gray-600">{language === 'en' ? 'The golden treasure from Algeria\'s Saharan oases' : 'الكنز الذهبي من واحات الصحراء الجزائرية'}</p>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              QualityFirst's values ensure we all have a high level of professionalism and integrity at work
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 text-center border-2 border-amber-400 shadow-lg hover:shadow-xl transition-all">
-              <div className="text-5xl mb-3">💪</div>
-              <h3 className="font-bold text-amber-800 mb-2 text-lg">{language === 'en' ? 'Desert Energy' : 'طاقة الصحراء'}</h3>
-              <p className="text-sm text-gray-600">{language === 'en' ? 'Natural sugars for instant vitality' : 'سكريات طبيعية للحيوية الفورية'}</p>
-              <div className="text-2xl mt-2">☀️</div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-blue-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Collaboration</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We believe in the power of teamwork. By fostering diverse perspectives and inclusive partnerships, we create stronger solutions for our clients and build lasting relationships that drive mutual success.
+              </p>
             </div>
-            
-            <div className="bg-white rounded-xl p-6 text-center border-2 border-red-400 shadow-lg hover:shadow-xl transition-all">
-              <div className="text-5xl mb-3">🧠</div>
-              <h3 className="font-bold text-red-800 mb-2 text-lg">{language === 'en' ? 'Brain Health' : 'صحة الدماغ'}</h3>
-              <p className="text-sm text-gray-600">{language === 'en' ? 'Antioxidant-rich superfood' : 'غني بمضادات الأكسدة'}</p>
-              <div className="text-2xl mt-2">🌴</div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-green-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Growth</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We pursue continuous improvement and innovation in everything we do. By investing in our people and processes, we deliver exceptional value and create new opportunities for our clients and team.
+              </p>
             </div>
-            
-            <div className="bg-white rounded-xl p-6 text-center border-2 border-green-400 shadow-lg hover:shadow-xl transition-all">
-              <div className="text-5xl mb-3">❤️</div>
-              <h3 className="font-bold text-green-800 mb-2 text-lg">{language === 'en' ? 'Heart Healthy' : 'صحة القلب'}</h3>
-              <p className="text-sm text-gray-600">{language === 'en' ? 'Potassium and minerals' : 'البوتاسيوم والمعادن'}</p>
-              <div className="text-2xl mt-2">💧</div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-purple-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Accountability</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We take ownership of our commitments and stand behind our work. By maintaining transparency and following through on promises, we build trust and deliver consistent, reliable results.
+              </p>
             </div>
-            
-            <div className="bg-white rounded-xl p-6 text-center border-2 border-orange-400 shadow-lg hover:shadow-xl transition-all">
-              <div className="text-5xl mb-3">🌾</div>
-              <h3 className="font-bold text-orange-800 mb-2 text-lg">{language === 'en' ? 'Fiber Rich' : 'غني بالألياف'}</h3>
-              <p className="text-sm text-gray-600">{language === 'en' ? 'Natural digestive support' : 'دعم هضمي طبيعي'}</p>
-              <div className="text-2xl mt-2">🏜️</div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-red-500">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mr-4">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Integrity</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We conduct business with honesty and ethical principles at every level. Our transparent communication and principled decision-making create the foundation for long-term client relationships.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-indigo-500 md:col-span-2 xl:col-span-1">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mr-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Ownership</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                We embrace responsibility for outcomes and proactively solve challenges. By taking initiative and demonstrating resilience, we ensure our clients receive the highest quality service and support.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-16 sm:py-24 bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 relative">
-        <div className="absolute top-10 left-10 text-6xl opacity-10">🌴</div>
-        <div className="absolute top-10 right-10 text-6xl opacity-10">🌴</div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className={`text-center mb-12 ${language === 'ar' ? 'text-right' : ''}`}>
-            <div className="text-6xl mb-4 text-center">👑</div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-amber-800 mb-4 text-center">
-              {t.contactTitle}
-            </h2>
-            <p className="text-lg text-gray-700 text-center">{t.contactSubtitle}</p>
+      <section id="contact" className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Get in touch with our QA experts today</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white rounded-xl p-8 text-center shadow-md border-2 border-green-500 hover:shadow-lg transition-all">
-              <Phone className="w-12 h-12 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-3 text-xl">{t.callUs}</h3>
-              <a href="tel:016283" className="text-amber-700 font-bold text-xl block">
-                01628 30
+          <div className="max-w-2xl mx-auto mb-8 sm:mb-12">
+            <div className="bg-gradient-to-r from-purple-600 to-gray-600 rounded-2xl p-6 sm:p-8 text-white text-center">
+              <div className="flex items-center justify-center mb-4">
+                <Clock className="w-8 h-8 mr-3" />
+                <h3 className="text-xl sm:text-2xl font-bold">Our Schedule</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                <div className="bg-white bg-opacity-20 rounded-lg p-4">
+                  <div className="text-lg font-bold mb-2">Evening Consultation Hours</div>
+                  <div className="text-2xl sm:text-3xl font-bold mb-2">5:00 - 8:00 PM GMT</div>
+                  <div className="text-sm opacity-90">Monday through Friday</div>
+                  <div className="text-xs mt-2 opacity-80">Focused testing sessions and project work</div>
+                </div>
+                
+                <div className="bg-white bg-opacity-20 rounded-lg p-4">
+                  <div className="text-lg font-bold mb-2">Daily Check-in</div>
+                  <div className="text-2xl sm:text-3xl font-bold mb-2">12:00 PM GMT</div>
+                  <div className="text-sm opacity-90">45 minutes • Monday - Friday</div>
+                  <div className="text-xs mt-2 opacity-80">Project updates, issue resolution & requirements discussion</div>
+                </div>
+              </div>
+              
+              <div className="text-sm sm:text-base opacity-80 mt-4 text-center">
+                QualityFirst offers focused quality assurance testing during convenient hours, minimizing disruption to your business operations.
+                <br className="hidden sm:block" />
+                For urgent projects, weekend appointments may be available.
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 max-w-4xl mx-auto">
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
+              <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
+              <a href="tel:+441628304410" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
+                +44 1628 304410
               </a>
-              <p className="text-sm text-gray-600 mt-3">{t.available}</p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">Evening Hours: 5-8 PM GMT</p>
             </div>
             
-            <div className="bg-white rounded-xl p-8 text-center shadow-md border-2 border-amber-500 hover:shadow-lg transition-all">
-              <Mail className="w-12 h-12 text-amber-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-3 text-xl">{t.emailUs}</h3>
-              <a href="mailto:qualityfirst.test@gmail.com" className="text-amber-700 font-medium text-sm break-all block">
+            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+              <Mail className="w-8 h-8 mx-auto text-purple-600 mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
+              <a href="mailto:qualityfirst.test@gmail.com" className="text-base sm:text-lg text-purple-700 hover:text-purple-800 font-medium block break-all">
                 qualityfirst.test@gmail.com
               </a>
-              <p className="text-sm text-gray-600 mt-3">{t.response}</p>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 text-center shadow-md border-2 border-red-500 hover:shadow-lg transition-all">
-              <MapPin className="w-12 h-12 text-red-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-900 mb-3 text-xl">{t.location}</h3>
-              <p className="text-amber-700 font-bold text-lg">London, UK</p>
-              <p className="text-sm text-gray-600 mt-3">{t.serving}</p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">We'll respond within 24 hours</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-10 text-8xl">🌴</div>
-          <div className="absolute top-0 right-10 text-8xl">🌴</div>
-          <div className="absolute bottom-0 left-1/4 text-7xl">🌴</div>
-          <div className="absolute bottom-0 right-1/4 text-7xl">🌴</div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="text-6xl mb-6">🌴 👑 🌴</div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            {language === 'en' ? 'Taste Algeria\'s Deglet Nour' : 'تذوق دقلة نور الجزائرية'}
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-purple-600 via-gray-600 to-purple-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
+            Ready to Elevate Your Software Quality?
           </h2>
-          <p className="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
-            {language === 'en' ? 'From the Algerian desert to your home. Experience The Golden Queen.' : 'من الصحراء الجزائرية إلى منزلك. جرب الملكة الذهبية.'}
+          <p className="text-lg sm:text-xl text-white opacity-90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+            Get a free consultation and discover how our QA experts can help you deliver flawless software
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" className="inline-block bg-white text-amber-700 px-12 py-5 rounded-lg font-bold text-lg hover:bg-amber-50 transition-all shadow-xl border-2 border-amber-300">
-              📞 {language === 'en' ? 'Order Now' : 'اطلب الآن'}
+            <a href="#contact" className="bg-white text-purple-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+              Contact Us
             </a>
-            <a href="#about" className="inline-block bg-green-600 text-white px-12 py-5 rounded-lg font-bold text-lg hover:bg-green-700 transition-all shadow-xl border-2 border-green-400">
-              🌴 {language === 'en' ? 'Learn More' : 'اعرف المزيد'}
-            </a>
+            <button 
+              onClick={() => setCurrentPage('blog')}
+              className="border border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition-colors"
+            >
+              Read Our Blog
+            </button>
           </div>
         </div>
       </section>
 
-      <footer className="bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute bottom-0 left-0 text-8xl">🌴</div>
-          <div className="absolute bottom-0 right-0 text-8xl">🌴</div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="text-4xl">👑</div>
-                <div className="text-2xl font-bold text-amber-200">{t.brand}</div>
+      <footer className="bg-gray-900 text-white py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div className="col-span-1 sm:col-span-2 md:col-span-1">
+              <div className="flex items-center mb-4">
+                <div className="bg-purple-600 p-2 sm:p-3 rounded-lg flex items-center">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-3">
+                    <span className="text-xs sm:text-sm font-bold text-purple-600">QF</span>
+                  </div>
+                  <span className="text-lg sm:text-xl font-bold text-white">QualityFirst</span>
+                </div>
               </div>
-              <p className="text-amber-200 text-sm leading-relaxed">
-                {language === 'en' ? 'Authentic Algerian Deglet Nour dates from the Sahara Desert, delivered fresh across the UK.' : 'تمور دقلة نور جزائرية أصلية من الصحراء، طازجة في جميع أنحاء بريطانيا.'}
+              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Professional QA testing services for modern software development teams.
               </p>
-              <div className="mt-4 text-3xl space-x-2">
-                🌴 🏜️ 💧
-              </div>
             </div>
             
-            <div className={language === 'ar' ? 'text-right' : ''}>
-              <h4 className="font-bold mb-4 text-amber-200 text-lg">{language === 'en' ? 'Information' : 'معلومات'}</h4>
-              <ul className="space-y-2 text-amber-200 text-sm">
-                <li><a href="#about" className="hover:text-white transition-colors">🌴 {language === 'en' ? 'Our Story' : 'قصتنا'}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">🚚 {language === 'en' ? 'Delivery Info' : 'معلومات التوصيل'}</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">📞 {t.contact}</a></li>
+            <div>
+              <h4 className="font-semibold mb-4 text-sm sm:text-base">Services</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+                <li><a href="#services" className="hover:text-white transition-colors">Manual Testing</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Test Automation</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Performance Testing</a></li>
               </ul>
             </div>
             
-            <div className={language === 'ar' ? 'text-right' : ''}>
-              <h4 className="font-bold mb-4 text-amber-200 text-lg">{t.contact}</h4>
-              <div className="text-amber-200 text-sm space-y-2">
-                <p>📧 qualityfirst.test@gmail.com</p>
-                <p>📞 01628 </p>
-                <p>📍 London, United Kingdom</p>
-                <div className="mt-4 pt-4 border-t border-amber-700">
-                  <p className="font-medium text-amber-200">{language === 'en' ? 'Business Hours:' : 'ساعات العمل:'}</p>
-                  <p>🕐 8 AM - 8 PM GMT, Every Day</p>
+            <div>
+              <h4 className="font-semibold mb-4 text-sm sm:text-base">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+                <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
+                <li><button onClick={() => setCurrentPage('blog')} className="hover:text-white transition-colors text-left">Blog</button></li>
+                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
+              <div className="text-gray-400 space-y-2 text-sm sm:text-base">
+                <p className="break-all">qualityfirst.test@gmail.com</p>
+                <p>+44 1628 304410</p>
+                <p>London, United Kingdom</p>
+                <div className="mt-3 pt-2 border-t border-gray-800">
+                  <p className="text-purple-400 font-medium">Evening Hours:</p>
+                  <p>5-8 PM GMT, Mon-Fri</p>
+                  <p className="text-xs mt-1">Daily Check-in: 12 PM GMT (45 min)</p>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="border-t-2 border-amber-700 mt-12 pt-8 text-center">
-            <div className="text-4xl mb-3">🌴 👑 🌴</div>
-            <p className="text-amber-200 text-sm">
-              &copy; 2025 {t.brand} - {language === 'en' ? 'Authentic Algerian Deglet Nour Dates' : 'تمور دقلة نور جزائرية أصلية'}
-            </p>
+          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
+            <p>&copy; 2025 QualityFirst. All rights reserved.</p>
           </div>
         </div>
       </footer>
-
-      {/* Removed cart notification */}
     </div>
   );
 };
 
-export default DateFruitWebsite;
+export default QualityFirstWebsite;
