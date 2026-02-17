@@ -266,7 +266,7 @@ function App() {
             <div className="contact-item">
               <div className="contact-icon">📞</div>
               <strong>{t('phone')}</strong>
-              <span>01632 304410</span>
+              <span>01632 304</span>
             </div>
             <div className="contact-item">
               <div className="contact-icon">✉️</div>
