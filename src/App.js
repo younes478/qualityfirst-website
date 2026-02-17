@@ -1,8 +1,4 @@
-togetherTitle: { en: 'Together We Succeed', ar: 'معاً ننجح', fr: 'Ensemble Nous Réussissons' },
-    togetherSubtitle: { en: 'Building lasting partnerships between Algeria and the United Kingdom', ar: 'بناء شراكات دائمة بين الجزائر والمملكة المتحدة', fr: 'Construire des partenariats durables entre l\'Algérie et le Royaume-Uni' },
-    togetherTitle: { en: 'Together We Succeed', ar: 'معاً ننجح', fr: 'Ensemble Nous Réussissons' },
-    togetherSubtitle: { en: 'Building lasting partnerships between Algeria and the United Kingdom', ar: 'بناء شراكات دائمة بين الجزائر والمملكة المتحدة', fr: 'Construire des partenariats durables entre l\'Algérie et le Royaume-Uni' },
-    servicesTitle: { en: 'Our Services', ar: 'خدماتنا', fr: 'Nos Services' },import React, { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -35,6 +31,16 @@ function App() {
       en: 'Start Trading Both Ways', 
       ar: 'ابدأ التجارة في الاتجاهين', 
       fr: 'Commencez le Commerce Bilatéral' 
+    },
+    togetherTitle: { 
+      en: 'Together We Succeed', 
+      ar: 'معاً ننجح', 
+      fr: 'Ensemble Nous Réussissons' 
+    },
+    togetherSubtitle: { 
+      en: 'Building lasting partnerships between Algeria and the United Kingdom', 
+      ar: 'بناء شراكات دائمة بين الجزائر والمملكة المتحدة', 
+      fr: 'Construire des partenariats durables entre l\'Algérie et le Royaume-Uni' 
     },
     servicesTitle: { en: 'Our Services', ar: 'خدماتنا', fr: 'Nos Services' },
     valuesTitle: { en: 'Our Core Values', ar: 'قيمنا الأساسية', fr: 'Nos Valeurs Fondamentales' },
