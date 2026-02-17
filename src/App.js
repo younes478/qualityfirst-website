@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+togetherTitle: { en: 'Together We Succeed', ar: 'معاً ننجح', fr: 'Ensemble Nous Réussissons' },
+    togetherSubtitle: { en: 'Building lasting partnerships between Algeria and the United Kingdom', ar: 'بناء شراكات دائمة بين الجزائر والمملكة المتحدة', fr: 'Construire des partenariats durables entre l\'Algérie et le Royaume-Uni' },
+    togetherTitle: { en: 'Together We Succeed', ar: 'معاً ننجح', fr: 'Ensemble Nous Réussissons' },
+    togetherSubtitle: { en: 'Building lasting partnerships between Algeria and the United Kingdom', ar: 'بناء شراكات دائمة بين الجزائر والمملكة المتحدة', fr: 'Construire des partenariats durables entre l\'Algérie et le Royaume-Uni' },
+    servicesTitle: { en: 'Our Services', ar: 'خدماتنا', fr: 'Nos Services' },import React, { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -256,6 +260,13 @@ Les partenariats réussis mélangent l'efficacité britannique avec la construct
         <h1>{t('heroTitle')}</h1>
         <p>{t('heroSubtitle')}</p>
         <a href="#contact" className="cta-button">{t('ctaButton')}</a>
+      </section>
+
+      <section className="together-section">
+        <div className="together-container">
+          <h2 className="together-title">{t('togetherTitle')}</h2>
+          <p className="together-subtitle">{t('togetherSubtitle')}</p>
+        </div>
       </section>
 
       <section id="services" className="services">
