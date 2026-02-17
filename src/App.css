@@ -142,6 +142,68 @@ nav {
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+/* Together We Succeed Section */
+.together-section {
+  background: linear-gradient(135deg, var(--uk-blue) 0%, var(--algeria-green) 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.together-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="rgba(255,255,255,0.1)" d="M0,0 Q300,60 600,30 T1200,0 L1200,120 L0,120 Z"/></svg>') repeat-x;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.together-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.together-title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+  line-height: 1.2;
+  animation: fadeInUp 1s ease-out;
+}
+
+.together-subtitle {
+  font-size: 1.8rem;
+  color: rgba(255,255,255,0.95);
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Services Section */
 .services {
   max-width: 1200px;
   margin: 4rem auto;
@@ -533,6 +595,15 @@ footer {
   .blog-modal-content h1 {
     font-size: 1.5rem;
   }
+
+  .together-title {
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .together-subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -546,5 +617,13 @@ footer {
 
   .service-card, .product-card, .blog-card {
     padding: 1rem;
+  }
+
+  .together-title {
+    font-size: 2rem;
+  }
+
+  .together-subtitle {
+    font-size: 1rem;
   }
 }
