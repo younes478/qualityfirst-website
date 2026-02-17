@@ -1,559 +1,728 @@
-import React, { useState } from 'react';
-import { CheckCircle, Zap, Users, Menu, X, Award, Clock, Target, ArrowLeft, Calendar, User, Phone, Mail } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algeria-UK Trading Bridge | Food Export Consultation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-const QualityFirstWebsite = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState('home');
-  const [selectedPost, setSelectedPost] = useState(null);
+        :root {
+            --algeria-green: #006233;
+            --algeria-red: #D21034;
+            --uk-blue: #012169;
+            --uk-red: #C8102E;
+            --cream: #F5F5DC;
+            --gold: #B8860B;
+            --white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+        }
 
-  const services = [
-    {
-      icon: <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center"><span className="text-white font-bold">M</span></div>,
-      title: "Manual Testing",
-      description: "Comprehensive manual testing services covering functional, usability, and exploratory testing.",
-      features: ["UI/UX Testing", "Cross-browser Compatibility", "User Experience Validation", "Edge Case Discovery"]
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Test Automation", 
-      description: "Automated testing solutions to accelerate your release cycles and improve reliability.",
-      features: ["Cypress", "API Testing", "Data testing", "Regression"]
-    },
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: "Performance Testing",
-      description: "Load, stress, and performance testing to ensure your applications scale under pressure.",
-      features: ["Load Testing", "Stress Testing", "Scalability Analysis", "Performance Optimization"]
-    }
-  ];
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Why 90% of Software Bugs Could Be Prevented with Better QA Strategy",
-      excerpt: "Most software defects are preventable with proper testing methodology. Learn the proven strategies that industry leaders use to prevent bugs before they reach production.",
-      date: "September 10, 2025",
-      author: "QualityFirst Team",
-      readTime: "6 min read",
-      content: "After analyzing over 500+ projects across different industries, we've discovered that an overwhelming 90% of software bugs could be prevented with better QA strategy implementation. Research consistently shows that fixing a bug in production costs 10-100x more than catching it during development. We've seen companies spend £50,000 fixing issues that would have cost £500 to prevent with proper testing. Our five key prevention strategies include: Early Test Planning during requirements gathering, Risk-Based Testing focusing on high-impact areas, Continuous Integration Testing with automated checks, User Story Validation with clear acceptance criteria, and Cross-functional Collaboration between QA and development teams. Companies like Netflix and Amazon prevent bugs not through more testing, but through smarter testing strategies that catch issues before they become expensive problems."
-    },
-    {
-      id: 2,
-      title: "Cypress vs Selenium: Which Testing Framework Saves More Time and Money?",
-      excerpt: "A comprehensive comparison of modern testing frameworks. We tested both tools across 50+ real-world projects to determine which delivers better ROI.",
-      date: "September 7, 2025", 
-      author: "QualityFirst Team",
-      readTime: "8 min read",
-      content: "We've implemented both Cypress and Selenium across 50+ client projects over the past two years. Here's our analysis: Setup and Learning - Cypress wins with 2-hour setup vs Selenium's 8-12 hours. Execution Speed - Selenium wins with 40% faster parallel execution for large test suites. Maintenance Costs - Cypress wins with 60% less maintenance due to automatic waiting. Browser Support - Selenium wins with complete browser coverage. Our recommendation: Choose Cypress for startups and small teams needing faster setup. Choose Selenium for enterprise-scale applications requiring extensive browser coverage and dedicated QA teams."
-    },
-    {
-      id: 3,
-      title: "The Hidden Costs of Skipping QA: Real Client Case Studies",
-      excerpt: "Three real examples of companies that tried to cut QA costs and the expensive lessons they learned. From £2M product recalls to startups losing 60% of users overnight.",
-      date: "September 3, 2025",
-      author: "QualityFirst Team", 
-      readTime: "10 min read",
-      content: "These anonymized case studies show why investing in proper QA is always more cost-effective than dealing with production failures. Case 1: IoT manufacturer skipped performance testing, resulted in £2.1M product recall vs £15K prevention cost. Case 2: Mobile startup skipped cross-device testing, lost 60% of users and missed funding round vs £8K testing cost. Case 3: E-commerce platform skipped security testing, faced £1.5M+ in fines and legal costs vs £12K security testing. In every case, skipping QA resulted in costs 20-100x higher than proper testing would have required. QualityFirst clients typically see 10-50x ROI on QA investment through prevented issues and faster time-to-market."
-    }
-  ];
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--algeria-green) 0%, var(--uk-blue) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-  const BlogPostPage = ({ post }) => (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
-                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
-                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .flags {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: white;
+            color: var(--uk-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 98, 51, 0.9), rgba(1, 33, 105, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23006233" width="1200" height="600"/><path fill="%23012169" opacity="0.1" d="M0,600 Q300,450 600,500 T1200,400 L1200,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--algeria-red);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--uk-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Values Section */
+        .values {
+            background: linear-gradient(135deg, rgba(0, 98, 51, 0.05), rgba(1, 33, 105, 0.05));
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: var(--uk-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--uk-blue);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--algeria-green);
+        }
+
+        .service-card:nth-child(even) {
+            border-top-color: var(--uk-blue);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--algeria-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--cream);
+            padding: 4rem 2rem;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Blog Section */
+        .blog {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--algeria-green), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            color: var(--uk-blue);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--algeria-red);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            color: var(--uk-red);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--uk-blue) 0%, var(--algeria-green) 100%);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .flags {
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--algeria-green) 0%, var(--uk-blue) 100%);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .values, .services, .blog {
+                padding: 0 1rem;
+            }
+
+            .services-grid, .blog-grid, .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .lang-switcher {
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .service-icon, .product-icon {
+                font-size: 2.5rem;
+            }
+
+            .service-card, .product-card, .blog-card {
+                padding: 1rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="flags">🇩🇿 🤝 🇬🇧</span>
+                <span data-en="Algeria-UK Trading Bridge" data-ar="جسر التجارة الجزائر-المملكة المتحدة" data-fr="Pont Commercial Algérie-Royaume-Uni">Algeria-UK Trading Bridge</span>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services" data-en="Services" data-ar="الخدمات" data-fr="Services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#values" data-en="Values" data-ar="القيم" data-fr="Valeurs" onclick="closeMenu()">Values</a></li>
+                <li><a href="#products" data-en="Products" data-ar="المنتجات" data-fr="Produits" onclick="closeMenu()">Products</a></li>
+                <li><a href="#blog" data-en="Blog" data-ar="المدونة" data-fr="Blog" onclick="closeMenu()">Blog</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="اتصل" data-fr="Contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+                <button class="lang-btn" onclick="switchLang('ar')">AR</button>
+                <button class="lang-btn" onclick="switchLang('fr')">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 data-en="Connecting Algerian & UK Markets" data-ar="ربط الأسواق الجزائرية والبريطانية" data-fr="Connecter les Marchés Algériens et Britanniques">Connecting Algerian & UK Markets</h1>
+        <p data-en="Expert consultation services facilitating two-way trade between Algeria and the UK. We connect Algerian food producers with UK markets AND UK exporters with Algerian importers. From dates to technology, cheeses to machinery - we bridge both directions." data-ar="خدمات استشارية متخصصة تسهل التجارة الثنائية بين الجزائر والمملكة المتحدة. نربط منتجي الأغذية الجزائرية بالأسواق البريطانية والمصدرين البريطانيين بالمستوردين الجزائريين. من التمور إلى التكنولوجيا، من الأجبان إلى الآلات - نربط كلا الاتجاهين." data-fr="Services de consultation experts facilitant le commerce bilatéral entre l'Algérie et le Royaume-Uni. Nous connectons les producteurs algériens aux marchés britanniques ET les exportateurs britanniques aux importateurs algériens.">Expert consultation services facilitating two-way trade between Algeria and the UK. We connect Algerian food producers with UK markets AND UK exporters with Algerian importers. From dates to technology, cheeses to machinery - we bridge both directions.</p>
+        <a href="#contact" class="cta-button" data-en="Start Trading Both Ways" data-ar="ابدأ التجارة في الاتجاهين" data-fr="Commencez le Commerce Bilatéral">Start Trading Both Ways</a>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title" data-en="Our Services" data-ar="خدماتنا" data-fr="Nos Services">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔗</div>
+                <h3 data-en="Two-Way Market Connection" data-ar="الربط الثنائي بالسوق" data-fr="Connexion Bilatérale">Two-Way Market Connection</h3>
+                <p data-en="We connect Algerian producers with UK buyers AND UK exporters with Algerian importers - facilitating trade in both directions." data-ar="نربط المنتجين الجزائريين مع المشترين البريطانيين والمصدرين البريطانيين مع المستوردين الجزائريين - تسهيل التجارة في كلا الاتجاهين." data-fr="Nous connectons les producteurs algériens avec les acheteurs britanniques ET les exportateurs britanniques avec les importateurs algériens.">We connect Algerian producers with UK buyers AND UK exporters with Algerian importers - facilitating trade in both directions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3 data-en="Import & Export Compliance" data-ar="الامتثال للاستيراد والتصدير" data-fr="Conformité Import-Export">Import & Export Compliance</h3>
+                <p data-en="Navigate regulations, certifications, and customs requirements for trade in both directions between Algeria and UK." data-ar="التنقل في اللوائح والشهادات ومتطلبات الجمارك للتجارة في كلا الاتجاهين بين الجزائر والمملكة المتحدة." data-fr="Naviguez dans les réglementations pour le commerce dans les deux sens entre l'Algérie et le Royaume-Uni.">Navigate regulations, certifications, and customs requirements for trade in both directions between Algeria and UK.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3 data-en="Bi-Directional Logistics" data-ar="اللوجستيات الثنائية" data-fr="Logistique Bidirectionnelle">Bi-Directional Logistics</h3>
+                <p data-en="Complete logistics coordination for Algeria-to-UK and UK-to-Algeria shipments, including customs clearance and delivery." data-ar="تنسيق لوجستي كامل للشحنات من الجزائر إلى المملكة المتحدة ومن المملكة المتحدة إلى الجزائر، بما في ذلك التخليص الجمركي والتسليم." data-fr="Coordination logistique complète pour les expéditions Algérie-UK et UK-Algérie.">Complete logistics coordination for Algeria-to-UK and UK-to-Algeria shipments, including customs clearance and delivery.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3 data-en="Business Development" data-ar="تطوير الأعمال" data-fr="Développement Commercial">Business Development</h3>
+                <p data-en="Strategic planning and market positioning for successful market entry - whether you're entering UK or Algerian markets." data-ar="التخطيط الاستراتيجي ووضع السوق لدخول ناجح للسوق - سواء كنت تدخل أسواق المملكة المتحدة أو الجزائر." data-fr="Planification stratégique pour une entrée réussie sur les marchés britanniques ou algériens.">Strategic planning and market positioning for successful market entry - whether you're entering UK or Algerian markets.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌍</div>
+                <h3 data-en="Cultural Bridge" data-ar="الجسر الثقافي" data-fr="Pont Culturel">Cultural Bridge</h3>
+                <p data-en="Bilingual support bridging Algerian producers with UK buyers through language and cultural expertise." data-ar="دعم ثنائي اللغة يربط المنتجين الجزائريين مع المشترين البريطانيين من خلال الخبرة اللغوية والثقافية." data-fr="Support bilingue reliant producteurs algériens et acheteurs britanniques.">Bilingual support bridging Algerian producers with UK buyers through language and cultural expertise.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 data-en="Dual Market Intelligence" data-ar="معلومات السوق المزدوجة" data-fr="Intelligence de Marché Duale">Dual Market Intelligence</h3>
+                <p data-en="Real-time insights on both UK and Algerian market trends, consumer preferences, and business opportunities in both countries." data-ar="رؤى فورية حول اتجاهات السوق البريطاني والجزائري وتفضيلات المستهلكين والفرص التجارية في كلا البلدين." data-fr="Informations en temps réel sur les tendances des marchés britannique et algérien.">Real-time insights on both UK and Algerian market trends, consumer preferences, and business opportunities in both countries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="values-container">
+            <h2 class="section-title" data-en="Our Core Values" data-ar="قيمنا الأساسية" data-fr="Nos Valeurs Fondamentales">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 data-en="Trust" data-ar="الثقة" data-fr="Confiance">Trust</h3>
+                    <p data-en="Building lasting relationships through transparency and reliability" data-ar="بناء علاقات دائمة من خلال الشفافية والموثوقية" data-fr="Relations durables par la transparence">Building lasting relationships through transparency and reliability</p>
                 </div>
-                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
-              </div>
+                <div class="value-card">
+                    <div class="value-icon">💪</div>
+                    <h3 data-en="Hard Working" data-ar="العمل الجاد" data-fr="Travail Acharné">Hard Working</h3>
+                    <p data-en="Dedicated to going the extra mile for your success" data-ar="ملتزمون ببذل جهد إضافي لنجاحك" data-fr="Dédié à votre succès">Dedicated to going the extra mile for your success</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3 data-en="Accountable" data-ar="المسؤولية" data-fr="Responsable">Accountable</h3>
+                    <p data-en="Taking ownership and delivering on our commitments" data-ar="تحمل المسؤولية والوفاء بالتزاماتنا" data-fr="Engagements tenus">Taking ownership and delivering on our commitments</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3 data-en="Innovative" data-ar="الابتكار" data-fr="Innovant">Innovative</h3>
+                    <p data-en="Finding creative solutions to complex trade challenges" data-ar="إيجاد حلول إبداعية للتحديات التجارية المعقدة" data-fr="Solutions créatives">Finding creative solutions to complex trade challenges</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3 data-en="Pragmatic" data-ar="العملية" data-fr="Pragmatique">Pragmatic</h3>
+                    <p data-en="Results-focused approach with practical, actionable strategies" data-ar="نهج يركز على النتائج مع استراتيجيات عملية قابلة للتنفيذ" data-fr="Approche axée résultats">Results-focused approach with practical, actionable strategies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="products-container">
+            <h2 class="section-title" data-en="Trade Categories" data-ar="فئات التجارة" data-fr="Catégories Commerciales">Trade Categories</h2>
+            <h3 style="text-align: center; color: var(--algeria-green); margin-bottom: 1rem;" data-en="🇩🇿 Algeria to UK" data-ar="🇩🇿 الجزائر إلى المملكة المتحدة" data-fr="🇩🇿 Algérie vers UK">🇩🇿 Algeria to UK</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🌴</div>
+                    <h3 data-en="Premium Dates" data-ar="تمور فاخرة" data-fr="Dattes Premium">Premium Dates</h3>
+                    <p data-en="Deglet Nour & other varieties" data-ar="دقلة نور وأصناف أخرى" data-fr="Deglet Nour et autres variétés">Deglet Nour & other varieties</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🥬</div>
+                    <h3 data-en="Fresh Vegetables" data-ar="خضروات طازجة" data-fr="Légumes Frais">Fresh Vegetables</h3>
+                    <p data-en="Farm-fresh produce" data-ar="منتجات طازجة من المزرعة" data-fr="Produits de la ferme">Farm-fresh produce</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🍇</div>
+                    <h3 data-en="Quality Fruits" data-ar="فواكه عالية الجودة" data-fr="Fruits de Qualité">Quality Fruits</h3>
+                    <p data-en="Seasonal selections" data-ar="مختارات موسمية" data-fr="Sélections saisonnières">Seasonal selections</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🧀</div>
+                    <h3 data-en="Artisan Cheeses" data-ar="أجبان حرفية" data-fr="Fromages Artisanaux">Artisan Cheeses</h3>
+                    <p data-en="Traditional varieties" data-ar="أصناف تقليدية" data-fr="Variétés traditionnelles">Traditional varieties</p>
+                </div>
             </div>
             
-            <button 
-              onClick={() => setSelectedPost(null)}
-              className="flex items-center bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
-              <span className="hidden sm:inline">Back to Blog</span>
-              <span className="sm:hidden">Back</span>
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20">
-        <div className="bg-white">
-          <div className="flex flex-wrap items-center text-sm text-gray-500 mb-6 gap-2 sm:gap-0">
-            <div className="flex items-center mr-4">
-              <Calendar className="w-4 h-4 mr-1" />
-              <span>{post.date}</span>
-            </div>
-            <div className="flex items-center mr-4">
-              <User className="w-4 h-4 mr-1" />
-              <span>{post.author}</span>
-            </div>
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-1" />
-              <span>{post.readTime}</span>
-            </div>
-          </div>
-          
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-            {post.title}
-          </h1>
-          
-          <div className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">
-            {post.content}
-          </div>
-          
-          <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-purple-50 rounded-lg border border-purple-200">
-            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Ready to Improve Your QA Strategy?</h3>
-            <p className="text-gray-700 mb-4 text-sm sm:text-base">
-              Get expert advice tailored to your specific needs. Our QA specialists are ready to help you implement the strategies discussed in this article.
-            </p>
-            <button 
-              onClick={() => { setCurrentPage('home'); setSelectedPost(null); }}
-              className="bg-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-purple-700 transition-colors text-sm sm:text-base"
-            >
-              Contact QualityFirst
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
-  const BlogPage = () => (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
-                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
-                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
+            <h3 style="text-align: center; color: var(--uk-blue); margin: 3rem 0 1rem;" data-en="🇬🇧 UK to Algeria" data-ar="🇬🇧 المملكة المتحدة إلى الجزائر" data-fr="🇬🇧 UK vers Algérie">🇬🇧 UK to Algeria</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">⚙️</div>
+                    <h3 data-en="Industrial Machinery" data-ar="آلات صناعية" data-fr="Machines Industrielles">Industrial Machinery</h3>
+                    <p data-en="Manufacturing equipment" data-ar="معدات التصنيع" data-fr="Équipement de fabrication">Manufacturing equipment</p>
                 </div>
-                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
-              </div>
+                <div class="product-card">
+                    <div class="product-icon">💻</div>
+                    <h3 data-en="Technology & Electronics" data-ar="التكنولوجيا والإلكترونيات" data-fr="Technologie & Électronique">Technology & Electronics</h3>
+                    <p data-en="Latest innovations" data-ar="أحدث الابتكارات" data-fr="Dernières innovations">Latest innovations</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🏗️</div>
+                    <h3 data-en="Construction Materials" data-ar="مواد البناء" data-fr="Matériaux de Construction">Construction Materials</h3>
+                    <p data-en="Quality building supplies" data-ar="مستلزمات بناء عالية الجودة" data-fr="Fournitures de qualité">Quality building supplies</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🚗</div>
+                    <h3 data-en="Automotive Parts" data-ar="قطع غيار السيارات" data-fr="Pièces Automobiles">Automotive Parts</h3>
+                    <p data-en="Vehicles & components" data-ar="المركبات والمكونات" data-fr="Véhicules et composants">Vehicles & components</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog">
+        <h2 class="section-title" data-en="Latest Insights" data-ar="أحدث الأفكار" data-fr="Dernières Actualités">Latest Insights</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-image">📈</div>
+                <div class="blog-content">
+                    <p class="blog-date">February 2026</p>
+                    <h3 data-en="Two-Way Trade: UK Technology Demand in Algeria" data-ar="التجارة الثنائية: الطلب على التكنولوجيا البريطانية في الجزائر" data-fr="Commerce Bilatéral: Demande Technologique UK en Algérie">Two-Way Trade: UK Technology Demand in Algeria</h3>
+                    <p data-en="Algeria's growing tech sector presents significant opportunities for UK exporters. Infrastructure development and digital transformation are driving demand..." data-ar="يقدم قطاع التكنولوجيا المتنامي في الجزائر فرصًا كبيرة للمصدرين البريطانيين. التطوير في البنية التحتية والتحول الرقمي يدفعان الطلب..." data-fr="Le secteur technologique croissant de l'Algérie présente des opportunités significatives pour les exportateurs britanniques...">Algeria's growing tech sector presents significant opportunities for UK exporters. Infrastructure development and digital transformation are driving demand...</p>
+                    <a href="#" class="read-more" data-en="Read More →" data-ar="اقرأ المزيد ←" data-fr="Lire Plus →">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image">🛃</div>
+                <div class="blog-content">
+                    <p class="blog-date">February 2026</p>
+                    <h3 data-en="Navigating Algeria-UK Trade Regulations" data-ar="التنقل في لوائح التجارة بين الجزائر والمملكة المتحدة" data-fr="Réglementations Commerciales Algérie-UK">Navigating Algeria-UK Trade Regulations</h3>
+                    <p data-en="Understanding certifications and documentation for trade in both directions. Essential compliance requirements for successful bilateral commerce..." data-ar="فهم الشهادات والوثائق للتجارة في كلا الاتجاهين. متطلبات الامتثال الأساسية للتجارة الثنائية الناجحة..." data-fr="Comprendre les certifications pour le commerce dans les deux sens...">Understanding certifications and documentation for trade in both directions. Essential compliance requirements for successful bilateral commerce...</p>
+                    <a href="#" class="read-more" data-en="Read More →" data-ar="اقرأ المزيد ←" data-fr="Lire Plus →">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image">🤝</div>
+                <div class="blog-content">
+                    <p class="blog-date">January 2026</p>
+                    <h3 data-en="Success Story: Building Bridges in Both Directions" data-ar="قصة نجاح: بناء الجسور في كلا الاتجاهين" data-fr="Histoire de Succès: Construire des Ponts Bilatéraux">Success Story: Building Bridges in Both Directions</h3>
+                    <p data-en="How we helped an Algerian food producer enter UK markets AND a UK machinery supplier establish distribution in Algeria..." data-ar="كيف ساعدنا منتج أغذية جزائري على دخول أسواق المملكة المتحدة ومورد آلات بريطاني على إنشاء التوزيع في الجزائر..." data-fr="Comment nous avons aidé un producteur algérien à entrer au UK et un fournisseur britannique en Algérie...">How we helped an Algerian food producer enter UK markets AND a UK machinery supplier establish distribution in Algeria...</p>
+                    <a href="#" class="read-more" data-en="Read More →" data-ar="اقرأ المزيد ←" data-fr="Lire Plus →">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2 data-en="Ready to Trade Between Algeria & UK?" data-ar="هل أنت مستعد للتجارة بين الجزائر والمملكة المتحدة؟" data-fr="Prêt à Commercer entre l'Algérie et le UK?">Ready to Trade Between Algeria & UK?</h2>
+            <p data-en="Contact us today for a free consultation - whether you're exporting from Algeria to UK or from UK to Algeria" data-ar="اتصل بنا اليوم للحصول على استشارة مجانية - سواء كنت تصدر من الجزائر إلى المملكة المتحدة أو من المملكة المتحدة إلى الجزائر" data-fr="Contactez-nous pour une consultation gratuite - exportation Algérie-UK ou UK-Algérie">Contact us today for a free consultation - whether you're exporting from Algeria to UK or from UK to Algeria</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <strong data-en="Phone" data-ar="الهاتف" data-fr="Téléphone">Phone</strong>
+                    <span>01632 304410</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <strong data-en="Email" data-ar="البريد الإلكتروني" data-fr="E-mail">Email</strong>
+                    <span>qualityfirst.test@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p data-en="© 2026 Algeria-UK Trading Bridge. Facilitating Two-Way Trade, Building Strong Partnerships." data-ar="© 2026 جسر التجارة الجزائر-المملكة المتحدة. تسهيل التجارة الثنائية، بناء شراكات قوية." data-fr="© 2026 Pont Commercial Algérie-Royaume-Uni. Commerce Bilatéral, Partenariats Solides.">© 2026 Algeria-UK Trading Bridge. Facilitating Two-Way Trade, Building Strong Partnerships.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
             
-            <button 
-              onClick={() => setCurrentPage('home')}
-              className="flex items-center bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
-              <span className="hidden sm:inline">Back to Home</span>
-              <span className="sm:hidden">Home</span>
-            </button>
-          </div>
-        </div>
-      </nav>
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = element.getAttribute('data-' + lang);
+                } else {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
+            });
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-20">
-        <div className="text-center mb-12 sm:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            QualityFirst <span className="text-purple-600">Blog</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Insights, best practices, and industry knowledge from our QA experts
-          </p>
-        </div>
+            if (lang === 'ar') {
+                document.body.style.direction = 'rtl';
+            } else {
+                document.body.style.direction = 'ltr';
+            }
+        }
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
-          {blogPosts.map((post) => (
-            <div key={post.id} className="bg-white rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
-              <div className="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 mb-3 gap-2">
-                <div className="flex items-center">
-                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                  <span>{post.date}</span>
-                </div>
-                <span className="hidden sm:inline">•</span>
-                <span>{post.readTime}</span>
-              </div>
-              
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 hover:text-purple-600 cursor-pointer leading-tight">
-                {post.title}
-              </h3>
-              
-              <p className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed">
-                {post.excerpt}
-              </p>
-              
-              <button 
-                onClick={() => setSelectedPost(post)}
-                className="text-purple-600 font-medium hover:text-purple-700 transition-colors text-sm sm:text-base"
-              >
-                Read More →
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  if (currentPage === 'blog') {
-    if (selectedPost) {
-      return <BlogPostPage post={selectedPost} />;
-    }
-    return <BlogPage />;
-  }
-
-  return (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-purple-100 shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center bg-purple-600 px-3 sm:px-8 py-2 sm:py-4 rounded-lg">
-                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-4">
-                  <span className="text-sm sm:text-xl font-bold text-purple-600">QF</span>
-                </div>
-                <span className="text-lg sm:text-4xl font-bold text-white">QualityFirst</span>
-              </div>
-            </div>
-            
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                <a href="#home" className="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                <a href="#services" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
-                <a href="#about" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                <a href="#values" className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors">Values</a>
-                <a href="#contact" className="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">Contact Us</a>
-              </div>
-            </div>
-
-            <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 p-2">
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden bg-purple-100 border-t">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-purple-600">Home</a>
-              <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Services</a>
-              <a href="#about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">About</a>
-              <a href="#values" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-purple-600">Values</a>
-              <a href="#contact" className="block px-3 py-2 text-base font-medium bg-gray-600 text-white rounded-lg mx-3">Contact Us</a>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      <section id="home" className="bg-gradient-to-br from-purple-50 via-gray-50 to-purple-100 py-12 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-              Enterprise-Grade 
-              <span className="text-purple-600 block">QA Testing Services</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-              Ensure your software meets the highest quality standards with our comprehensive testing solutions. We love what we do, we work hard and we charge best price.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="#contact" className="w-full sm:w-auto bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-purple-700 transition-colors text-center">
-                Get Free Consultation
-              </a>
-              <a href="#services" className="w-full sm:w-auto border border-gray-300 text-gray-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-50 transition-colors text-center">
-                View Services
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="py-12 sm:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Comprehensive Testing Services
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              From manual testing to advanced automation, we provide end-to-end QA solutions tailored to your needs
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-gray-500">
-                <div className="text-purple-600 mb-4">{service.icon}</div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700 text-sm sm:text-base">
-                      <CheckCircle className="w-4 h-4 text-purple-500 mr-2 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="py-12 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose QualityFirst?
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                We combine extensive software quality assurance expertise with exceptional value pricing to deliver flawless software products to market. Our proven methodologies, flexible scheduling, and commitment to excellence make us your ideal QA partner.
-              </p>
-              
-              <div className="bg-purple-50 border-l-4 border-purple-500 p-4 sm:p-6 rounded-r-lg mb-6 sm:mb-8">
-                <div className="flex items-center mb-3">
-                  <Award className="w-6 h-6 text-purple-600 mr-3" />
-                  <h3 className="text-lg font-bold text-gray-900">Quality Guarantee</h3>
-                </div>
-                <p className="text-gray-700 text-sm sm:text-base">
-                  We stand behind our work with comprehensive testing coverage, detailed reporting, and ongoing support. 
-                  Your satisfaction and software quality are our top priorities.
-                </p>
-              </div>
-              
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-start space-x-4">
-                  <Award className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Certified Professionals</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">Our team holds industry certifications including ISTQB</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <Users className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Dedicated Teams</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">Scalable teams that integrate seamlessly with your development process</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 mt-1 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Competitive Pricing</h4>
-                    <p className="text-gray-600 text-sm sm:text-base">Premium QA services at unbeatable prices. We deliver exceptional value without compromising on quality or thoroughness</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative mt-8 lg:mt-0">
-              <div className="bg-gradient-to-br from-purple-600 via-gray-600 to-purple-700 rounded-2xl p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Our Process</h3>
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
-                    <span className="text-sm sm:text-base">Requirements Analysis & Test Planning</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
-                    <span className="text-sm sm:text-base">Test Case Design & Environment Setup</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-purple-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
-                    <span className="text-sm sm:text-base">Test Execution & Defect Reporting</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-white text-gray-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
-                    <span className="text-sm sm:text-base">Results Analysis & Final Report</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="values" className="py-12 sm:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Values
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              QualityFirst's values ensure we all have a high level of professionalism and integrity at work
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-blue-500">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Collaboration</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                We believe in the power of teamwork. By fostering diverse perspectives and inclusive partnerships, we create stronger solutions for our clients and build lasting relationships that drive mutual success.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-green-500">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Growth</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                We pursue continuous improvement and innovation in everything we do. By investing in our people and processes, we deliver exceptional value and create new opportunities for our clients and team.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-purple-500">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
-                  <CheckCircle className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Accountability</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                We take ownership of our commitments and stand behind our work. By maintaining transparency and following through on promises, we build trust and deliver consistent, reliable results.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-red-500">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mr-4">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Integrity</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                We conduct business with honesty and ethical principles at every level. Our transparent communication and principled decision-making create the foundation for long-term client relationships.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border-t-4 border-indigo-500 md:col-span-2 xl:col-span-1">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mr-4">
-                  <CheckCircle className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">Ownership</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                We embrace responsibility for outcomes and proactively solve challenges. By taking initiative and demonstrating resilience, we ensure our clients receive the highest quality service and support.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-12 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <p className="text-lg sm:text-xl text-gray-600">Get in touch with our QA experts today</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 max-w-4xl mx-auto">
-            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
-              <Phone className="w-8 h-8 mx-auto text-gray-600 mb-4" />
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-              <a href="tel:+44162830" className="text-base sm:text-lg text-gray-700 hover:text-gray-800 font-medium block">
-                +44 1628 30
-              </a>
-              <p className="text-gray-600 mt-2 text-sm sm:text-base">Available for inquiries</p>
-            </div>
-            
-            <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
-              <Mail className="w-8 h-8 mx-auto text-purple-600 mb-4" />
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
-              <a href="mailto:qualityfirst.test@gmail.com" className="text-base sm:text-lg text-purple-700 hover:text-purple-800 font-medium block break-all">
-                qualityfirst.test@gmail.com
-              </a>
-              <p className="text-gray-600 mt-2 text-sm sm:text-base">We'll respond within 24 hours</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 sm:py-20 bg-gradient-to-r from-purple-600 via-gray-600 to-purple-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Ready to Elevate Your Software Quality?
-          </h2>
-          <p className="text-lg sm:text-xl text-white opacity-90 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
-            Get a free consultation and discover how our QA experts can help you deliver flawless software
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" className="bg-white text-purple-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-              Contact Us
-            </a>
-            <button 
-              onClick={() => setCurrentPage('blog')}
-              className="border border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition-colors"
-            >
-              Read Our Blog
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-gray-900 text-white py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            <div className="col-span-1 sm:col-span-2 md:col-span-1">
-              <div className="flex items-center mb-4">
-                <div className="bg-purple-600 p-2 sm:p-3 rounded-lg flex items-center">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-400 rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                    <span className="text-xs sm:text-sm font-bold text-purple-600">QF</span>
-                  </div>
-                  <span className="text-lg sm:text-xl font-bold text-white">QualityFirst</span>
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                Professional QA testing services for modern software development teams.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-sm sm:text-base">Services</h4>
-              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><a href="#services" className="hover:text-white transition-colors">Manual Testing</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Test Automation</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Performance Testing</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-sm sm:text-base">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><button onClick={() => setCurrentPage('blog')} className="hover:text-white transition-colors text-left">Blog</button></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4 text-sm sm:text-base">Contact & Hours</h4>
-              <div className="text-gray-400 space-y-2 text-sm sm:text-base">
-                <p className="break-all">qualityfirst.test@gmail.com</p>
-                <p>+44 1628 304</p>
-                <p>London, United Kingdom</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-            <p>&copy; 2025 QualityFirst. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
-export default QualityFirstWebsite;
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
