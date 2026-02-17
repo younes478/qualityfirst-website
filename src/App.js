@@ -251,7 +251,7 @@ function App() {
                 <p className="blog-date">{blog.date}</p>
                 <h3>{blog.title[currentLang]}</h3>
                 <p>{blog.excerpt[currentLang]}</p>
-                <a href="#" className="read-more">{t('readMore')}</a>
+                <span className="read-more" style={{cursor: 'pointer'}}>{t('readMore')}</span>
               </div>
             </div>
           ))}
