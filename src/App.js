@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('en');
   const [selectedBlog, setSelectedBlog] = useState(null);
+
+  useEffect(() => {
+    document.title = 'Algeria-UK Trading Bridge | Food Export & Import Consultation';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Expert consultation services for Algeria-UK food trade. We connect Algerian date, vegetable, cheese producers with UK markets and UK exporters with Algerian importers. Two-way trade facilitation.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Expert consultation services for Algeria-UK food trade. We connect Algerian date, vegetable, cheese producers with UK markets and UK exporters with Algerian importers. Two-way trade facilitation.';
+      document.head.appendChild(meta);
+    }
+
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'Algeria UK trade, Deglet Nour dates export, Algeria food export, UK import regulations, Algeria UK trading, date export UK, Algerian cheese UK, food trade consultation';
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   const translations = {
     navServices: { en: 'Services', ar: 'الخدمات', fr: 'Services' },
