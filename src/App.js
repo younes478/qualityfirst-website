@@ -397,7 +397,7 @@ Les partenariats réussis mélangent l'efficacité britannique avec la construct
             <div className="contact-item">
               <div className="contact-icon">✉️</div>
               <strong>{t('email')}</strong>
-              <span>qualityfirst.test@gmail.com</span>
+              <span>algeriauk.trading@gmail.com</span>
             </div>
           </div>
         </div>
