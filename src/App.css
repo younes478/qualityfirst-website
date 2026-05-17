@@ -435,3 +435,17 @@ body {
   .fd-footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   .fd-float-1, .fd-float-2 { display: none; }
 }
+
+/* Footer link buttons */
+.fd-footer-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.48);
+  transition: color 0.2s;
+  text-align: left;
+}
+.fd-footer-link:hover { color: var(--teal); }
