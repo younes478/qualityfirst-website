@@ -26,28 +26,106 @@ function App() {
 
   const menuData = {
     breakfast: [
-      { emoji: '🥐', bg: 'breakfast', title: 'The Continental Spread', desc: 'An indulgent selection of buttery croissants, freshly baked pastries, seasonal fruit salad and artisan yoghurt with house-made granola.', price: 'from £6.50 per person', badge: 'Signature', badgeClass: '' },
-      { emoji: '🍳', bg: 'breakfast', title: 'The Full English', desc: 'A timeless classic — free-range eggs, smoked back bacon, heritage tomatoes, wild mushrooms, baked beans and toasted sourdough.', price: 'from £8.50 per person', badge: 'Premium', badgeClass: 'amber' },
-      { emoji: '🥤', bg: 'breakfast', title: 'The Vitality Bar', desc: 'Cold-pressed superfood smoothies — verdant green detox, summer berry boost and banana protein — accompanied by overnight oats.', price: 'from £5.50 per person', badge: 'Nourishing', badgeClass: '' },
-      { emoji: '🫐', bg: 'breakfast', title: 'The Acai Station', desc: 'Vibrant, hand-crafted acai bowls crowned with seasonal berries, toasted coconut, raw honey and house-made crunchy granola.', price: 'from £7.00 per person', badge: 'Vegan', badgeClass: '' },
-      { emoji: '🥚', bg: 'breakfast', title: 'Eggs Benedict', desc: 'Impeccably poached free-range eggs, velvety hollandaise, hand-sliced smoked salmon or honey-glazed ham on toasted muffins.', price: 'from £9.00 per person', badge: 'Premium', badgeClass: 'amber' },
-      { emoji: '🍞', bg: 'breakfast', title: 'The Artisan Toast Bar', desc: 'Stone-baked sourdough and seeded rye with smashed avocado, whipped ricotta, smoked salmon or preserves and cultured butter.', price: 'from £5.00 per person', badge: 'Light', badgeClass: '' },
+      {
+        img: 'https://images.unsplash.com/photo-1603046891744-1f7eb89a5a55?w=600&q=80',
+        title: 'Smashed Avocado & Poached Eggs',
+        desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.',
+        price: 'from £7.50 per person',
+        badge: 'Signature',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=600&q=80',
+        title: 'Seasonal Fruit & Granola Bowl',
+        desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.',
+        price: 'from £5.50 per person',
+        badge: 'Vegan',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=600&q=80',
+        title: 'Smoked Salmon Bagel',
+        desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.',
+        price: 'from £8.00 per person',
+        badge: 'Premium',
+        badgeClass: 'amber',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1571748982800-fa51082c2224?w=600&q=80',
+        title: 'Overnight Oats',
+        desc: 'Rolled oats soaked in oat milk with chia seeds, fresh banana, almond butter and a sprinkle of cinnamon.',
+        price: 'from £4.50 per person',
+        badge: 'Nourishing',
+        badgeClass: '',
+      },
     ],
     lunch: [
-      { emoji: '🥗', bg: 'lunch', title: 'The Garden Bowl', desc: 'A celebration of seasonal leaves, roasted chickpeas, heritage cherry tomatoes, cucumber ribbons and our signature lemon tahini dressing.', price: 'from £8.00 per person', badge: 'Vegan', badgeClass: '' },
-      { emoji: '🥪', bg: 'lunch', title: 'The Artisan Platter', desc: 'An elegant selection of hand-crafted sandwiches — herb chicken and pesto, BLT, roasted aubergine with hummus and oak-smoked salmon.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
-      { emoji: '🍱', bg: 'lunch', title: 'The Asian Fusion Box', desc: 'Teriyaki-glazed chicken or silken tofu with fragrant jasmine rice, pickled cucumber, edamame and toasted sesame dressing.', price: 'from £9.50 per person', badge: 'New', badgeClass: 'amber' },
-      { emoji: '🫕', bg: 'lunch', title: 'The Harvest Grain Bowl', desc: 'Nutty quinoa, slow-roasted butternut squash, wilted kale, pomegranate jewels and a warming smoked harissa dressing.', price: 'from £8.50 per person', badge: 'Gluten Free', badgeClass: '' },
-      { emoji: '🍝', bg: 'lunch', title: 'The Pasta Bar', desc: 'Three rotating seasonal pasta dishes — fragrant pesto, slow-cooked arrabbiata or truffle mushroom cream with aged parmesan.', price: 'from £7.00 per person', badge: 'Beloved', badgeClass: 'coral' },
-      { emoji: '🥩', bg: 'lunch', title: 'The Chef\'s Table', desc: 'A rotating daily masterpiece — slow-braised meats or inspired plant-based creations, served with the finest seasonal accompaniments.', price: 'from £11.00 per person', badge: 'Premium', badgeClass: 'amber' },
+      {
+        img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80',
+        title: 'The Garden Bowl',
+        desc: 'Quinoa, roasted chickpeas, cherry tomatoes, cucumber, mixed leaves and our signature lemon tahini dressing.',
+        price: 'from £8.00 per person',
+        badge: 'Vegan',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80',
+        title: 'Grilled Chicken Wrap',
+        desc: 'Chargrilled chicken, romaine lettuce, roasted peppers and cool tzatziki in a warm wholemeal wrap.',
+        price: 'from £7.50 per person',
+        badge: 'Signature',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=600&q=80',
+        title: 'Roasted Vegetable Pasta',
+        desc: 'Penne with slow-roasted courgette, peppers and cherry tomatoes in a light basil and extra virgin olive oil sauce.',
+        price: 'from £7.00 per person',
+        badge: 'Vegetarian',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80',
+        title: 'Lentil & Sweet Potato Soup',
+        desc: 'Slow-cooked red lentil and sweet potato soup with warming cumin, served with freshly baked seeded bread.',
+        price: 'from £6.00 per person',
+        badge: 'Gluten Free',
+        badgeClass: '',
+      },
     ],
     tea: [
-      { emoji: '🫖', bg: 'tea', title: 'The Classic Afternoon Tea', desc: 'Delicate finger sandwiches, warm scones with clotted cream and strawberry preserve, petit fours and a curated selection of fine loose-leaf teas.', price: 'from £12.00 per person', badge: 'Signature', badgeClass: '' },
-      { emoji: '🧁', bg: 'tea', title: 'The Patisserie Platter', desc: 'Exquisite hand-crafted brownies, blondies, seasonal fruit tarts and elegant skewered fruit — a refined accompaniment to any afternoon gathering.', price: 'from £6.50 per person', badge: 'Indulgent', badgeClass: 'coral' },
-      { emoji: '☕', bg: 'tea', title: 'The Coffee and Cake Station', desc: 'Barista-prepared specialty coffees and aromatic herbal teas paired with artisan layer cakes, biscotti and handmade chocolate truffles.', price: 'from £8.50 per person', badge: 'Premium', badgeClass: 'amber' },
-      { emoji: '🍰', bg: 'tea', title: 'The Celebration Cake', desc: 'Bespoke, hand-decorated celebration cakes crafted for your team milestones, company anniversaries and special occasions — each one a work of art.', price: 'from £45.00 per cake', badge: 'Bespoke', badgeClass: '' },
-      { emoji: '🍇', bg: 'tea', title: 'The Grazing Table', desc: 'A magnificent centrepiece of aged artisan cheeses, seasonal fruits, cured meats, house-made dips and hand-selected crackers and breads.', price: 'from £10.00 per person', badge: 'Sharing', badgeClass: '' },
-      { emoji: '🥗', bg: 'tea', title: 'The Wellness Box', desc: 'Carefully curated raw energy balls, premium protein bars, mixed heritage nuts, sun-dried fruits and chilled seasonal fruit for the health-conscious team.', price: 'from £5.00 per person', badge: 'Vegan', badgeClass: '' },
+      {
+        img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80',
+        title: 'Classic Finger Sandwiches',
+        desc: 'Cucumber and cream cheese, smoked salmon and dill, egg and cress — presented on white and brown bread.',
+        price: 'from £8.50 per person',
+        badge: 'Signature',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=600&q=80',
+        title: 'Warm Scones',
+        desc: 'Freshly baked plain and fruit scones, served with generous clotted cream and house strawberry preserve.',
+        price: 'from £5.50 per person',
+        badge: 'Beloved',
+        badgeClass: 'coral',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=600&q=80',
+        title: 'Seasonal Fruit Platter',
+        desc: 'A generous, elegant arrangement of fresh watermelon, grapes, strawberries and honeydew melon.',
+        price: 'from £4.50 per person',
+        badge: 'Light',
+        badgeClass: '',
+      },
+      {
+        img: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80',
+        title: 'Mini Victoria Sponge Cakes',
+        desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with a dusting of icing sugar.',
+        price: 'from £5.00 per person',
+        badge: 'Indulgent',
+        badgeClass: 'amber',
+      },
     ],
   };
 
@@ -55,7 +133,7 @@ function App() {
     { icon: '🌿', title: 'Sourced Fresh, Every Morning', desc: 'Every ingredient arrives fresh each day from trusted local suppliers and independent producers. We never compromise on quality.' },
     { icon: '⚡', title: 'Punctual. Always.', desc: 'We understand the rhythm of the working day. Your food arrives precisely when you need it — never a moment too late.' },
     { icon: '👨‍🍳', title: 'A Team of Accomplished Chefs', desc: 'Our culinary team brings professional kitchen expertise and genuine passion to every dish we prepare for your office.' },
-    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: 'Our menus are designed with your team\'s wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day.' },
+    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: "Our menus are designed with your team's wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day." },
     { icon: '🎯', title: 'Tailored to Your Team', desc: 'Every dietary requirement is welcomed and accommodated with care — vegan, halal, kosher, gluten-free and everything in between.' },
     { icon: '💬', title: 'Your Dedicated Account Manager', desc: 'A single, knowledgeable point of contact who understands your office culture, your preferences and your standards.' },
   ];
@@ -117,9 +195,11 @@ function App() {
         </div>
         <div className="fd-hero-visual">
           <div className="fd-hero-card">
-            <div className="fd-hero-card-img">🥗</div>
+            <div className="fd-hero-card-img">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="The Garden Bowl" />
+            </div>
             <h3>The Garden Bowl</h3>
-            <p>Seasonal leaves, roasted chickpeas and lemon tahini</p>
+            <p>Quinoa, roasted chickpeas and lemon tahini</p>
             <div className="fd-card-meta">
               <span className="fd-card-rating">★★★★★ 4.9</span>
               <span className="fd-card-tag">Nourishing</span>
@@ -185,7 +265,9 @@ function App() {
         <div className="fd-menu-grid">
           {menuData[activeTab].map((item, i) => (
             <div className="fd-food-card animate-on-scroll" key={i}>
-              <div className={`fd-food-img fd-food-img--${item.bg}`}>{item.emoji}</div>
+              <div className="fd-food-img">
+                <img src={item.img} alt={item.title} />
+              </div>
               <div className="fd-food-body">
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
@@ -254,13 +336,7 @@ function App() {
             <div className="fd-price-amount">£5</div>
             <div className="fd-price-per">per person, per day</div>
             <ul className="fd-price-features">
-              {[
-                'Continental breakfast or luncheon',
-                'Up to 20 guests',
-                'Curated seasonal menu',
-                'Two daily delivery windows',
-                'Dedicated email support',
-              ].map((f) => (
+              {['Continental breakfast or luncheon', 'Up to 20 guests', 'Curated seasonal menu', 'Two daily delivery windows', 'Dedicated email support'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
@@ -272,14 +348,7 @@ function App() {
             <div className="fd-price-amount">£9</div>
             <div className="fd-price-per">per person, per day</div>
             <ul className="fd-price-features">
-              {[
-                'Breakfast, luncheon and afternoon tea',
-                'Up to 100 guests',
-                'Full menu with bespoke requests',
-                'Priority delivery service',
-                'Dedicated account manager',
-                'All dietary requirements accommodated',
-              ].map((f) => (
+              {['Breakfast, luncheon and afternoon tea', 'Up to 100 guests', 'Full menu with bespoke requests', 'Priority delivery service', 'Dedicated account manager', 'All dietary requirements accommodated'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
@@ -290,14 +359,7 @@ function App() {
             <div className="fd-price-amount">Custom</div>
             <div className="fd-price-per">tailored entirely to you</div>
             <ul className="fd-price-features">
-              {[
-                'Fully bespoke menu design',
-                'Unlimited guest numbers',
-                'On-site chef option available',
-                'Boardroom and event catering',
-                'Around-the-clock dedicated support',
-                'Quarterly menu consultations',
-              ].map((f) => (
+              {['Fully bespoke menu design', 'Unlimited guest numbers', 'On-site chef option available', 'Boardroom and event catering', 'Around-the-clock dedicated support', 'Quarterly menu consultations'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
@@ -327,25 +389,19 @@ function App() {
           <div className="fd-footer-col">
             <h4>Our Menu</h4>
             <ul>
-              {footerMenu.map((l) => (
-                <li key={l}><button className="fd-footer-link">{l}</button></li>
-              ))}
+              {footerMenu.map((l) => (<li key={l}><button className="fd-footer-link">{l}</button></li>))}
             </ul>
           </div>
           <div className="fd-footer-col">
             <h4>The Company</h4>
             <ul>
-              {footerCompany.map((l) => (
-                <li key={l}><button className="fd-footer-link">{l}</button></li>
-              ))}
+              {footerCompany.map((l) => (<li key={l}><button className="fd-footer-link">{l}</button></li>))}
             </ul>
           </div>
           <div className="fd-footer-col">
             <h4>Get in Touch</h4>
             <ul>
-              {footerContact.map((l) => (
-                <li key={l}><button className="fd-footer-link">{l}</button></li>
-              ))}
+              {footerContact.map((l) => (<li key={l}><button className="fd-footer-link">{l}</button></li>))}
             </ul>
           </div>
         </div>

@@ -241,10 +241,12 @@ body {
 }
 .fd-hero-card-img {
   width: 100%; height: 180px;
-  background: linear-gradient(135deg, #FFB347 0%, #FF6B35 100%);
   border-radius: 12px; margin-bottom: 1rem;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 4.5rem;
+  overflow: hidden;
+}
+.fd-hero-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
 }
 .fd-hero-card h3 {
   font-family: var(--font-display);
@@ -353,7 +355,7 @@ body {
 }
 .fd-tab-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
 .fd-tab-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
-.fd-menu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.fd-menu-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; max-width: 860px; margin: 0 auto; }
 
 /* ── FOOD CARDS ── */
 .fd-food-card {
@@ -363,12 +365,18 @@ body {
 }
 .fd-food-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
 .fd-food-img {
-  height: 170px; display: flex; align-items: center;
-  justify-content: center; font-size: 4rem;
+  height: 200px;
+  overflow: hidden;
 }
-.fd-food-img--breakfast { background: linear-gradient(135deg, #FFF3DC 0%, #FFD580 100%); }
-.fd-food-img--lunch    { background: linear-gradient(135deg, #DCFCE7 0%, #86EFAC 100%); }
-.fd-food-img--tea      { background: linear-gradient(135deg, #FDE8FF 0%, #E879F9 100%); }
+.fd-food-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+.fd-food-card:hover .fd-food-img img {
+  transform: scale(1.05);
+}
 .fd-food-body { padding: 1.25rem; }
 .fd-food-body h3 {
   font-family: var(--font-display);
