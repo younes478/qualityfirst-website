@@ -62,7 +62,7 @@ body {
 .fd-nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
 .fd-logo {
   font-family: var(--font-display);
-  font-size: 1.6rem; font-weight: 800;
+  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em;
   color: var(--navy); text-decoration: none;
 }
 .fd-logo span { color: var(--teal); }
