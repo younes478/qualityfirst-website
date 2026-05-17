@@ -27,7 +27,7 @@ function App() {
   const menuData = {
     breakfast: [
       {
-        img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=600&q=80',
         title: 'Smashed Avocado & Poached Eggs',
         desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.',
         price: 'from £7.50 per person',
@@ -35,7 +35,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1495214783159-3503fd1b572d?w=600&q=80',
         title: 'Seasonal Fruit & Granola Bowl',
         desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.',
         price: 'from £5.50 per person',
@@ -43,7 +43,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1606851091851-e8c8c0fca5ba?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=600&q=80',
         title: 'Smoked Salmon Bagel',
         desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.',
         price: 'from £8.00 per person',
@@ -51,7 +51,7 @@ function App() {
         badgeClass: 'amber',
       },
       {
-        img: 'https://images.unsplash.com/photo-1620807773740-bf5e4a0b1de3?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=600&q=80',
         title: 'Overnight Oats',
         desc: 'Rolled oats soaked in oat milk with chia seeds, fresh banana, almond butter and a sprinkle of cinnamon.',
         price: 'from £4.50 per person',
@@ -61,7 +61,7 @@ function App() {
     ],
     lunch: [
       {
-        img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80',
         title: 'The Garden Bowl',
         desc: 'Quinoa, roasted chickpeas, cherry tomatoes, cucumber, mixed leaves and our signature lemon tahini dressing.',
         price: 'from £8.00 per person',
@@ -69,7 +69,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80',
         title: 'Grilled Chicken Wrap',
         desc: 'Chargrilled chicken, romaine lettuce, roasted peppers and cool tzatziki in a warm wholemeal wrap.',
         price: 'from £7.50 per person',
@@ -77,7 +77,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1473093226555-0b9e64c14da4?w=600&q=80',
         title: 'Roasted Vegetable Pasta',
         desc: 'Penne with slow-roasted courgette, peppers and cherry tomatoes in a light basil and extra virgin olive oil sauce.',
         price: 'from £7.00 per person',
@@ -85,7 +85,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1586374579358-9d19d632b6df?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&q=80',
         title: 'Lentil & Sweet Potato Soup',
         desc: 'Slow-cooked red lentil and sweet potato soup with warming cumin, served with freshly baked seeded bread.',
         price: 'from £6.00 per person',
@@ -95,7 +95,7 @@ function App() {
     ],
     tea: [
       {
-        img: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600&q=80',
         title: 'Classic Finger Sandwiches',
         desc: 'Cucumber and cream cheese, smoked salmon and dill, egg and cress — presented on white and brown bread.',
         price: 'from £8.50 per person',
@@ -103,7 +103,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1586444248902-2f64eddc8df5?w=600&q=80',
         title: 'Warm Scones',
         desc: 'Freshly baked plain and fruit scones, served with generous clotted cream and house strawberry preserve.',
         price: 'from £5.50 per person',
@@ -111,7 +111,7 @@ function App() {
         badgeClass: 'coral',
       },
       {
-        img: 'https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80',
         title: 'Seasonal Fruit Platter',
         desc: 'A generous, elegant arrangement of fresh watermelon, grapes, strawberries and honeydew melon.',
         price: 'from £4.50 per person',
@@ -119,7 +119,7 @@ function App() {
         badgeClass: '',
       },
       {
-        img: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
+        img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80',
         title: 'Mini Victoria Sponge Cakes',
         desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with a dusting of icing sugar.',
         price: 'from £5.00 per person',
@@ -196,7 +196,7 @@ function App() {
         <div className="fd-hero-visual">
           <div className="fd-hero-card">
             <div className="fd-hero-card-img">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="The Garden Bowl" />
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="The Garden Bowl" />
             </div>
             <h3>The Garden Bowl</h3>
             <p>Quinoa, roasted chickpeas and lemon tahini</p>
