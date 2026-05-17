@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function FreshDeskWebsite() {
@@ -303,7 +303,7 @@ function FreshDeskWebsite() {
           <div className="fd-footer-col">
             <h4>Contact</h4>
             <ul>
-              {['Get a Quote', 'hello@freshdesk.co.uk', '0800 123 4567', 'FAQs', 'Privacy Policy'].map(l => <li key={l}><a href="#">{l}</a></li>)}
+              {['Get a Quote', 'hello@freshdesk.co.uk', '0800 123 4567', 'FAQs', 'Privacy Policy'].map(l =>  <li key={l}><a href="/">{l}</a></li>
             </ul>
           </div>
         </div>
