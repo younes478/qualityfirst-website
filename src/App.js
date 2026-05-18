@@ -26,106 +26,22 @@ function App() {
 
   const menuData = {
     breakfast: [
-      {
-        img: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=600&q=80',
-        title: 'Smashed Avocado & Poached Eggs',
-        desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.',
-        price: 'from £7.50 per person',
-        badge: 'Signature',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1495214783159-3503fd1b572d?w=600&q=80',
-        title: 'Seasonal Fruit & Granola Bowl',
-        desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.',
-        price: 'from £5.50 per person',
-        badge: 'Vegan',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=600&q=80',
-        title: 'Smoked Salmon Bagel',
-        desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.',
-        price: 'from £8.00 per person',
-        badge: 'Premium',
-        badgeClass: 'amber',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=600&q=80',
-        title: 'Overnight Oats',
-        desc: 'Rolled oats soaked in oat milk with chia seeds, fresh banana, almond butter and a sprinkle of cinnamon.',
-        price: 'from £4.50 per person',
-        badge: 'Nourishing',
-        badgeClass: '',
-      },
+      { title: 'Smashed Avocado & Poached Eggs', desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
+      { title: 'Seasonal Fruit & Granola Bowl', desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.', price: 'from £5.50 per person', badge: 'Vegan', badgeClass: '' },
+      { title: 'Smoked Salmon Bagel', desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.', price: 'from £8.00 per person', badge: 'Premium', badgeClass: 'amber' },
+      { title: 'Overnight Oats', desc: 'Rolled oats soaked in oat milk with chia seeds, fresh banana, almond butter and a sprinkle of cinnamon.', price: 'from £4.50 per person', badge: 'Nourishing', badgeClass: '' },
     ],
     lunch: [
-      {
-        img: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80',
-        title: 'The Garden Bowl',
-        desc: 'Quinoa, roasted chickpeas, cherry tomatoes, cucumber, mixed leaves and our signature lemon tahini dressing.',
-        price: 'from £8.00 per person',
-        badge: 'Vegan',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80',
-        title: 'Grilled Chicken Wrap',
-        desc: 'Chargrilled chicken, romaine lettuce, roasted peppers and cool tzatziki in a warm wholemeal wrap.',
-        price: 'from £7.50 per person',
-        badge: 'Signature',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1473093226555-0b9e64c14da4?w=600&q=80',
-        title: 'Roasted Vegetable Pasta',
-        desc: 'Penne with slow-roasted courgette, peppers and cherry tomatoes in a light basil and extra virgin olive oil sauce.',
-        price: 'from £7.00 per person',
-        badge: 'Vegetarian',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&q=80',
-        title: 'Lentil & Sweet Potato Soup',
-        desc: 'Slow-cooked red lentil and sweet potato soup with warming cumin, served with freshly baked seeded bread.',
-        price: 'from £6.00 per person',
-        badge: 'Gluten Free',
-        badgeClass: '',
-      },
+      { title: 'The Garden Bowl', desc: 'Quinoa, roasted chickpeas, cherry tomatoes, cucumber, mixed leaves and our signature lemon tahini dressing.', price: 'from £8.00 per person', badge: 'Vegan', badgeClass: '' },
+      { title: 'Grilled Chicken Wrap', desc: 'Chargrilled chicken, romaine lettuce, roasted peppers and cool tzatziki in a warm wholemeal wrap.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
+      { title: 'Roasted Vegetable Pasta', desc: 'Penne with slow-roasted courgette, peppers and cherry tomatoes in a light basil and extra virgin olive oil sauce.', price: 'from £7.00 per person', badge: 'Vegetarian', badgeClass: '' },
+      { title: 'Lentil & Sweet Potato Soup', desc: 'Slow-cooked red lentil and sweet potato soup with warming cumin, served with freshly baked seeded bread.', price: 'from £6.00 per person', badge: 'Gluten Free', badgeClass: '' },
     ],
     tea: [
-      {
-        img: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600&q=80',
-        title: 'Classic Finger Sandwiches',
-        desc: 'Cucumber and cream cheese, smoked salmon and dill, egg and cress — presented on white and brown bread.',
-        price: 'from £8.50 per person',
-        badge: 'Signature',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1586444248902-2f64eddc8df5?w=600&q=80',
-        title: 'Warm Scones',
-        desc: 'Freshly baked plain and fruit scones, served with generous clotted cream and house strawberry preserve.',
-        price: 'from £5.50 per person',
-        badge: 'Beloved',
-        badgeClass: 'coral',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80',
-        title: 'Seasonal Fruit Platter',
-        desc: 'A generous, elegant arrangement of fresh watermelon, grapes, strawberries and honeydew melon.',
-        price: 'from £4.50 per person',
-        badge: 'Light',
-        badgeClass: '',
-      },
-      {
-        img: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80',
-        title: 'Mini Victoria Sponge Cakes',
-        desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with a dusting of icing sugar.',
-        price: 'from £5.00 per person',
-        badge: 'Indulgent',
-        badgeClass: 'amber',
-      },
+      { title: 'Classic Finger Sandwiches', desc: 'Cucumber and cream cheese, smoked salmon and dill, egg and cress — presented on white and brown bread.', price: 'from £8.50 per person', badge: 'Signature', badgeClass: '' },
+      { title: 'Warm Scones', desc: 'Freshly baked plain and fruit scones, served with generous clotted cream and house strawberry preserve.', price: 'from £5.50 per person', badge: 'Beloved', badgeClass: 'coral' },
+      { title: 'Seasonal Fruit Platter', desc: 'A generous, elegant arrangement of fresh watermelon, grapes, strawberries and honeydew melon.', price: 'from £4.50 per person', badge: 'Light', badgeClass: '' },
+      { title: 'Mini Victoria Sponge Cakes', desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with a dusting of icing sugar.', price: 'from £5.00 per person', badge: 'Indulgent', badgeClass: 'amber' },
     ],
   };
 
@@ -195,9 +111,7 @@ function App() {
         </div>
         <div className="fd-hero-visual">
           <div className="fd-hero-card">
-            <div className="fd-hero-card-img">
-              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80" alt="The Garden Bowl" />
-            </div>
+            <div className="fd-hero-card-label">Featured Dish</div>
             <h3>The Garden Bowl</h3>
             <p>Quinoa, roasted chickpeas and lemon tahini</p>
             <div className="fd-card-meta">
@@ -265,9 +179,6 @@ function App() {
         <div className="fd-menu-grid">
           {menuData[activeTab].map((item, i) => (
             <div className="fd-food-card animate-on-scroll" key={i}>
-              <div className="fd-food-img">
-                <img src={item.img} alt={item.title} />
-              </div>
               <div className="fd-food-body">
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
@@ -278,6 +189,27 @@ function App() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* PHOTO GALLERY */}
+      <section className="fd-gallery">
+        <div className="fd-gallery-grid">
+          <div className="fd-gallery-item fd-gallery-large">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=85" alt="Fresh prepared dish" />
+          </div>
+          <div className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Colourful healthy bowl" />
+          </div>
+          <div className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Artisan pizza" />
+          </div>
+          <div className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Elegant plating" />
+          </div>
+          <div className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast spread" />
+          </div>
         </div>
       </section>
 

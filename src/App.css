@@ -235,18 +235,9 @@ body {
 .fd-hero-card {
   background: #fff;
   border-radius: 20px;
-  padding: 1.75rem;
+  padding: 2rem;
   width: 300px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-}
-.fd-hero-card-img {
-  width: 100%; height: 180px;
-  border-radius: 12px; margin-bottom: 1rem;
-  overflow: hidden;
-}
-.fd-hero-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
 }
 .fd-hero-card h3 {
   font-family: var(--font-display);
@@ -359,36 +350,29 @@ body {
 
 /* ── FOOD CARDS ── */
 .fd-food-card {
-  background: #fff; border-radius: var(--radius);
-  border: 1px solid var(--gray-mid); overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-mid);
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 .fd-food-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
-.fd-food-img {
-  height: 200px;
-  overflow: hidden;
-}
-.fd-food-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  display: block;
-}
-.fd-food-card:hover .fd-food-img img {
-  transform: scale(1.05);
-}
-.fd-food-body { padding: 1.25rem; }
+.fd-food-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
 .fd-food-body h3 {
   font-family: var(--font-display);
-  font-size: 1rem; font-weight: 400;
+  font-size: 1.15rem; font-weight: 400;
   font-style: italic;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--navy);
 }
-.fd-food-body p { font-size: 0.8rem; color: var(--gray-text); margin-bottom: 1rem; line-height: 1.75; font-weight: 300; }
-.fd-food-footer { display: flex; align-items: center; justify-content: space-between; }
+.fd-food-body p { font-size: 0.83rem; color: var(--gray-text); margin-bottom: 1.25rem; line-height: 1.8; font-weight: 300; flex: 1; }
+.fd-food-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--gray-mid); margin-top: auto; }
 .fd-food-price {
   font-family: var(--font-display);
-  font-size: 0.95rem; font-weight: 400; color: var(--teal-dark);
+  font-size: 1rem; font-weight: 400; color: var(--teal-dark);
 }
 .fd-food-badge {
   background: var(--teal-light); color: var(--teal-dark);
@@ -398,6 +382,13 @@ body {
 }
 .fd-food-badge.amber { background: var(--amber-light); color: #92660A; }
 .fd-food-badge.coral { background: var(--coral-light); color: #B73A1E; }
+
+/* Hero card without image */
+.fd-hero-card-label {
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--teal-dark); margin-bottom: 0.75rem;
+}
 
 /* ── WHY US (DARK) ── */
 .fd-why {
@@ -601,4 +592,40 @@ body {
   .fd-footer-grid { grid-template-columns: 1fr; }
   .fd-footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   .fd-float-1, .fd-float-2 { display: none; }
+}
+
+/* ── PHOTO GALLERY ── */
+.fd-gallery {
+  padding: 0 5% 7rem;
+  background: var(--white);
+}
+.fd-gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 240px 240px;
+  gap: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.fd-gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+}
+.fd-gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.6s ease;
+}
+.fd-gallery-item:hover img { transform: scale(1.04); }
+
+.fd-gallery-large {
+  grid-row: 1 / 3;
+}
+
+@media (max-width: 768px) {
+  .fd-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .fd-gallery-large { grid-row: auto; }
 }
