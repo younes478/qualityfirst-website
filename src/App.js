@@ -60,7 +60,7 @@ function App() {
     { stars: 5, text: 'With a diverse team and a range of dietary requirements, we needed a caterer who truly listens. Berkshire Office Catering exceeded every expectation. The afternoon teas for our board meetings are simply wonderful.', initials: 'JP', name: 'Jessica Park', role: 'Office Manager, Vantage Capital', avatarClass: 'coral' },
   ];
 
-  const footerMenu = ['Breakfast', 'Luncheon', 'Afternoon Tea', 'Corporate Events', 'Dietary Requirements'];
+  const footerMenu = ['Breakfast', 'Lunch', 'Afternoon Tea', 'Corporate Events', 'Dietary Requirements'];
   const footerCompany = ['Our Story', 'Meet the Chefs', 'Sustainability', 'Careers', 'Journal'];
   const footerContact = ['Request a Proposal', 'hello@berkshireofficecatering.co.uk', '0800 123 4567', 'Frequently Asked Questions', 'Privacy Policy'];
 
@@ -164,7 +164,7 @@ function App() {
         <div className="fd-menu-tabs">
           {[
             { key: 'breakfast', label: 'Breakfast', icon: '🌅' },
-            { key: 'lunch', label: 'Luncheon', icon: '☀️' },
+            { key: 'lunch', label: 'Lunch', icon: '☀️' },
             { key: 'tea', label: 'Afternoon Tea', icon: '🍵' },
           ].map((tab) => (
             <button
@@ -194,22 +194,32 @@ function App() {
 
       {/* PHOTO GALLERY */}
       <section className="fd-gallery">
+        <div className="fd-section-header">
+          <span className="fd-section-tag">A Glimpse of Our Kitchen</span>
+          <h2>Food prepared with <em>genuine care</em></h2>
+          <p>Every dish tells a story. Click any photo to explore the menu behind it.</p>
+        </div>
         <div className="fd-gallery-grid">
-          <div className="fd-gallery-item fd-gallery-large">
+          <a href="#menu" onClick={() => setActiveTab('lunch')} className="fd-gallery-item fd-gallery-large">
             <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=85" alt="Fresh prepared dish" />
-          </div>
-          <div className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Colourful healthy bowl" />
-          </div>
-          <div className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Artisan pizza" />
-          </div>
-          <div className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Elegant plating" />
-          </div>
-          <div className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast spread" />
-          </div>
+            <div className="fd-gallery-overlay"><span>Lunch</span></div>
+          </a>
+          <a href="#menu" onClick={() => setActiveTab('breakfast')} className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Breakfast bowl" />
+            <div className="fd-gallery-overlay"><span>Breakfast</span></div>
+          </a>
+          <a href="#menu" onClick={() => setActiveTab('lunch')} className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Lunch dish" />
+            <div className="fd-gallery-overlay"><span>Lunch</span></div>
+          </a>
+          <a href="#menu" onClick={() => setActiveTab('tea')} className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Afternoon tea" />
+            <div className="fd-gallery-overlay"><span>Afternoon Tea</span></div>
+          </a>
+          <a href="#menu" onClick={() => setActiveTab('breakfast')} className="fd-gallery-item">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast" />
+            <div className="fd-gallery-overlay"><span>Breakfast</span></div>
+          </a>
         </div>
       </section>
 
@@ -268,7 +278,7 @@ function App() {
             <div className="fd-price-amount">£5</div>
             <div className="fd-price-per">per person, per day</div>
             <ul className="fd-price-features">
-              {['Continental breakfast or luncheon', 'Up to 20 guests', 'Curated seasonal menu', 'Two daily delivery windows', 'Dedicated email support'].map((f) => (
+              {['Continental breakfast or lunch', 'Up to 20 guests', 'Curated seasonal menu', 'Two daily delivery windows', 'Dedicated email support'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
@@ -280,7 +290,7 @@ function App() {
             <div className="fd-price-amount">£9</div>
             <div className="fd-price-per">per person, per day</div>
             <ul className="fd-price-features">
-              {['Breakfast, luncheon and afternoon tea', 'Up to 100 guests', 'Full menu with bespoke requests', 'Priority delivery service', 'Dedicated account manager', 'All dietary requirements accommodated'].map((f) => (
+              {['Breakfast, lunch and afternoon tea', 'Up to 100 guests', 'Full menu with bespoke requests', 'Priority delivery service', 'Dedicated account manager', 'All dietary requirements accommodated'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
