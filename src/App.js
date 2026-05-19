@@ -212,24 +212,24 @@ function App() {
         </div>
         <div className="fd-gallery-grid">
           <a className="fd-gallery-item fd-gallery-large" onClick={() => { setActiveTab('breakfast'); scrollTo('menu'); }} href="#menu">
-            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=85" alt="Fresh prepared dish" />
+            <img src="https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=800&q=85" alt="Avocado toast" />
             <div className="fd-gallery-overlay"><span>Breakfast</span></div>
           </a>
-          <a className="fd-gallery-item" onClick={() => { setActiveTab('lunch'); scrollTo('menu'); }} href="#menu">
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Colourful healthy bowl" />
-            <div className="fd-gallery-overlay"><span>Lunch</span></div>
-          </a>
           <a className="fd-gallery-item" onClick={() => { setActiveTab('tea'); scrollTo('menu'); }} href="#menu">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Afternoon tea" />
+            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&q=85" alt="Scones with clotted cream" />
             <div className="fd-gallery-overlay"><span>Afternoon Tea</span></div>
           </a>
           <a className="fd-gallery-item" onClick={() => { setActiveTab('lunch'); scrollTo('menu'); }} href="#menu">
-            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Elegant plating" />
+            <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=600&q=85" alt="Chicken wrap" />
             <div className="fd-gallery-overlay"><span>Lunch</span></div>
           </a>
           <a className="fd-gallery-item" onClick={() => { setActiveTab('breakfast'); scrollTo('menu'); }} href="#menu">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast spread" />
+            <img src="https://images.unsplash.com/photo-1603046891726-36bfd957e0bf?w=600&q=85" alt="Avocado on sourdough" />
             <div className="fd-gallery-overlay"><span>Breakfast</span></div>
+          </a>
+          <a className="fd-gallery-item" onClick={() => { setActiveTab('tea'); scrollTo('menu'); }} href="#menu">
+            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=85" alt="Afternoon tea pastries" />
+            <div className="fd-gallery-overlay"><span>Afternoon Tea</span></div>
           </a>
         </div>
       </section>
@@ -383,3 +383,4 @@ function App() {
 }
 
 export default App;
+

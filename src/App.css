@@ -34,7 +34,7 @@ body {
 }
 
 /* ── FONTS ── */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 /* ── NAV ── */
 .fd-nav {
@@ -114,7 +114,8 @@ body {
 @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.25; } }
 .fd-hero-text h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.1;
+  font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 600; line-height: 1.2;
+  letter-spacing: -0.01em;
   color: #fff; margin-bottom: 1.5rem;
   animation: fadeInUp 0.65s 0.1s ease both;
 }
@@ -192,7 +193,8 @@ body {
 }
 .fd-section-header h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.2;
+  font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.25;
+  letter-spacing: -0.01em;
   margin-bottom: 1rem;
 }
 .fd-section-header h2 em { font-style: normal; color: var(--teal); }
@@ -222,7 +224,7 @@ body {
   margin-bottom: 1rem;
 }
 .fd-step-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.fd-step h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.fd-step h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
 .fd-step p { font-size: 0.82rem; color: var(--gray-text); font-weight: 300; line-height: 1.75; }
 
 /* ── MENU TABS ── */
@@ -258,7 +260,7 @@ body {
 .fd-food-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
 .fd-food-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
 .fd-food-body h3 {
-  font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+  font-family: var(--font-display); font-size: 1rem; font-weight: 600;
   margin-bottom: 0.5rem; line-height: 1.4;
 }
 .fd-food-body p {
@@ -340,8 +342,7 @@ body {
 .fd-why-card h3 {
   font-family: var(--font-display); font-size: 1rem; font-weight: 600;
   color: #fff; margin-bottom: 0.5rem;
-}
-.fd-why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.75; }
+}.fd-why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.75; }
 
 /* ── TESTIMONIALS ── */
 .fd-testimonials-grid {
@@ -394,7 +395,7 @@ body {
   white-space: nowrap;
 }
 .fd-price-plan { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
-.fd-price-amount { font-family: var(--font-display); font-size: 3rem; font-weight: 800; line-height: 1; }
+.fd-price-amount { font-family: var(--font-display); font-size: 3rem; font-weight: 600; line-height: 1; }
 .fd-price-per { font-size: 0.78rem; color: var(--gray-text); margin: 0.3rem 0 1.5rem; }
 .fd-price-features { list-style: none; margin-bottom: 2rem; }
 .fd-price-features li {
@@ -424,7 +425,8 @@ body {
 }
 .fd-cta h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600;
+  letter-spacing: -0.01em;
   color: #fff; margin-bottom: 1rem;
 }
 .fd-cta p { font-size: 1rem; color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; font-weight: 300; }
