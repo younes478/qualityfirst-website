@@ -80,7 +80,6 @@ function App() {
   ];
   const footerCompanyLinks = [
     { label: 'Our Promise', section: 'why' },
-    { label: 'Testimonials', section: 'testimonials' },
     { label: 'Pricing', section: 'pricing' },
   ];
   const footerContactLinks = [
@@ -224,28 +223,7 @@ function App() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="fd-testimonials" id="testimonials">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">Client Stories</span>
-          <h2>Trusted by offices <em>across Berkshire</em></h2>
-        </div>
-        <div className="fd-testimonials-grid">
-          {testimonials.map((t, i) => (
-            <div className="fd-testimonial animate-on-scroll" key={i}>
-              <div className="fd-stars">{'★'.repeat(t.stars)}</div>
-              <p>"{t.text}"</p>
-              <div className="fd-testimonial-author">
-                <div className={`fd-avatar ${t.avatarClass}`}>{t.initials}</div>
-                <div>
-                  <strong>{t.name}</strong>
-                  <span>{t.role}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* PRICING */}
       <section className="fd-pricing" id="pricing">
