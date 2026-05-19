@@ -204,21 +204,7 @@ function App() {
         </div>
       </section>
 
-      {/* PHOTO GALLERY */}
-      <section className="fd-gallery">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">A Glimpse of Our Kitchen</span>
-          <h2>Food made with <em>genuine care</em></h2>
-        </div>
-        <div className="fd-gallery-grid-two">
-          <div className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1541519227354-08fa5d50c820?w=900&q=85" alt="Avocado toast on sourdough" />
-          </div>
-          <div className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?w=900&q=85" alt="Scones with clotted cream and jam" />
-          </div>
-        </div>
-      </section>
+
 
       {/* WHY US */}
       <section className="fd-why" id="why">
