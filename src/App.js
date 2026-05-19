@@ -24,33 +24,44 @@ function App() {
     return () => observer.disconnect();
   }, [activeTab]);
 
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const menuData = {
     breakfast: [
       { title: 'Smashed Avocado & Poached Eggs', desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
       { title: 'Seasonal Fruit & Granola Bowl', desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.', price: 'from £5.50 per person', badge: 'Vegan', badgeClass: '' },
       { title: 'Smoked Salmon Bagel', desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.', price: 'from £8.00 per person', badge: 'Premium', badgeClass: 'amber' },
-      { title: 'Overnight Oats', desc: 'Rolled oats soaked in oat milk with chia seeds, fresh banana, almond butter and a sprinkle of cinnamon.', price: 'from £4.50 per person', badge: 'Nourishing', badgeClass: '' },
+      { title: 'Continental Pastry Basket', desc: 'Warm croissants, pain au chocolat, assorted pastries with artisan jams, butter and fresh orange juice.', price: 'from £6.00 per person', badge: 'Crowd Pleaser', badgeClass: 'coral' },
     ],
     lunch: [
-      { title: 'The Garden Bowl', desc: 'Quinoa, roasted chickpeas, cherry tomatoes, cucumber, mixed leaves and our signature lemon tahini dressing.', price: 'from £8.00 per person', badge: 'Vegan', badgeClass: '' },
-      { title: 'Grilled Chicken Wrap', desc: 'Chargrilled chicken, romaine lettuce, roasted peppers and cool tzatziki in a warm wholemeal wrap.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
-      { title: 'Roasted Vegetable Pasta', desc: 'Penne with slow-roasted courgette, peppers and cherry tomatoes in a light basil and extra virgin olive oil sauce.', price: 'from £7.00 per person', badge: 'Vegetarian', badgeClass: '' },
-      { title: 'Lentil & Sweet Potato Soup', desc: 'Slow-cooked red lentil and sweet potato soup with warming cumin, served with freshly baked seeded bread.', price: 'from £6.00 per person', badge: 'Gluten Free', badgeClass: '' },
+      { title: 'The Garden Bowl', desc: 'Quinoa, roasted chickpeas, cucumber, heritage tomatoes, feta and a zingy lemon tahini dressing.', price: 'from £8.50 per person', badge: 'Vegetarian', badgeClass: '' },
+      { title: 'Slow-Roasted Chicken Wrap', desc: 'Free-range chicken, romaine, smoked cheese, house-made Caesar dressing in a toasted flatbread.', price: 'from £9.00 per person', badge: 'Bestseller', badgeClass: 'amber' },
+      { title: 'Mezze Sharing Platter', desc: 'Hummus, baba ganoush, falafel, warm pitta, tabbouleh and mixed olives — perfect for communal dining.', price: 'from £10.00 per person', badge: 'Sharing', badgeClass: '' },
+      { title: 'Classic Club Sandwich', desc: 'Triple-decker with smoked turkey, crispy bacon, vine tomatoes, lettuce and house mayo on toasted white.', price: 'from £7.50 per person', badge: 'Classic', badgeClass: 'coral' },
     ],
     tea: [
-      { title: 'Classic Finger Sandwiches', desc: 'Cucumber and cream cheese, smoked salmon and dill, egg and cress — presented on white and brown bread.', price: 'from £8.50 per person', badge: 'Signature', badgeClass: '' },
-      { title: 'Warm Scones', desc: 'Freshly baked plain and fruit scones, served with generous clotted cream and house strawberry preserve.', price: 'from £5.50 per person', badge: 'Beloved', badgeClass: 'coral' },
-      { title: 'Seasonal Fruit Platter', desc: 'A generous, elegant arrangement of fresh watermelon, grapes, strawberries and honeydew melon.', price: 'from £4.50 per person', badge: 'Light', badgeClass: '' },
-      { title: 'Mini Victoria Sponge Cakes', desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with a dusting of icing sugar.', price: 'from £5.00 per person', badge: 'Indulgent', badgeClass: 'amber' },
+      { title: 'Traditional Afternoon Tea', desc: 'Finger sandwiches, warm scones with clotted cream and jam, petit fours and a selection of fine teas.', price: 'from £14.00 per person', badge: 'Signature', badgeClass: '' },
+      { title: 'Patisserie Selection', desc: 'Rotating seasonal éclairs, tarts and macarons crafted fresh each morning by our in-house patissier.', price: 'from £9.00 per person', badge: 'Artisan', badgeClass: 'amber' },
+      { title: 'Savoury Afternoon Bites', desc: 'Mini quiches, cheese straws, blinis with smoked salmon — ideal for working afternoon meetings.', price: 'from £8.00 per person', badge: 'Popular', badgeClass: '' },
+      { title: 'Mini Victoria Sponge Cakes', desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with icing sugar.', price: 'from £5.00 per person', badge: 'Indulgent', badgeClass: 'coral' },
     ],
   };
 
-  const features = [
-    { icon: '🌿', title: 'Sourced Fresh, Every Morning', desc: 'Every ingredient arrives fresh each day from trusted local suppliers and independent producers. We never compromise on quality.' },
-    { icon: '⚡', title: 'Punctual. Always.', desc: 'We understand the rhythm of the working day. Your food arrives precisely when you need it — never a moment too late.' },
+  const tabs = [
+    { key: 'breakfast', icon: '🌅', label: 'Breakfast' },
+    { key: 'lunch', icon: '☀️', label: 'Lunch' },
+    { key: 'tea', icon: '🍵', label: 'Afternoon Tea' },
+  ];
+
+  const whyItems = [
+    { icon: '🌱', title: 'Sourced Fresh Every Morning', desc: 'We partner with local Berkshire farms and suppliers to ensure every ingredient is seasonal, traceable and at its very best.' },
+    { icon: '⚡', title: 'Punctual. Always.', desc: 'Reliable, on-time delivery is a promise we take seriously. Your team's day runs to a schedule, and so do we.' },
     { icon: '👨‍🍳', title: 'A Team of Accomplished Chefs', desc: 'Our culinary team brings professional kitchen expertise and genuine passion to every dish we prepare for your office.' },
-    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: "Our menus are designed with your team's wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day." },
-    { icon: '🎯', title: 'Tailored to Your Team', desc: 'Every dietary requirement is welcomed and accommodated with care — vegan, halal, kosher, gluten-free and everything in between.' },
+    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: 'Our menus are designed with your team's wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day.' },
+    { icon: '🎯', title: 'Tailored to Your Team', desc: 'Every dietary requirement is welcomed — vegan, halal, kosher, gluten-free and everything in between.' },
     { icon: '💬', title: 'Your Dedicated Account Manager', desc: 'A single, knowledgeable point of contact who understands your office culture, your preferences and your standards.' },
   ];
 
@@ -60,9 +71,28 @@ function App() {
     { stars: 5, text: 'With a diverse team and a range of dietary requirements, we needed a caterer who truly listens. Berkshire Office Catering exceeded every expectation. The afternoon teas for our board meetings are simply wonderful.', initials: 'JP', name: 'Jessica Park', role: 'Office Manager, Vantage Capital', avatarClass: 'coral' },
   ];
 
-  const footerMenu = ['Breakfast', 'Lunch', 'Afternoon Tea', 'Corporate Events', 'Dietary Requirements'];
-  const footerCompany = ['Our Story', 'Meet the Chefs', 'Sustainability', 'Careers', 'Journal'];
-  const footerContact = ['Request a Proposal', 'hello@berkshireofficecatering.co.uk', '0800 123 4567', 'Frequently Asked Questions', 'Privacy Policy'];
+  // Footer link mapping to section IDs
+  const footerMenuLinks = [
+    { label: 'Breakfast', section: 'menu', tab: 'breakfast' },
+    { label: 'Lunch', section: 'menu', tab: 'lunch' },
+    { label: 'Afternoon Tea', section: 'menu', tab: 'tea' },
+    { label: 'Dietary Requirements', section: 'why' },
+  ];
+  const footerCompanyLinks = [
+    { label: 'Our Promise', section: 'why' },
+    { label: 'Testimonials', section: 'testimonials' },
+    { label: 'Pricing', section: 'pricing' },
+  ];
+  const footerContactLinks = [
+    { label: 'Get in Touch', section: 'contact' },
+    { label: 'hello@berkshireofficecatering.co.uk', href: 'mailto:hello@berkshireofficecatering.co.uk' },
+    { label: '0800 123 4567', href: 'tel:08001234567' },
+  ];
+
+  const handleFooterMenuClick = (item) => {
+    if (item.tab) setActiveTab(item.tab);
+    scrollTo(item.section);
+  };
 
   return (
     <div className="fd-container">
@@ -94,20 +124,6 @@ function App() {
             <a href="#menu" className="fd-btn-primary">Explore Our Menu</a>
             <a href="#contact" className="fd-btn-outline">Speak With Us</a>
           </div>
-          <div className="fd-hero-stats">
-            <div className="fd-stat">
-              <span className="fd-stat-num">500+</span>
-              <span className="fd-stat-label">Offices served</span>
-            </div>
-            <div className="fd-stat">
-              <span className="fd-stat-num">4.9★</span>
-              <span className="fd-stat-label">Client satisfaction</span>
-            </div>
-            <div className="fd-stat">
-              <span className="fd-stat-num">30 min</span>
-              <span className="fd-stat-label">Delivery window</span>
-            </div>
-          </div>
         </div>
         <div className="fd-hero-visual">
           <div className="fd-hero-card">
@@ -115,13 +131,13 @@ function App() {
             <h3>The Garden Bowl</h3>
             <p>Quinoa, roasted chickpeas and lemon tahini</p>
             <div className="fd-card-meta">
-              <span className="fd-card-rating">★★★★★ 4.9</span>
+              <span className="fd-card-rating">★★★★★</span>
               <span className="fd-card-tag">Nourishing</span>
             </div>
           </div>
           <div className="fd-float fd-float-1">
             <span>🚀</span>
-            <div><strong>Always On Time</strong><small>Delivered in 30 minutes</small></div>
+            <div><strong>Always On Time</strong><small>Delivered fresh each morning</small></div>
           </div>
           <div className="fd-float fd-float-2">
             <span>🌿</span>
@@ -142,13 +158,13 @@ function App() {
             { num: 1, icon: '📋', title: 'Choose Your Plan', desc: 'Select the arrangement that suits your office size, schedule and budget. We offer flexible daily, weekly and monthly options.' },
             { num: 2, icon: '🍽️', title: 'Curate Your Menu', desc: 'Browse our seasonally inspired menus and personalise your selection. We warmly accommodate all dietary requirements.' },
             { num: 3, icon: '👨‍🍳', title: 'We Prepare with Care', desc: 'Our chefs rise early to prepare everything fresh that morning, using locally sourced, seasonal produce of the finest quality.' },
-            { num: 4, icon: '🚚', title: 'Delivered to Your Door', desc: 'Your food arrives beautifully presented, precisely on time, directly to your office — every single day without exception.' },
-          ].map((step) => (
-            <div className="fd-step-card animate-on-scroll" key={step.num}>
-              <div className="fd-step-num">{step.num}</div>
-              <div className="fd-step-icon">{step.icon}</div>
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
+            { num: 4, icon: '🚚', title: 'Delivered to Your Door', desc: 'Hot, beautifully presented food arrives at your office at precisely the time you need it. Every time, without fail.' },
+          ].map((s) => (
+            <div className="fd-step animate-on-scroll" key={s.num}>
+              <div className="fd-step-num">{s.num}</div>
+              <div className="fd-step-icon">{s.icon}</div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
             </div>
           ))}
         </div>
@@ -158,18 +174,14 @@ function App() {
       <section className="fd-menu" id="menu">
         <div className="fd-section-header">
           <span className="fd-section-tag">Our Menu</span>
-          <h2>Crafted for <em>every occasion</em></h2>
-          <p>From the first light of morning to the quiet of the afternoon, our menus are thoughtfully composed to nourish and delight.</p>
+          <h2>Crafted for every <em>moment of the day</em></h2>
+          <p>Three distinct services, each prepared with the same commitment to quality, freshness and care.</p>
         </div>
-        <div className="fd-menu-tabs">
-          {[
-            { key: 'breakfast', label: 'Breakfast', icon: '🌅' },
-            { key: 'lunch', label: 'Lunch', icon: '☀️' },
-            { key: 'tea', label: 'Afternoon Tea', icon: '🍵' },
-          ].map((tab) => (
+        <div className="fd-tabs">
+          {tabs.map((tab) => (
             <button
               key={tab.key}
-              className={`fd-tab-btn ${activeTab === tab.key ? 'active' : ''}`}
+              className={`fd-tab ${activeTab === tab.key ? 'active' : ''}`}
               onClick={() => setActiveTab(tab.key)}
             >
               <span>{tab.icon}</span> {tab.label}
@@ -196,28 +208,27 @@ function App() {
       <section className="fd-gallery">
         <div className="fd-section-header">
           <span className="fd-section-tag">A Glimpse of Our Kitchen</span>
-          <h2>Food prepared with <em>genuine care</em></h2>
-          <p>Every dish tells a story. Click any photo to explore the menu behind it.</p>
+          <h2>Food made with <em>genuine care</em></h2>
         </div>
         <div className="fd-gallery-grid">
-          <a href="#menu" onClick={() => setActiveTab('lunch')} className="fd-gallery-item fd-gallery-large">
+          <a className="fd-gallery-item fd-gallery-large" onClick={() => { setActiveTab('breakfast'); scrollTo('menu'); }} href="#menu">
             <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=85" alt="Fresh prepared dish" />
-            <div className="fd-gallery-overlay"><span>Lunch</span></div>
-          </a>
-          <a href="#menu" onClick={() => setActiveTab('breakfast')} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Breakfast bowl" />
             <div className="fd-gallery-overlay"><span>Breakfast</span></div>
           </a>
-          <a href="#menu" onClick={() => setActiveTab('lunch')} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Lunch dish" />
+          <a className="fd-gallery-item" onClick={() => { setActiveTab('lunch'); scrollTo('menu'); }} href="#menu">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Colourful healthy bowl" />
             <div className="fd-gallery-overlay"><span>Lunch</span></div>
           </a>
-          <a href="#menu" onClick={() => setActiveTab('tea')} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Afternoon tea" />
+          <a className="fd-gallery-item" onClick={() => { setActiveTab('tea'); scrollTo('menu'); }} href="#menu">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Afternoon tea" />
             <div className="fd-gallery-overlay"><span>Afternoon Tea</span></div>
           </a>
-          <a href="#menu" onClick={() => setActiveTab('breakfast')} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast" />
+          <a className="fd-gallery-item" onClick={() => { setActiveTab('lunch'); scrollTo('menu'); }} href="#menu">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Elegant plating" />
+            <div className="fd-gallery-overlay"><span>Lunch</span></div>
+          </a>
+          <a className="fd-gallery-item" onClick={() => { setActiveTab('breakfast'); scrollTo('menu'); }} href="#menu">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast spread" />
             <div className="fd-gallery-overlay"><span>Breakfast</span></div>
           </a>
         </div>
@@ -227,37 +238,36 @@ function App() {
       <section className="fd-why" id="why">
         <div className="fd-section-header">
           <span className="fd-section-tag">Our Promise</span>
-          <h2>The finest office catering<br />experience in the region</h2>
-          <p>We are more than a catering company. We are a dedicated partner in your team's daily wellbeing, committed to excellence in every detail.</p>
+          <h2>Why offices choose <em>us</em></h2>
+          <p>We hold ourselves to an exceptionally high standard — because your team deserves nothing less.</p>
         </div>
-        <div className="fd-features-grid">
-          {features.map((f, i) => (
-            <div className="fd-feature-card animate-on-scroll" key={i}>
-              <div className="fd-feature-icon">{f.icon}</div>
-              <h3>{f.title}</h3>
-              <p>{f.desc}</p>
+        <div className="fd-why-grid">
+          {whyItems.map((item, i) => (
+            <div className="fd-why-card animate-on-scroll" key={i}>
+              <div className="fd-why-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="fd-testimonials">
+      <section className="fd-testimonials" id="testimonials">
         <div className="fd-section-header">
-          <span className="fd-section-tag">Client Testimonials</span>
-          <h2>Trusted by offices <em>across the region</em></h2>
-          <p>We take immense pride in the relationships we have built with our clients. Here is what a few of them have to say.</p>
+          <span className="fd-section-tag">Client Stories</span>
+          <h2>Trusted by offices <em>across Berkshire</em></h2>
         </div>
-        <div className="fd-testi-grid">
+        <div className="fd-testimonials-grid">
           {testimonials.map((t, i) => (
-            <div className="fd-testi-card animate-on-scroll" key={i}>
-              <div className="fd-testi-stars">{'★'.repeat(t.stars)}</div>
-              <p className="fd-testi-text">{t.text}</p>
-              <div className="fd-testi-author">
-                <div className={`fd-testi-avatar ${t.avatarClass}`}>{t.initials}</div>
+            <div className="fd-testimonial animate-on-scroll" key={i}>
+              <div className="fd-stars">{'★'.repeat(t.stars)}</div>
+              <p>"{t.text}"</p>
+              <div className="fd-testimonial-author">
+                <div className={`fd-avatar ${t.avatarClass}`}>{t.initials}</div>
                 <div>
-                  <div className="fd-testi-name">{t.name}</div>
-                  <div className="fd-testi-role">{t.role}</div>
+                  <strong>{t.name}</strong>
+                  <span>{t.role}</span>
                 </div>
               </div>
             </div>
@@ -268,57 +278,57 @@ function App() {
       {/* PRICING */}
       <section className="fd-pricing" id="pricing">
         <div className="fd-section-header">
-          <span className="fd-section-tag">Our Packages</span>
-          <h2>Transparent, <em>straightforward pricing</em></h2>
-          <p>We believe in complete clarity. No hidden charges, no surprises — simply exceptional food at an honest price.</p>
+          <span className="fd-section-tag">Pricing</span>
+          <h2>Simple, transparent <em>pricing</em></h2>
+          <p>No hidden fees. No complicated contracts. Just great food at a fair price.</p>
         </div>
         <div className="fd-pricing-grid">
           <div className="fd-price-card animate-on-scroll">
-            <div className="fd-price-plan">Essential</div>
+            <div className="fd-price-plan">Starter</div>
             <div className="fd-price-amount">£5</div>
-            <div className="fd-price-per">per person, per day</div>
+            <div className="fd-price-per">per person · per day</div>
             <ul className="fd-price-features">
-              {['Continental breakfast or lunch', 'Up to 20 guests', 'Curated seasonal menu', 'Two daily delivery windows', 'Dedicated email support'].map((f) => (
+              {['Continental breakfast or lunch', 'Up to 20 people', 'Standard menu selection', '2 delivery slots/day', 'Email support'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <button className="fd-btn-plan outline">Begin Your Journey</button>
+            <button className="fd-btn-plan outline" onClick={() => scrollTo('contact')}>Get Started</button>
           </div>
           <div className="fd-price-card popular animate-on-scroll">
-            <div className="fd-popular-badge">Most Requested</div>
+            <div className="fd-popular-badge">Most Popular</div>
             <div className="fd-price-plan">Professional</div>
             <div className="fd-price-amount">£9</div>
-            <div className="fd-price-per">per person, per day</div>
+            <div className="fd-price-per">per person · per day</div>
             <ul className="fd-price-features">
-              {['Breakfast, lunch and afternoon tea', 'Up to 100 guests', 'Full menu with bespoke requests', 'Priority delivery service', 'Dedicated account manager', 'All dietary requirements accommodated'].map((f) => (
+              {['Breakfast + Lunch + Afternoon Tea', 'Up to 100 people', 'Full menu + custom requests', 'Priority delivery', 'Dedicated account manager', 'Dietary accommodations'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <button className="fd-btn-plan filled">Begin Your Journey</button>
+            <button className="fd-btn-plan filled" onClick={() => scrollTo('contact')}>Get Started</button>
           </div>
           <div className="fd-price-card animate-on-scroll">
-            <div className="fd-price-plan">Bespoke</div>
+            <div className="fd-price-plan">Enterprise</div>
             <div className="fd-price-amount">Custom</div>
-            <div className="fd-price-per">tailored entirely to you</div>
+            <div className="fd-price-per">tailored to your needs</div>
             <ul className="fd-price-features">
-              {['Fully bespoke menu design', 'Unlimited guest numbers', 'On-site chef option available', 'Boardroom and event catering', 'Around-the-clock dedicated support', 'Quarterly menu consultations'].map((f) => (
+              {['Bespoke menus designed for you', '100+ people', 'On-site chef option', 'Event & boardroom catering', '24/7 dedicated support', 'Monthly strategy reviews'].map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>
-            <button className="fd-btn-plan outline">Request a Consultation</button>
+            <button className="fd-btn-plan outline" onClick={() => scrollTo('contact')}>Contact Us</button>
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="fd-cta" id="contact">
-        <h2>Elevate your team's working day</h2>
-        <p>Join over 500 offices who trust Berkshire Office Catering to nourish their teams. We would love to welcome you. Your first week is complimentary.</p>
+        <h2>Ready to elevate your office food?</h2>
+        <p>We would love to welcome you. Get in touch and we'll arrange a tasting for your team.</p>
         <div className="fd-cta-form">
           <input className="fd-cta-input" type="email" placeholder="Your professional email address" />
-          <button className="fd-btn-cta">Begin Your Free Trial</button>
+          <button className="fd-btn-cta">Request a Proposal</button>
         </div>
-        <small>No obligation. Cancel at any time. Your first week, entirely on us.</small>
+        <small>No obligation. We'll be in touch within one business day.</small>
       </section>
 
       {/* FOOTER */}
@@ -331,24 +341,39 @@ function App() {
           <div className="fd-footer-col">
             <h4>Our Menu</h4>
             <ul>
-              {footerMenu.map((l) => (<li key={l}><button className="fd-footer-link">{l}</button></li>))}
+              {footerMenuLinks.map((item) => (
+                <li key={item.label}>
+                  <button className="fd-footer-link" onClick={() => handleFooterMenuClick(item)}>{item.label}</button>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="fd-footer-col">
             <h4>The Company</h4>
             <ul>
-              {footerCompany.map((l) => (<li key={l}><button className="fd-footer-link">{l}</button></li>))}
+              {footerCompanyLinks.map((item) => (
+                <li key={item.label}>
+                  <button className="fd-footer-link" onClick={() => scrollTo(item.section)}>{item.label}</button>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="fd-footer-col">
             <h4>Get in Touch</h4>
             <ul>
-              {footerContact.map((l) => (<li key={l}><button className="fd-footer-link">{l}</button></li>))}
+              {footerContactLinks.map((item) => (
+                <li key={item.label}>
+                  {item.href
+                    ? <a className="fd-footer-link" href={item.href}>{item.label}</a>
+                    : <button className="fd-footer-link" onClick={() => scrollTo(item.section)}>{item.label}</button>
+                  }
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         <div className="fd-footer-bottom">
-          <span>2026 Berkshire Office Catering Ltd. All rights reserved.</span>
+          <span>© 2026 Berkshire Office Catering Ltd. All rights reserved.</span>
           <span>Crafted with care in Berkshire</span>
         </div>
       </footer>
