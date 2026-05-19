@@ -58,9 +58,9 @@ function App() {
 
   const whyItems = [
     { icon: '🌱', title: 'Sourced Fresh Every Morning', desc: 'We partner with local Berkshire farms and suppliers to ensure every ingredient is seasonal, traceable and at its very best.' },
-    { icon: '⚡', title: 'Punctual. Always.', desc: 'Reliable, on-time delivery is a promise we take seriously. Your team's day runs to a schedule, and so do we.' },
+    { icon: '⚡', title: 'Punctual. Always.', desc: "Reliable, on-time delivery is a promise we take seriously. Your team's day runs to a schedule, and so do we." },
     { icon: '👨‍🍳', title: 'A Team of Accomplished Chefs', desc: 'Our culinary team brings professional kitchen expertise and genuine passion to every dish we prepare for your office.' },
-    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: 'Our menus are designed with your team's wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day.' },
+    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: "Our menus are designed with your team's wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day." },
     { icon: '🎯', title: 'Tailored to Your Team', desc: 'Every dietary requirement is welcomed — vegan, halal, kosher, gluten-free and everything in between.' },
     { icon: '💬', title: 'Your Dedicated Account Manager', desc: 'A single, knowledgeable point of contact who understands your office culture, your preferences and your standards.' },
   ];
@@ -383,4 +383,3 @@ function App() {
 }
 
 export default App;
-
