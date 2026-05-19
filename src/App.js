@@ -65,12 +65,6 @@ function App() {
     { icon: '💬', title: 'Your Dedicated Account Manager', desc: 'A single, knowledgeable point of contact who understands your office culture, your preferences and your standards.' },
   ];
 
-  const testimonials = [
-    { stars: 5, text: 'Berkshire Office Catering has genuinely transformed how our team experiences the working day. The quality and attention to detail is quite unlike anything we have encountered before.', initials: 'SR', name: 'Sarah Reynolds', role: 'Head of Operations, TechFlow Ltd', avatarClass: '' },
-    { stars: 5, text: 'The breakfast service is impeccable — always beautifully presented and on time. Our morning meetings have become something the whole team looks forward to. I cannot recommend them highly enough.', initials: 'MK', name: 'Marcus Kline', role: 'Chief Executive, Meridian Consulting', avatarClass: 'amber' },
-    { stars: 5, text: 'With a diverse team and a range of dietary requirements, we needed a caterer who truly listens. Berkshire Office Catering exceeded every expectation. The afternoon teas for our board meetings are simply wonderful.', initials: 'JP', name: 'Jessica Park', role: 'Office Manager, Vantage Capital', avatarClass: 'coral' },
-  ];
-
   // Footer link mapping to section IDs
   const footerMenuLinks = [
     { label: 'Breakfast', section: 'menu', tab: 'breakfast' },
