@@ -71,7 +71,6 @@ function App() {
     { label: 'Pricing', section: 'pricing' },
   ];
   const footerContactLinks = [
-    { label: 'Get in Touch', section: 'contact' },
     { label: 'hello@berkshireofficecatering.co.uk', href: 'mailto:hello@berkshireofficecatering.co.uk' },
     { label: '0800 123 4567', href: 'tel:08001234567' },
   ];
@@ -94,9 +93,7 @@ function App() {
           <li><a href="#menu">Menu</a></li>
           <li><a href="#why">Our Promise</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#contact" className="fd-btn-primary">Request a Proposal</a>
       </nav>
 
       {/* HERO */}
@@ -261,16 +258,7 @@ function App() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="fd-cta" id="contact">
-        <h2>Ready to elevate your office food?</h2>
-        <p>We would love to welcome you. Get in touch and we'll arrange a tasting for your team.</p>
-        <div className="fd-cta-form">
-          <input className="fd-cta-input" type="email" placeholder="Your professional email address" />
-          <button className="fd-btn-cta">Request a Proposal</button>
-        </div>
-        <small>No obligation. We'll be in touch within one business day.</small>
-      </section>
+
 
       {/* FOOTER */}
       <footer className="fd-footer">
