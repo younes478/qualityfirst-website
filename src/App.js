@@ -109,7 +109,7 @@ function App() {
           <p>We believe that great food transforms the working day. From sunrise breakfasts to elegant afternoon teas, we bring freshly prepared, beautifully presented meals directly to your office — each and every day.</p>
           <div className="fd-hero-actions">
             <a href="#menu" className="fd-btn-primary">Explore Our Menu</a>
-            <a href="#contact" className="fd-btn-outline">Speak With Us</a>
+            <button className="fd-btn-outline" onClick={() => scrollTo('footer-contact')}>Speak With Us</button>
           </div>
         </div>
         <div className="fd-hero-visual">
@@ -268,17 +268,21 @@ function App() {
               ))}
             </ul>
           </div>
-          <div className="fd-footer-col">
+          <div className="fd-footer-col" id="footer-contact">
             <h4>Get in Touch</h4>
             <ul>
-              {footerContactLinks.map((item) => (
-                <li key={item.label}>
-                  {item.href
-                    ? <a className="fd-footer-link" href={item.href}>{item.label}</a>
-                    : <button className="fd-footer-link" onClick={() => scrollTo(item.section)}>{item.label}</button>
-                  }
-                </li>
-              ))}
+              <li>
+                <div className="fd-footer-contact-item">
+                  <span className="fd-footer-contact-icon">✉</span>
+                  <a className="fd-footer-link" href="mailto:hello@berkshireofficecatering.co.uk">hello@berkshireofficecatering.co.uk</a>
+                </div>
+              </li>
+              <li>
+                <div className="fd-footer-contact-item">
+                  <span className="fd-footer-contact-icon">☎</span>
+                  <a className="fd-footer-link" href="tel:08001234567">0800 123 4567</a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
