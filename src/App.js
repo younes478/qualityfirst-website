@@ -68,7 +68,7 @@ function App() {
   ];
   const footerCompanyLinks = [
     { label: 'Our Promise', section: 'why' },
-    { label: 'Pricing', section: 'pricing' },
+    { label: 'Values', section: 'values' },
   ];
   const footerContactLinks = [
     { label: 'hello@berkshireofficecatering.co.uk', href: 'mailto:hello@berkshireofficecatering.co.uk' },
@@ -92,7 +92,7 @@ function App() {
         <ul className="fd-nav-links">
           <li><a href="#menu">Menu</a></li>
           <li><a href="#why">Our Promise</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#values">Values</a></li>
         </ul>
       </nav>
 
@@ -213,47 +213,28 @@ function App() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section className="fd-pricing" id="pricing">
+      {/* VALUES */}
+      <section className="fd-values" id="values">
         <div className="fd-section-header">
-          <span className="fd-section-tag">Pricing</span>
-          <h2>Simple, <em>transparent pricing</em></h2>
-          <p>No complicated contracts. Just great food at a fair price.</p>
+          <span className="fd-section-tag">What We Stand For</span>
+          <h2>Our <em>values</em></h2>
+          <p>Everything we do is guided by three simple principles.</p>
         </div>
-        <div className="fd-pricing-grid">
-          <div className="fd-price-card animate-on-scroll">
-            <div className="fd-price-plan">Starter</div>
-            <div className="fd-price-amount">£5</div>
-            <div className="fd-price-per">per person · per day</div>
-            <ul className="fd-price-features">
-              {['Continental breakfast or lunch', 'Up to 20 people', 'Standard menu selection', '2 delivery slots/day', 'Email support'].map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-            <button className="fd-btn-plan outline" onClick={() => scrollTo('contact')}>Get Started</button>
+        <div className="fd-values-grid">
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-number">01</div>
+            <h3>Honest</h3>
+            <p>We say what we mean and mean what we say. Transparent pricing, straightforward communication, and no hidden surprises — ever.</p>
           </div>
-          <div className="fd-price-card popular animate-on-scroll">
-            <div className="fd-popular-badge">Most Popular</div>
-            <div className="fd-price-plan">Professional</div>
-            <div className="fd-price-amount">£9</div>
-            <div className="fd-price-per">per person · per day</div>
-            <ul className="fd-price-features">
-              {['Breakfast + Lunch + Afternoon Tea', 'Up to 100 people', 'Full menu + custom requests', 'Priority delivery', 'Dedicated account manager', 'Dietary accommodations'].map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-            <button className="fd-btn-plan filled" onClick={() => scrollTo('contact')}>Get Started</button>
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-number">02</div>
+            <h3>Hard Working</h3>
+            <p>Early mornings, fresh ingredients, on-time delivery — every single day. We show up and give our best regardless of the day or the order size.</p>
           </div>
-          <div className="fd-price-card animate-on-scroll">
-            <div className="fd-price-plan">Enterprise</div>
-            <div className="fd-price-amount">Custom</div>
-            <div className="fd-price-per">tailored to your needs</div>
-            <ul className="fd-price-features">
-              {['Bespoke menus designed for you', '100+ people', 'On-site chef option', 'Event & boardroom catering', '24/7 dedicated support', 'Monthly strategy reviews'].map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-            <button className="fd-btn-plan outline" onClick={() => scrollTo('contact')}>Contact Us</button>
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-number">03</div>
+            <h3>Authentic</h3>
+            <p>Real food made with care, from a team that genuinely loves what they do. No shortcuts, no compromise — just food we are proud to put our name on.</p>
           </div>
         </div>
       </section>

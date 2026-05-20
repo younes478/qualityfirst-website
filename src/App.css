@@ -259,42 +259,31 @@ body {
 .fd-why-card h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
 .fd-why-card p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.8; font-weight: 300; }
 
-/* ── PRICING ── */
-.fd-pricing { padding: 6rem 5%; background: var(--gray-soft); }
-.fd-pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-.fd-price-card {
+/* ── VALUES ── */
+.fd-values { padding: 6rem 5%; background: var(--gray-soft); }
+.fd-values-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem; max-width: 1000px; margin: 0 auto;
+}
+.fd-value-card {
   background: #fff; border-radius: var(--radius);
-  padding: 2.5rem 2rem; text-align: center;
+  padding: 2.5rem 2rem;
   border: 1px solid var(--gray-mid);
   transition: transform 0.2s, box-shadow 0.2s;
-  position: relative;
 }
-.fd-price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-.fd-price-card.popular { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(0,200,150,0.15); }
-.fd-popular-badge {
-  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-  background: var(--teal); color: #fff;
-  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.25rem 0.9rem; border-radius: var(--radius-pill);
+.fd-value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.fd-value-number {
+  font-family: var(--font-display); font-size: 3rem; font-weight: 400;
+  color: var(--teal-light); line-height: 1; margin-bottom: 1rem;
 }
-.fd-price-plan { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-text); margin-bottom: 0.75rem; }
-.fd-price-amount { font-family: var(--font-display); font-size: 3rem; font-weight: 500; color: var(--navy); line-height: 1; }
-.fd-price-per { font-size: 0.75rem; color: var(--gray-text); margin: 0.3rem 0 1.5rem; }
-.fd-price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
-.fd-price-features li {
-  font-size: 0.82rem; color: var(--gray-text); padding: 0.45rem 0;
-  border-bottom: 1px solid var(--gray-mid);
+.fd-value-card h3 {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 500;
+  color: var(--navy); margin-bottom: 0.75rem;
 }
-.fd-price-features li::before { content: '✓ '; color: var(--teal); font-weight: 600; }
-.fd-btn-plan {
-  width: 100%; padding: 0.75rem; border-radius: var(--radius-pill);
-  font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
-  cursor: pointer; transition: all 0.2s;
+.fd-value-card p {
+  font-size: 0.88rem; color: var(--gray-text);
+  line-height: 1.8; font-weight: 300;
 }
-.fd-btn-plan.outline { background: transparent; border: 1.5px solid var(--gray-mid); color: var(--navy); }
-.fd-btn-plan.outline:hover { border-color: var(--teal); color: var(--teal-dark); }
-.fd-btn-plan.filled { background: var(--teal); border: none; color: #fff; }
-.fd-btn-plan.filled:hover { background: var(--teal-dark); }
 
 /* ── CTA ── */
 .fd-cta {
@@ -364,7 +353,7 @@ body {
 }
 @media (max-width: 768px) {
   .fd-nav-links, .fd-nav .fd-btn-primary { display: none; }
-  .fd-steps-grid, .fd-pricing-grid { grid-template-columns: 1fr; }
+  .fd-steps-grid, .fd-values-grid { grid-template-columns: 1fr; }
   .fd-why-grid { grid-template-columns: 1fr; }
   .fd-menu-grid { grid-template-columns: 1fr; }
   .fd-footer-grid { grid-template-columns: 1fr 1fr; }
