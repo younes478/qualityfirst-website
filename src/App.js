@@ -137,13 +137,13 @@ function App() {
       <section className="fd-how">
         <div className="fd-section-header">
           <span className="fd-section-tag">How It Works</span>
-          <h2>Effortless from <em>start to finish</em></h2>
-          <p>We have designed a seamless experience so your team enjoys outstanding food without a moment of inconvenience.</p>
+          <h2>Simple as <em>1, 2, 3</em></h2>
+          <p>Getting fresh food to your office has never been easier.</p>
         </div>
         <div className="fd-steps-grid">
           {[
-            { num: 1, icon: '📋', title: 'Choose Your Plan', desc: 'Select the arrangement that suits your office size, schedule and budget. We offer flexible daily, weekly and monthly options.' },
-            { num: 2, icon: '🍽️', title: 'Curate Your Menu', desc: 'Browse our seasonally inspired menus and personalise your selection. We warmly accommodate all dietary requirements.' },
+            { num: 1, icon: '🍱', title: 'Choose Your Dishes', desc: 'Browse our freshly prepared selection and pick the dishes your team will love. We cater for all tastes and dietary requirements.' },
+            { num: 2, icon: '📋', title: 'Place Your Order', desc: 'Simply send us your order by 9:30am and we will take care of everything from there. Quick, easy and hassle-free.' },
             { num: 3, icon: '🚗', title: 'We Deliver', desc: 'Our team arrives punctually with everything beautifully packaged and ready to serve — no fuss, no disruption.' },
             { num: 4, icon: '😊', title: 'Your Team Enjoys', desc: 'Sit back and watch your team\'s day transform. Great food lifts morale, focus and energy in every workplace.' },
           ].map((step) => (
