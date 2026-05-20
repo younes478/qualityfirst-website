@@ -75,6 +75,7 @@ function App() {
         <ul className="fd-nav-links">
           <li><a href="#menu" onClick={(e) => smoothScroll(e, 'menu')}>Menu</a></li>
           <li><a href="#why" onClick={(e) => smoothScroll(e, 'why')}>Our Promise</a></li>
+          <li><a href="#values" onClick={(e) => smoothScroll(e, 'values')}>Values</a></li>
           <li><a href="#pricing" onClick={(e) => smoothScroll(e, 'pricing')}>Pricing</a></li>
           <li><a href="#contact" onClick={(e) => smoothScroll(e, 'contact')}>Contact</a></li>
         </ul>
@@ -178,37 +179,6 @@ function App() {
         </div>
       </section>
 
-      {/* PHOTO GALLERY */}
-      <section className="fd-gallery">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">A Glimpse of Our Kitchen</span>
-          <h2>Food prepared with <em>genuine care</em></h2>
-          <p>Every dish tells a story. Click any photo to explore the menu behind it.</p>
-        </div>
-        <div className="fd-gallery-grid">
-          <a href="#menu" onClick={(e) => { smoothScroll(e, 'menu'); setActiveTab('lunch'); }} className="fd-gallery-item fd-gallery-large">
-            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=85" alt="Fresh prepared dish" />
-            <div className="fd-gallery-overlay"><span>Lunch</span></div>
-          </a>
-          <a href="#menu" onClick={(e) => { smoothScroll(e, 'menu'); setActiveTab('breakfast'); }} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=85" alt="Breakfast bowl" />
-            <div className="fd-gallery-overlay"><span>Breakfast</span></div>
-          </a>
-          <a href="#menu" onClick={(e) => { smoothScroll(e, 'menu'); setActiveTab('lunch'); }} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Lunch dish" />
-            <div className="fd-gallery-overlay"><span>Lunch</span></div>
-          </a>
-          <a href="#menu" onClick={(e) => { smoothScroll(e, 'menu'); setActiveTab('tea'); }} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=85" alt="Afternoon tea" />
-            <div className="fd-gallery-overlay"><span>Afternoon Tea</span></div>
-          </a>
-          <a href="#menu" onClick={(e) => { smoothScroll(e, 'menu'); setActiveTab('breakfast'); }} className="fd-gallery-item">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85" alt="Fresh breakfast" />
-            <div className="fd-gallery-overlay"><span>Breakfast</span></div>
-          </a>
-        </div>
-      </section>
-
       {/* WHY US */}
       <section className="fd-why" id="why">
         <div className="fd-section-header">
@@ -248,6 +218,37 @@ function App() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="fd-values" id="values">
+        <div className="fd-section-header">
+          <span className="fd-section-tag">Our Values</span>
+          <h2>What we stand <em>for</em></h2>
+          <p>These are the principles that guide every meal we prepare and every relationship we build.</p>
+        </div>
+        <div className="fd-values-grid">
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-num">01</div>
+            <h3>Quality Without Compromise</h3>
+            <p>We source only the finest seasonal ingredients from trusted local producers. Every dish must meet the same standard we would set for our own table.</p>
+          </div>
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-num">02</div>
+            <h3>Respect for Wellbeing</h3>
+            <p>We believe food is a form of care. Our menus are designed to genuinely nourish — supporting energy, focus and the overall health of your team.</p>
+          </div>
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-num">03</div>
+            <h3>Reliability You Can Count On</h3>
+            <p>We understand that your working day depends on us. We show up on time, every time — and we take that responsibility seriously.</p>
+          </div>
+          <div className="fd-value-card animate-on-scroll">
+            <div className="fd-value-num">04</div>
+            <h3>Sustainability at Heart</h3>
+            <p>From reducing food waste to choosing ethical suppliers, we make decisions with the environment in mind — because we believe good business and good values go hand in hand.</p>
+          </div>
         </div>
       </section>
 
