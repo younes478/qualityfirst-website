@@ -51,7 +51,7 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 .fd-hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.2); border-radius: var(--radius-pill); padding: 6px 16px; margin-bottom: 1.5rem; font-size: 0.82rem; font-weight: 500; color: var(--teal); animation: fadeInUp 0.6s ease both; }
 .fd-badge-dot { display: inline-block; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;}50%{opacity:0.2;} }
-.fd-hero-text h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 800; line-height: 1.1; color: #fff; margin-bottom: 1.5rem; animation: fadeInUp 0.65s 0.1s ease both; }
+.fd-hero-text h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 600; line-height: 1.15; color: #fff; margin-bottom: 1.5rem; letter-spacing: -0.02em; animation: fadeInUp 0.65s 0.1s ease both; }
 .fd-hero-text h1 em { font-style: normal; color: var(--teal); }
 .fd-hero-text > p { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.85; animation: fadeInUp 0.65s 0.2s ease both; }
 .fd-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.65s 0.3s ease both; }
@@ -86,7 +86,7 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 .fd-testimonials { background: var(--gray-soft); }
 .fd-section-header { text-align: center; margin-bottom: 4rem; }
 .fd-section-tag { display: inline-block; background: var(--teal-light); color: var(--teal-dark); border-radius: var(--radius-pill); padding: 6px 18px; font-size: 0.78rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
-.fd-section-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+.fd-section-header h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
 .fd-section-header h2 em { font-style: normal; color: var(--teal); }
 .fd-section-header p { font-size: 1rem; color: var(--gray-text); max-width: 540px; margin: 0 auto; font-weight: 300; line-height: 1.8; }
 
@@ -96,7 +96,7 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 .fd-step-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
 .fd-step-num { width: 46px; height: 46px; border-radius: 50%; background: var(--teal); color: #fff; font-family: var(--font-display); font-size: 1rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
 .fd-step-icon { font-size: 2.2rem; margin-bottom: 0.9rem; }
-.fd-step-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.fd-step-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
 .fd-step-card p { font-size: 0.85rem; color: var(--gray-text); line-height: 1.7; font-weight: 300; }
 
 /* MENU TABS */
@@ -110,7 +110,7 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 .fd-food-card { background: #fff; border-radius: var(--radius); border: 1px solid var(--gray-mid); overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer; display: flex; flex-direction: column; }
 .fd-food-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
 .fd-food-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
-.fd-food-body h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+.fd-food-body h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
 .fd-food-body p { font-size: 0.85rem; color: var(--gray-text); margin-bottom: 1.25rem; line-height: 1.75; font-weight: 300; flex: 1; }
 .fd-food-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--gray-mid); margin-top: auto; }
 .fd-food-price { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--teal-dark); }
@@ -139,7 +139,7 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 .fd-feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 2rem; transition: all 0.3s; }
 .fd-feature-card:hover { background: rgba(0,200,150,0.07); border-color: rgba(0,200,150,0.18); transform: translateY(-4px); }
 .fd-feature-icon { font-size: 1.6rem; width: 52px; height: 52px; border-radius: var(--radius-sm); background: rgba(0,200,150,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
-.fd-feature-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+.fd-feature-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #fff; }
 .fd-feature-card p { font-size: 0.85rem; color: rgba(255,255,255,0.48); line-height: 1.8; font-weight: 300; }
 
 /* TESTIMONIALS */
@@ -161,8 +161,8 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 .fd-price-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
 .fd-price-card.popular { border-color: var(--teal); }
 .fd-popular-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--teal); color: #fff; border-radius: var(--radius-pill); padding: 4px 16px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
-.fd-price-plan { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; margin-bottom: 0.75rem; }
-.fd-price-amount { font-family: var(--font-display); font-size: 2.8rem; font-weight: 800; color: var(--teal-dark); line-height: 1; }
+.fd-price-plan { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+.fd-price-amount { font-family: var(--font-display); font-size: 2.8rem; font-weight: 600; color: var(--teal-dark); line-height: 1; }
 .fd-price-per { font-size: 0.78rem; color: var(--gray-text); margin: 4px 0 1.75rem; }
 .fd-price-features { list-style: none; margin-bottom: 2rem; text-align: left; }
 .fd-price-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; padding: 0.45rem 0; border-bottom: 1px solid var(--gray-mid); font-weight: 300; }
@@ -176,7 +176,7 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
 /* CTA */
 .fd-cta { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); padding: 6rem 5%; text-align: center; color: #fff; position: relative; overflow: hidden; }
 .fd-cta::before { content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: rgba(255,255,255,0.04); border-radius: 50%; }
-.fd-cta h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; margin-bottom: 1rem; }
+.fd-cta h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.02em; }
 .fd-cta > p { font-size: 1rem; opacity: 0.85; margin-bottom: 2.5rem; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8; }
 .fd-cta-form { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto 1rem; }
 .fd-cta-input { flex: 1; min-width: 200px; padding: 0.9rem 1.4rem; border: none; border-radius: var(--radius-pill); font-family: var(--font-body); font-size: 0.95rem; outline: none; }
@@ -220,4 +220,3 @@ body { font-family: var(--font-body); background: var(--white); color: var(--nav
   .fd-float-1, .fd-float-2 { display: none; }
   .fd-gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
 }
-
