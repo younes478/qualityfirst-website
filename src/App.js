@@ -70,10 +70,7 @@ function App() {
     { label: 'Our Promise', section: 'why' },
     { label: 'Values', section: 'values' },
   ];
-  const footerContactLinks = [
-    { label: 'hello@berkshireofficecatering.co.uk', href: 'mailto:hello@berkshireofficecatering.co.uk' },
-    { label: '0800 123 4567', href: 'tel:08001234567' },
-  ];
+
 
   const handleFooterMenuClick = (item) => {
     if (item.tab) setActiveTab(item.tab);
