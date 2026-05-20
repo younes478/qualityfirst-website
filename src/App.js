@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [activeTab, setActiveTab] = useState('breakfast');
   const [navScrolled, setNavScrolled] = useState(false);
+  const [showDietary, setShowDietary] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setNavScrolled(window.scrollY > 20);
@@ -64,7 +65,7 @@ function App() {
     { label: 'Breakfast', section: 'menu', tab: 'breakfast' },
     { label: 'Lunch', section: 'menu', tab: 'lunch' },
     { label: 'Afternoon Tea', section: 'menu', tab: 'tea' },
-    { label: 'Dietary Requirements', section: 'why' },
+    { label: 'Dietary Requirements', action: () => setShowDietary(true) },
   ];
   const footerCompanyLinks = [
     { label: 'Our Promise', section: 'why' },
@@ -73,6 +74,7 @@ function App() {
 
 
   const handleFooterMenuClick = (item) => {
+    if (item.action) { item.action(); return; }
     if (item.tab) setActiveTab(item.tab);
     scrollTo(item.section);
   };
@@ -289,9 +291,27 @@ function App() {
         </div>
       </footer>
 
+      {/* DIETARY MODAL */}
+      {showDietary && (
+        <div className="fd-modal-overlay" onClick={() => setShowDietary(false)}>
+          <div className="fd-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="fd-modal-close" onClick={() => setShowDietary(false)}>✕</button>
+            <div className="fd-modal-icon">🥗</div>
+            <h3>Dietary Requirements</h3>
+            <p>We warmly welcome all dietary needs and work hard to make sure every member of your team is catered for — no one goes without.</p>
+            <div className="fd-dietary-tags">
+              {['Vegan', 'Vegetarian', 'Gluten-Free', 'Halal', 'Kosher', 'Dairy-Free', 'Nut-Free', 'Low Calorie'].map(tag => (
+                <span key={tag} className="fd-dietary-tag">{tag}</span>
+              ))}
+            </div>
+            <p className="fd-modal-note">Simply let us know your team's requirements when placing your order and we'll take care of the rest. If you have a specific allergy or need not listed above, please get in touch directly.</p>
+            <a href="mailto:hello@berkshireofficecatering.co.uk" className="fd-modal-btn">Contact Us About Requirements</a>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
 
 export default App;
-
