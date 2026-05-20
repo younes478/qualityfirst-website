@@ -298,14 +298,7 @@ function App() {
             <button className="fd-modal-close" onClick={() => setShowDietary(false)}>✕</button>
             <div className="fd-modal-icon">🥗</div>
             <h3>Dietary Requirements</h3>
-            <p>We warmly welcome all dietary needs and work hard to make sure every member of your team is catered for — no one goes without.</p>
-            <div className="fd-dietary-tags">
-              {['Vegan', 'Vegetarian', 'Gluten-Free', 'Halal', 'Kosher', 'Dairy-Free', 'Nut-Free', 'Low Calorie'].map(tag => (
-                <span key={tag} className="fd-dietary-tag">{tag}</span>
-              ))}
-            </div>
-            <p className="fd-modal-note">Simply let us know your team's requirements when placing your order and we'll take care of the rest. If you have a specific allergy or need not listed above, please get in touch directly.</p>
-            <a href="mailto:hello@berkshireofficecatering.co.uk" className="fd-modal-btn">Contact Us About Requirements</a>
+            <p>We warmly welcome all dietary needs and work hard to make sure every member of your team is catered for — no one goes without. Simply let us know your team's requirements and we'll reply to your request. If you have a specific allergy, please get in touch directly.</p>
           </div>
         </div>
       )}
@@ -315,3 +308,4 @@ function App() {
 }
 
 export default App;
+
