@@ -34,33 +34,27 @@ function App() {
       { title: 'Smashed Avocado & Poached Eggs', desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
       { title: 'Seasonal Fruit & Granola Bowl', desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.', price: 'from £5.50 per person', badge: 'Vegan', badgeClass: '' },
       { title: 'Smoked Salmon Bagel', desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.', price: 'from £8.00 per person', badge: 'Premium', badgeClass: 'amber' },
-      { title: 'Continental Pastry Basket', desc: 'Warm croissants, pain au chocolat, assorted pastries with artisan jams, butter and fresh orange juice.', price: 'from £6.00 per person', badge: 'Crowd Pleaser', badgeClass: 'coral' },
+      { title: 'Continental Pastry Basket', desc: 'Warm croissants, pain au chocolat, assorted pastries with artisan jams, butter and fresh orange juice.', price: 'from £6.00 per person', badge: 'Bestseller', badgeClass: '' },
     ],
     lunch: [
-      { title: 'The Garden Bowl', desc: 'Quinoa, roasted chickpeas, cucumber, heritage tomatoes, feta and a zingy lemon tahini dressing.', price: 'from £8.50 per person', badge: 'Vegetarian', badgeClass: '' },
-      { title: 'Slow-Roasted Chicken Wrap', desc: 'Free-range chicken, romaine, smoked cheese, house-made Caesar dressing in a toasted flatbread.', price: 'from £9.00 per person', badge: 'Bestseller', badgeClass: 'amber' },
-      { title: 'Mezze Sharing Platter', desc: 'Hummus, baba ganoush, falafel, warm pitta, tabbouleh and mixed olives — perfect for communal dining.', price: 'from £10.00 per person', badge: 'Sharing', badgeClass: '' },
-      { title: 'Classic Club Sandwich', desc: 'Triple-decker with smoked turkey, crispy bacon, vine tomatoes, lettuce and house mayo on toasted white.', price: 'from £7.50 per person', badge: 'Classic', badgeClass: 'coral' },
+      { title: 'The Garden Bowl', desc: 'Quinoa, roasted chickpeas, charred courgette, lemon tahini dressing and toasted seeds.', price: 'from £8.50 per person', badge: 'Vegan', badgeClass: '' },
+      { title: 'Grilled Chicken Caesar Wrap', desc: 'Free-range chicken, cos lettuce, shaved parmesan, house Caesar dressing in a soft flour tortilla.', price: 'from £7.50 per person', badge: 'Bestseller', badgeClass: '' },
+      { title: 'Slow-Roasted Salmon Platter', desc: 'Scottish salmon, new potatoes, tender stem broccoli, lemon butter sauce and micro herbs.', price: 'from £11.00 per person', badge: 'Premium', badgeClass: 'amber' },
+      { title: 'Middle Eastern Mezze', desc: 'Hummus, baba ganoush, warm flatbreads, falafel, tabbouleh and roasted red peppers.', price: 'from £9.00 per person', badge: 'Vegan', badgeClass: '' },
     ],
     tea: [
-      { title: 'Traditional Afternoon Tea', desc: 'Finger sandwiches, warm scones with clotted cream and jam, petit fours and a selection of fine teas.', price: 'from £14.00 per person', badge: 'Signature', badgeClass: '' },
-      { title: 'Patisserie Selection', desc: 'Rotating seasonal éclairs, tarts and macarons crafted fresh each morning by our in-house patissier.', price: 'from £9.00 per person', badge: 'Artisan', badgeClass: 'amber' },
-      { title: 'Savoury Afternoon Bites', desc: 'Mini quiches, cheese straws, blinis with smoked salmon — ideal for working afternoon meetings.', price: 'from £8.00 per person', badge: 'Popular', badgeClass: '' },
-      { title: 'Mini Victoria Sponge Cakes', desc: 'Delicate sponge layered with softly whipped cream and raspberry jam, finished with icing sugar.', price: 'from £5.00 per person', badge: 'Indulgent', badgeClass: 'coral' },
+      { title: 'Classic Afternoon Tea', desc: 'Finger sandwiches, freshly baked scones with clotted cream and jam, a selection of patisserie and fine teas.', price: 'from £14.00 per person', badge: 'Signature', badgeClass: '' },
+      { title: 'Seasonal Cake & Coffee', desc: 'Three rotating homemade cakes, biscuits, specialty filter coffee and a full range of teas and herbal infusions.', price: 'from £6.50 per person', badge: 'Popular', badgeClass: '' },
+      { title: 'Mini Dessert Platter', desc: 'Assorted mini tarts, macarons, chocolate truffles and petit fours — ideal for meetings and presentations.', price: 'from £8.00 per person', badge: 'Bestseller', badgeClass: '' },
+      { title: 'Healthy Snack Box', desc: 'Seasonal fruit skewers, energy balls, mixed nuts, yoghurt pots and fresh juices to keep the team fuelled.', price: 'from £5.00 per person', badge: 'Vegan', badgeClass: '' },
     ],
   };
 
-  const tabs = [
-    { key: 'breakfast', icon: '🌅', label: 'Breakfast' },
-    { key: 'lunch', icon: '☀️', label: 'Lunch' },
-    { key: 'tea', icon: '🍵', label: 'Afternoon Tea' },
-  ];
-
   const whyItems = [
-    { icon: '🌱', title: 'Sourced Fresh Every Morning', desc: 'We partner with local Berkshire farms and suppliers to ensure every ingredient is seasonal, traceable and at its very best.' },
-    { icon: '⚡', title: 'Punctual. Always.', desc: "Reliable, on-time delivery is a promise we take seriously. Your team's day runs to a schedule, and so do we." },
+    { icon: '🌿', title: 'Sourced Fresh Daily', desc: 'Every ingredient is sourced each morning from trusted local suppliers. We never compromise on quality.' },
+    { icon: '⚡', title: 'Punctual. Always.', desc: 'Reliable, on-time delivery is a promise we take seriously. Your team\'s day runs to a schedule, and so do we.' },
     { icon: '👨‍🍳', title: 'A Team of Accomplished Chefs', desc: 'Our culinary team brings professional kitchen expertise and genuine passion to every dish we prepare for your office.' },
-    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: "Our menus are designed with your team's wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day." },
+    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: 'Our menus are designed with your team\'s wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day.' },
     { icon: '🎯', title: 'Tailored to Your Team', desc: 'Every dietary requirement is welcomed — vegan, halal, kosher, gluten-free and everything in between.' },
     { icon: '💬', title: 'Your Dedicated Account Manager', desc: 'A single, knowledgeable point of contact who understands your office culture, your preferences and your standards.' },
   ];
@@ -92,7 +86,10 @@ function App() {
 
       {/* NAV */}
       <nav className={`fd-nav ${navScrolled ? 'scrolled' : ''}`}>
-        <a href="#top" className="fd-logo">Berkshire <span>Office Catering</span></a>
+        <div className="fd-logo-block">
+          <a href="#top" className="fd-logo">Berkshire <span>Office Catering</span></a>
+          <p className="fd-logo-tagline">Fresh · Delicious · Quality</p>
+        </div>
         <ul className="fd-nav-links">
           <li><a href="#menu">Menu</a></li>
           <li><a href="#why">Our Promise</a></li>
@@ -150,14 +147,14 @@ function App() {
           {[
             { num: 1, icon: '📋', title: 'Choose Your Plan', desc: 'Select the arrangement that suits your office size, schedule and budget. We offer flexible daily, weekly and monthly options.' },
             { num: 2, icon: '🍽️', title: 'Curate Your Menu', desc: 'Browse our seasonally inspired menus and personalise your selection. We warmly accommodate all dietary requirements.' },
-            { num: 3, icon: '👨‍🍳', title: 'We Prepare with Care', desc: 'Our chefs rise early to prepare everything fresh that morning, using locally sourced, seasonal produce of the finest quality.' },
-            { num: 4, icon: '🚚', title: 'Delivered to Your Door', desc: 'Hot, beautifully presented food arrives at your office at precisely the time you need it. Every time, without fail.' },
-          ].map((s) => (
-            <div className="fd-step animate-on-scroll" key={s.num}>
-              <div className="fd-step-num">{s.num}</div>
-              <div className="fd-step-icon">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
+            { num: 3, icon: '🚗', title: 'We Deliver', desc: 'Our team arrives punctually with everything beautifully packaged and ready to serve — no fuss, no disruption.' },
+            { num: 4, icon: '😊', title: 'Your Team Enjoys', desc: 'Sit back and watch your team\'s day transform. Great food lifts morale, focus and energy in every workplace.' },
+          ].map((step) => (
+            <div className="fd-step animate-on-scroll" key={step.num}>
+              <div className="fd-step-num">{step.num}</div>
+              <div className="fd-step-icon">{step.icon}</div>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
             </div>
           ))}
         </div>
@@ -167,11 +164,15 @@ function App() {
       <section className="fd-menu" id="menu">
         <div className="fd-section-header">
           <span className="fd-section-tag">Our Menu</span>
-          <h2>Crafted for every <em>moment of the day</em></h2>
-          <p>Three distinct services, each prepared with the same commitment to quality, freshness and care.</p>
+          <h2>Crafted with <em>genuine care</em></h2>
+          <p>Seasonal menus designed by our chefs and refreshed regularly to keep your team inspired.</p>
         </div>
         <div className="fd-tabs">
-          {tabs.map((tab) => (
+          {[
+            { key: 'breakfast', label: 'Breakfast', icon: '🌅' },
+            { key: 'lunch', label: 'Lunch', icon: '☀️' },
+            { key: 'tea', label: 'Afternoon Tea', icon: '🍵' },
+          ].map((tab) => (
             <button
               key={tab.key}
               className={`fd-tab ${activeTab === tab.key ? 'active' : ''}`}
@@ -197,14 +198,12 @@ function App() {
         </div>
       </section>
 
-
-
       {/* WHY US */}
       <section className="fd-why" id="why">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">Our Promise</span>
+        <div className="fd-section-header light">
+          <span className="fd-section-tag light">Our Promise</span>
           <h2>Why offices choose <em>us</em></h2>
-          <p>We hold ourselves to an exceptionally high standard — because your team deserves nothing less.</p>
+          <p>We bring together exceptional food, reliable service and genuine care — every single day.</p>
         </div>
         <div className="fd-why-grid">
           {whyItems.map((item, i) => (
@@ -217,14 +216,12 @@ function App() {
         </div>
       </section>
 
-
-
       {/* PRICING */}
       <section className="fd-pricing" id="pricing">
         <div className="fd-section-header">
           <span className="fd-section-tag">Pricing</span>
-          <h2>Simple, transparent <em>pricing</em></h2>
-          <p>No hidden fees. No complicated contracts. Just great food at a fair price.</p>
+          <h2>Simple, <em>transparent pricing</em></h2>
+          <p>No complicated contracts. Just great food at a fair price.</p>
         </div>
         <div className="fd-pricing-grid">
           <div className="fd-price-card animate-on-scroll">
@@ -327,4 +324,3 @@ function App() {
 }
 
 export default App;
-
