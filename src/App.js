@@ -1,311 +1,193 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
-  const [activeTab, setActiveTab] = useState('breakfast');
-  const [navScrolled, setNavScrolled] = useState(false);
-  const [showDietary, setShowDietary] = useState(false);
+const TERMINAL_LINES = [
+  { label: 'QA Experience', value: '8+ years', status: 'pass' },
+  { label: 'Manual Testing', value: 'expert', status: 'pass' },
+  { label: 'Test Automation (Cypress)', value: 'configured', status: 'pass' },
+  { label: 'Performance Testing (JMeter)', value: 'configured', status: 'pass' },
+  { label: 'API Test Coverage', value: '96%', status: 'pass' },
+  { label: 'Untested edge cases', value: '0 remaining', status: 'pass' },
+];
+
+function TerminalPanel() {
+  const [visibleLines, setVisibleLines] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setNavScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [activeTab]);
-
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const menuData = {
-    breakfast: [
-      { title: 'Smashed Avocado & Poached Eggs', desc: 'Stone-baked sourdough, ripe avocado, two free-range poached eggs, chilli flakes and micro herbs.', price: 'from £7.50 per person', badge: 'Signature', badgeClass: '' },
-      { title: 'Seasonal Fruit & Granola Bowl', desc: 'House-made granola, creamy Greek yoghurt, fresh seasonal berries and a drizzle of raw honey.', price: 'from £5.50 per person', badge: 'Vegan', badgeClass: '' },
-      { title: 'Smoked Salmon Bagel', desc: 'Toasted sesame bagel, whipped cream cheese, hand-sliced smoked salmon, capers and fresh lemon.', price: 'from £8.00 per person', badge: 'Premium', badgeClass: 'amber' },
-      { title: 'Continental Pastry Basket', desc: 'Warm croissants, pain au chocolat, assorted pastries with artisan jams, butter and fresh orange juice.', price: 'from £6.00 per person', badge: 'Bestseller', badgeClass: '' },
-    ],
-    lunch: [
-      { title: 'The Garden Bowl', desc: 'Quinoa, roasted chickpeas, charred courgette, lemon tahini dressing and toasted seeds.', price: 'from £8.50 per person', badge: 'Vegan', badgeClass: '' },
-      { title: 'Grilled Chicken Caesar Wrap', desc: 'Free-range chicken, cos lettuce, shaved parmesan, house Caesar dressing in a soft flour tortilla.', price: 'from £7.50 per person', badge: 'Bestseller', badgeClass: '' },
-      { title: 'Slow-Roasted Salmon Platter', desc: 'Scottish salmon, new potatoes, tender stem broccoli, lemon butter sauce and micro herbs.', price: 'from £11.00 per person', badge: 'Premium', badgeClass: 'amber' },
-      { title: 'Middle Eastern Mezze', desc: 'Hummus, baba ganoush, warm flatbreads, falafel, tabbouleh and roasted red peppers.', price: 'from £9.00 per person', badge: 'Vegan', badgeClass: '' },
-    ],
-    tea: [
-      { title: 'Classic Afternoon Tea', desc: 'Finger sandwiches, freshly baked scones with clotted cream and jam, a selection of patisserie and fine teas.', price: 'from £14.00 per person', badge: 'Signature', badgeClass: '' },
-      { title: 'Seasonal Cake & Coffee', desc: 'Three rotating homemade cakes, biscuits, specialty filter coffee and a full range of teas and herbal infusions.', price: 'from £6.50 per person', badge: 'Popular', badgeClass: '' },
-      { title: 'Mini Dessert Platter', desc: 'Assorted mini tarts, macarons, chocolate truffles and petit fours — ideal for meetings and presentations.', price: 'from £8.00 per person', badge: 'Bestseller', badgeClass: '' },
-      { title: 'Healthy Snack Box', desc: 'Seasonal fruit skewers, energy balls, mixed nuts, yoghurt pots and fresh juices to keep the team fuelled.', price: 'from £5.00 per person', badge: 'Vegan', badgeClass: '' },
-    ],
-  };
-
-  const whyItems = [
-    { icon: '🌿', title: 'Sourced Fresh Daily', desc: 'Every ingredient is sourced each morning from trusted local suppliers. We never compromise on quality.' },
-    { icon: '⚡', title: 'Punctual. Always.', desc: 'Reliable, on-time delivery is a promise we take seriously. Your team\'s day runs to a schedule, and so do we.' },
-    { icon: '👨‍🍳', title: 'A Team of Accomplished Chefs', desc: 'Our culinary team brings professional kitchen expertise and genuine passion to every dish we prepare for your office.' },
-    { icon: '🥦', title: 'Thoughtfully Nourishing', desc: 'Our menus are designed with your team\'s wellbeing in mind — balanced, vibrant and crafted to sustain energy throughout the day.' },
-    { icon: '🎯', title: 'Tailored to Your Team', desc: 'Every dietary requirement is welcomed — vegan, halal, kosher, gluten-free and everything in between.' },
-    { icon: '💬', title: 'Your Dedicated Account Manager', desc: 'A single, knowledgeable point of contact who understands your office culture, your preferences and your standards.' },
-  ];
-
-  // Footer link mapping to section IDs
-  const footerMenuLinks = [
-    { label: 'Breakfast', section: 'menu', tab: 'breakfast' },
-    { label: 'Lunch', section: 'menu', tab: 'lunch' },
-    { label: 'Afternoon Tea', section: 'menu', tab: 'tea' },
-    { label: 'Dietary Requirements', action: () => setShowDietary(true) },
-  ];
-  const footerCompanyLinks = [
-    { label: 'Our Promise', section: 'why' },
-    { label: 'Values', section: 'values' },
-  ];
-
-
-  const handleFooterMenuClick = (item) => {
-    if (item.action) { item.action(); return; }
-    if (item.tab) setActiveTab(item.tab);
-    scrollTo(item.section);
-  };
+    if (visibleLines >= TERMINAL_LINES.length) return;
+    const t = setTimeout(() => setVisibleLines((v) => v + 1), 420);
+    return () => clearTimeout(t);
+  }, [visibleLines]);
 
   return (
-    <div className="fd-container">
-
-      {/* NAV */}
-      <nav className={`fd-nav ${navScrolled ? 'scrolled' : ''}`}>
-        <div className="fd-logo-block">
-          <a href="#top" className="fd-logo">Berkshire <span>Office Catering</span></a>
-          <p className="fd-logo-tagline">Fresh · Delicious · Quality</p>
-        </div>
-        <ul className="fd-nav-links">
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#why">Our Promise</a></li>
-          <li><a href="#values">Values</a></li>
-        </ul>
-      </nav>
-
-      {/* HERO */}
-      <section className="fd-hero" id="top">
-        <div className="fd-hero-text">
-          <div className="fd-hero-badge">
-            <span className="fd-badge-dot"></span>
-            Proudly serving Berkshire and the surrounding counties
-          </div>
-          <h1>
-            Exceptional catering<br />for the modern<br /><em>workplace</em>
-          </h1>
-          <p>We believe that great food transforms the working day. From sunrise breakfasts to elegant afternoon teas, we bring freshly prepared, beautifully presented meals directly to your office — each and every day.</p>
-          <div className="fd-hero-actions">
-            <a href="#menu" className="fd-btn-primary">Explore Our Menu</a>
-            <button className="fd-btn-outline" onClick={() => scrollTo('footer-contact')}>Speak With Us</button>
-          </div>
-        </div>
-        <div className="fd-hero-visual">
-          <div className="fd-hero-card">
-            <div className="fd-hero-card-label">Featured Dish</div>
-            <h3>The Garden Bowl</h3>
-            <p>Quinoa, roasted chickpeas and lemon tahini</p>
-            <div className="fd-card-meta">
-              <span className="fd-card-rating">★★★★★</span>
-              <span className="fd-card-tag">Nourishing</span>
-            </div>
-          </div>
-          <div className="fd-float fd-float-1">
-            <span>🚀</span>
-            <div><strong>Always On Time</strong><small>Delivered fresh each morning</small></div>
-          </div>
-          <div className="fd-float fd-float-2">
-            <span>🌿</span>
-            <div><strong>Truly Fresh</strong><small>Sourced each morning</small></div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="fd-how">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">How It Works</span>
-          <h2>Simple as <em>1, 2, 3</em></h2>
-          <p>Getting fresh food to your office has never been easier.</p>
-        </div>
-        <div className="fd-steps-grid">
-          {[
-            { num: 1, icon: '🍱', title: 'Choose Your Dishes', desc: 'Browse our freshly prepared selection and pick the dishes your team will love. We cater for all tastes and dietary requirements.' },
-            { num: 2, icon: '📋', title: 'Place Your Order', desc: 'Simply send us your order by 9:30am and we will take care of everything from there. Quick, easy and hassle-free.' },
-            { num: 3, icon: '🚗', title: 'We Deliver', desc: 'Our team arrives punctually with everything beautifully packaged and ready to serve — no fuss, no disruption.' },
-            { num: 4, icon: '😊', title: 'Your Team Enjoys', desc: 'Sit back and watch your team\'s day transform. Great food lifts morale, focus and energy in every workplace.' },
-          ].map((step) => (
-            <div className="fd-step animate-on-scroll" key={step.num}>
-              <div className="fd-step-num">{step.num}</div>
-              <div className="fd-step-icon">{step.icon}</div>
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* MENU */}
-      <section className="fd-menu" id="menu">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">Our Menu</span>
-          <h2>Crafted with <em>genuine care</em></h2>
-          <p>Seasonal menus designed by our chefs and refreshed regularly to keep your team inspired.</p>
-        </div>
-        <div className="fd-tabs">
-          {[
-            { key: 'breakfast', label: 'Breakfast', icon: '🌅' },
-            { key: 'lunch', label: 'Lunch', icon: '☀️' },
-            { key: 'tea', label: 'Afternoon Tea', icon: '🍵' },
-          ].map((tab) => (
-            <button
-              key={tab.key}
-              className={`fd-tab ${activeTab === tab.key ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.key)}
-            >
-              <span>{tab.icon}</span> {tab.label}
-            </button>
-          ))}
-        </div>
-        <div className="fd-menu-grid">
-          {menuData[activeTab].map((item, i) => (
-            <div className="fd-food-card animate-on-scroll" key={i}>
-              <div className="fd-food-body">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <div className="fd-food-footer">
-                  <span className="fd-food-price">{item.price}</span>
-                  <span className={`fd-food-badge ${item.badgeClass}`}>{item.badge}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WHY US */}
-      <section className="fd-why" id="why">
-        <div className="fd-section-header light">
-          <span className="fd-section-tag light">Our Promise</span>
-          <h2>Why offices choose <em>us</em></h2>
-          <p>We bring together exceptional food, reliable service and genuine care — every single day.</p>
-        </div>
-        <div className="fd-why-grid">
-          {whyItems.map((item, i) => (
-            <div className="fd-why-card animate-on-scroll" key={i}>
-              <div className="fd-why-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section className="fd-values" id="values">
-        <div className="fd-section-header">
-          <span className="fd-section-tag">What We Stand For</span>
-          <h2>Our <em>values</em></h2>
-          <p>Everything we do is guided by three simple principles.</p>
-        </div>
-        <div className="fd-values-grid">
-          <div className="fd-value-card animate-on-scroll">
-            <div className="fd-value-number">01</div>
-            <h3>Honest</h3>
-            <p>We say what we mean and mean what we say. Transparent pricing, straightforward communication, and no hidden surprises — ever.</p>
-          </div>
-          <div className="fd-value-card animate-on-scroll">
-            <div className="fd-value-number">02</div>
-            <h3>Hard Working</h3>
-            <p>Early mornings, fresh ingredients, on-time delivery — every single day. We show up and give our best regardless of the day or the order size.</p>
-          </div>
-          <div className="fd-value-card animate-on-scroll">
-            <div className="fd-value-number">03</div>
-            <h3>Authentic</h3>
-            <p>Real food made with care, from a team that genuinely loves what they do. No shortcuts, no compromise — just food we are proud to put our name on.</p>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* FOOTER */}
-      <footer className="fd-footer">
-        <div className="fd-footer-grid">
-          <div className="fd-footer-brand">
-            <span className="fd-logo">Berkshire <span>Office Catering</span></span>
-            <p>Berkshire's premier office catering service — delivering fresh, thoughtfully prepared food to the modern workplace, every single day.</p>
-          </div>
-          <div className="fd-footer-col">
-            <h4>Our Menu</h4>
-            <ul>
-              {footerMenuLinks.map((item) => (
-                <li key={item.label}>
-                  <button className="fd-footer-link" onClick={() => handleFooterMenuClick(item)}>{item.label}</button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="fd-footer-col">
-            <h4>The Company</h4>
-            <ul>
-              {footerCompanyLinks.map((item) => (
-                <li key={item.label}>
-                  <button className="fd-footer-link" onClick={() => scrollTo(item.section)}>{item.label}</button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="fd-footer-col" id="footer-contact">
-            <h4>Get in Touch</h4>
-            <ul>
-              <li>
-                <div className="fd-footer-contact-item">
-                  <span className="fd-footer-contact-icon">✉</span>
-                  <a className="fd-footer-link" href="mailto:hello@berkshireofficecatering.co.uk">hello@berkshireofficecatering.co.uk</a>
-                </div>
-              </li>
-              <li>
-                <div className="fd-footer-contact-item">
-                  <span className="fd-footer-contact-icon">☎</span>
-                  <a className="fd-footer-link" href="tel:08001234567">0800 123 4567</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="fd-footer-bottom">
-          <span>© 2026 Berkshire Office Catering Ltd. All rights reserved.</span>
-          <span>Crafted with care in Berkshire</span>
-        </div>
-      </footer>
-
-      {/* DIETARY MODAL */}
-      {showDietary && (
-        <div className="fd-modal-overlay" onClick={() => setShowDietary(false)}>
-          <div className="fd-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="fd-modal-close" onClick={() => setShowDietary(false)}>✕</button>
-            <div className="fd-modal-icon">🥗</div>
-            <h3>Dietary Requirements</h3>
-            <p>We warmly welcome all dietary needs and work hard to make sure every member of your team is catered for — no one goes without. Simply let us know your team's requirements and we'll reply to your request. If you have a specific allergy, please get in touch directly.</p>
-          </div>
-        </div>
-      )}
-
+    <div className="terminal" role="img" aria-label="Simulated QA test suite, all checks passing">
+      <div className="terminal-bar">
+        <span className="dot dot-red" />
+        <span className="dot dot-amber" />
+        <span className="dot dot-green" />
+        <span className="terminal-title">qa-consultation-suite.spec</span>
+      </div>
+      <div className="terminal-body">
+        <p className="terminal-cmd">$ run --suite=quality-first --consultant=younes</p>
+        {TERMINAL_LINES.slice(0, visibleLines).map((line, i) => (
+          <p className="terminal-line" key={i}>
+            <span className={`badge badge-${line.status}`}>
+              {line.status === 'pass' ? 'PASS' : 'FAIL'}
+            </span>
+            <span className="terminal-label">{line.label}</span>
+            <span className="terminal-value">{line.value}</span>
+          </p>
+        ))}
+        {visibleLines >= TERMINAL_LINES.length && (
+          <p className="terminal-summary">6 passed, 0 failed — suite ready for client engagement</p>
+        )}
+      </div>
     </div>
   );
 }
 
-export default App;
+function QualityFirstWebsite() {
+  return (
+    <div className="container">
+      <header className="header">
+        <div className="logo-container">
+          <div className="logo-mark">QF</div>
+          <div>
+            <h1 className="company-name">QualityFirst</h1>
+            <p className="tagline">QA Consultation, backed by 8+ years in the field</p>
+          </div>
+        </div>
+        <nav className="nav">
+          <a href="#services">Services</a>
+          <a href="#about">Experience</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
+      <section className="hero">
+        <div className="hero-copy">
+          <span className="eyebrow">QA Consultation</span>
+          <h2>
+            Quality problems are cheaper to catch<br />before your users find them.
+          </h2>
+          <p>
+            I've spent 8+ years inside QA teams and independent engagements — manual
+            testing, Cypress automation, JMeter performance work, and API validation —
+            so you get a second pair of eyes that already knows where software breaks.
+          </p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn btn-primary">Book a consultation</a>
+            <a href="#services" className="btn btn-ghost">See what I test</a>
+          </div>
+        </div>
+        <TerminalPanel />
+      </section>
+
+      <section className="stats">
+        <div className="stat">
+          <span className="stat-number">8+</span>
+          <span className="stat-label">Years in QA</span>
+        </div>
+        <div className="stat">
+          <span className="stat-number">Cypress</span>
+          <span className="stat-label">Automation & API testing</span>
+        </div>
+        <div className="stat">
+          <span className="stat-number">JMeter</span>
+          <span className="stat-label">Performance testing</span>
+        </div>
+        <div className="stat">
+          <span className="stat-number">EN·FR·AR</span>
+          <span className="stat-label">Client communication</span>
+        </div>
+      </section>
+
+      <section id="services" className="services">
+        <span className="eyebrow">Services</span>
+        <h3>QA consultation, scoped to what you actually need</h3>
+        <div className="card-grid">
+          <div className="card">
+            <h4>Test Strategy Consulting</h4>
+            <p>An outside audit of your current test coverage, risk areas, and where
+              manual effort should give way to automation.</p>
+          </div>
+          <div className="card">
+            <h4>Manual Testing</h4>
+            <p>Structured exploratory and scripted testing for web and API products,
+              with clear, reproducible bug reports.</p>
+          </div>
+          <div className="card">
+            <h4>Test Automation (Cypress)</h4>
+            <p>End-to-end and API test suites built to survive real product changes,
+              not just pass on day one.</p>
+          </div>
+          <div className="card">
+            <h4>Performance Testing (JMeter)</h4>
+            <p>Load and stress testing to find the ceiling before your users do,
+              with plain-language reporting for stakeholders.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="about">
+        <span className="eyebrow">Experience</span>
+        <h3>8+ years finding what breaks, before release</h3>
+        <p className="about-body">
+          I work as an independent QA consultant after years testing production systems
+          — data aggregation pipelines, financial reporting tools, and customer-facing
+          applications. That background means I'm not just running scripts; I'm asking
+          whether the numbers, the states, and the edge cases actually hold up under
+          real conditions.
+        </p>
+        <ul className="about-list">
+          <li>Manual & exploratory testing across web and API products</li>
+          <li>Cypress automation for regression and API test suites</li>
+          <li>JMeter performance and load testing</li>
+          <li>Data integrity and aggregation validation</li>
+          <li>Clear, client-facing test reporting — no jargon, no ambiguity</li>
+        </ul>
+      </section>
+
+      <section id="process" className="process">
+        <span className="eyebrow">Process</span>
+        <h3>How an engagement runs</h3>
+        <div className="process-grid">
+          <div className="process-step">
+            <span className="process-label">Scope</span>
+            <p>A short call to understand your product, release cadence, and where quality is slipping.</p>
+          </div>
+          <div className="process-step">
+            <span className="process-label">Test</span>
+            <p>Manual passes, automated suites, or performance runs — built around what you actually need covered.</p>
+          </div>
+          <div className="process-step">
+            <span className="process-label">Report</span>
+            <p>Findings delivered in plain language, prioritized by risk, with reproducible steps for every issue.</p>
+          </div>
+          <div className="process-step">
+            <span className="process-label">Handoff</span>
+            <p>Test suites and documentation left in a state your team can run and extend without me.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="contact">
+        <span className="eyebrow">Contact</span>
+        <h3>Start with a consultation</h3>
+        <div className="contact-grid">
+          <p>→ qualityfirst.test@gmail.com</p>
+          <p>→ 016665 304410</p>
+          <p>→ Evening availability, GMT</p>
+        </div>
+        <a href="mailto:qualityfirst.test@gmail.com" className="btn btn-primary">Email me</a>
+      </section>
+
+      <footer className="footer">
+        <p>&copy; 2026 QualityFirst — QA Consultation. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
+
+export default QualityFirstWebsite;
