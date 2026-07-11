@@ -1,193 +1,587 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const TERMINAL_LINES = [
-  { label: 'QA Experience', value: '8+ years', status: 'pass' },
-  { label: 'Manual Testing', value: 'expert', status: 'pass' },
-  { label: 'Test Automation (Cypress)', value: 'configured', status: 'pass' },
-  { label: 'Performance Testing (JMeter)', value: 'configured', status: 'pass' },
-  { label: 'API Test Coverage', value: '96%', status: 'pass' },
-  { label: 'Untested edge cases', value: '0 remaining', status: 'pass' },
+/* ============================================================
+   ADVERTISEMENTS — edit this list to add/update listings.
+   country: 'dz' or 'uk'
+============================================================ */
+const ads = [
+  {
+    country: 'dz',
+    category: { en: 'Food & Beverage', fr: 'Agroalimentaire', ar: 'أغذية ومشروبات' },
+    title: { en: 'Cooperative seeking UK date distributor', fr: 'Coopérative cherche distributeur de dattes au UK', ar: 'تعاونية تبحث عن موزع تمور في بريطانيا' },
+    body: {
+      en: 'Established Biskra cooperative looking to place premium Deglet Nour with a UK wholesale partner.',
+      fr: 'Coopérative établie à Biskra cherchant un partenaire grossiste au Royaume-Uni pour ses dattes Deglet Nour premium.',
+      ar: 'تعاونية راسخة في بسكرة تبحث عن شريك جملة في بريطانيا لتوزيع دقلة نور الفاخرة.'
+    }
+  },
+  {
+    country: 'uk',
+    category: { en: 'Retail & Wholesale', fr: 'Commerce & Gros', ar: 'تجزئة وجملة' },
+    title: { en: 'UK grocery chain seeking Algerian suppliers', fr: 'Chaîne d\u2019épicerie UK cherche fournisseurs algériens', ar: 'سلسلة بقالة بريطانية تبحث عن موردين جزائريين' },
+    body: {
+      en: 'Regional UK grocery group open to new supplier relationships for produce and dairy.',
+      fr: 'Groupe d\u2019épicerie régional britannique ouvert à de nouveaux fournisseurs de produits et laitiers.',
+      ar: 'مجموعة بقالة إقليمية بريطانية منفتحة على علاقات جديدة مع موردي المنتجات والألبان.'
+    }
+  },
+  {
+    country: 'dz',
+    category: { en: 'Services', fr: 'Services', ar: 'خدمات' },
+    title: { en: 'Algiers consulting firm open to UK partnerships', fr: 'Cabinet de conseil à Alger ouvert à des partenariats UK', ar: 'مكتب استشارات في الجزائر العاصمة منفتح على شراكات بريطانية' },
+    body: {
+      en: 'Business consulting firm in Algiers seeking UK partners for joint client work.',
+      fr: 'Cabinet de conseil à Alger cherchant des partenaires britanniques pour des missions communes.',
+      ar: 'مكتب استشارات أعمال في الجزائر العاصمة يبحث عن شركاء بريطانيين لمشاريع مشتركة.'
+    }
+  },
+  {
+    country: 'uk',
+    category: { en: 'Investment', fr: 'Investissement', ar: 'استثمار' },
+    title: { en: 'UK investor exploring Algerian opportunities', fr: 'Investisseur UK explore des opportunités en Algérie', ar: 'مستثمر بريطاني يستكشف فرصاً في الجزائر' },
+    body: {
+      en: 'Private investor looking for introductions to growing Algerian businesses across sectors.',
+      fr: 'Investisseur privé cherchant des mises en relation avec des entreprises algériennes en croissance.',
+      ar: 'مستثمر خاص يبحث عن تعارف مع شركات جزائرية نامية في قطاعات متعددة.'
+    }
+  }
 ];
 
-function TerminalPanel() {
-  const [visibleLines, setVisibleLines] = useState(0);
+/* ============================================================
+   NEWS — edit this list to add/update articles.
+============================================================ */
+const newsItems = [
+  {
+    date: '2026-06',
+    tag: { en: 'Trade Agreement', fr: 'Accord commercial', ar: 'اتفاقية تجارية' },
+    title: {
+      en: 'UK and Algeria discuss expanded trade cooperation',
+      fr: 'Le Royaume-Uni et l\u2019Algérie discutent d\u2019une coopération commerciale élargie',
+      ar: 'المملكة المتحدة والجزائر تبحثان تعاوناً تجارياً موسعاً'
+    },
+    summary: {
+      en: 'Placeholder summary — replace with a short, plain-language note on what changed and what it means for businesses on both sides.',
+      fr: 'Résumé provisoire — à remplacer par une note courte expliquant ce qui a changé et ce que cela implique pour les entreprises des deux côtés.',
+      ar: 'ملخص مؤقت — استبدله بملاحظة قصيرة وواضحة حول ما تغيّر وما يعنيه ذلك للشركات في كلا الجانبين.'
+    }
+  },
+  {
+    date: '2026-05',
+    tag: { en: 'Regulation', fr: 'Réglementation', ar: 'تنظيم' },
+    title: {
+      en: 'Update on import documentation requirements',
+      fr: 'Mise à jour des exigences documentaires à l\u2019import',
+      ar: 'تحديث حول متطلبات وثائق الاستيراد'
+    },
+    summary: {
+      en: 'Placeholder summary — use this space for regulatory changes that affect how deals get structured.',
+      fr: 'Résumé provisoire — utilisez cet espace pour les changements réglementaires affectant la structuration des accords.',
+      ar: 'ملخص مؤقت — استخدم هذه المساحة للتغييرات التنظيمية التي تؤثر على كيفية هيكلة الصفقات.'
+    }
+  }
+];
 
-  useEffect(() => {
-    if (visibleLines >= TERMINAL_LINES.length) return;
-    const t = setTimeout(() => setVisibleLines((v) => v + 1), 420);
-    return () => clearTimeout(t);
-  }, [visibleLines]);
+const translations = {
+  en: {
+    nav: ['Home', 'Advertisements', 'News', 'Contact'],
+    tagline: 'BUSINESS BUREAU',
+    dzLabel: 'ALGERIA',
+    ukLabel: 'UNITED KINGDOM',
+    heroTitle: 'The trusted go-between for Algerian and UK business.',
+    heroSub: 'We introduce businesses and individuals on both sides, support the deal, and take a commission only when it closes. Slowly, one trusted relationship at a time.',
+    ctaDz: 'Get in touch from Algeria',
+    ctaUk: 'Get in touch from the UK',
+    stamp: 'TRUSTED\nINTRODUCTION',
+    officeNote: 'DOSSIER N° DZ–UK / 2026',
+    sectorEyebrow: 'What we help match',
+    sectorTitle: 'Business, in any form',
+    sectors: [
+      { name: 'Trade & Products', detail: 'Buying or selling goods between the two markets, from food to consumer products and raw materials.' },
+      { name: 'Services & Consulting', detail: 'Professional services and expertise, shared and delivered across the two countries.' },
+      { name: 'Investment & Real Estate', detail: 'Connecting investors with opportunities, property, or growing businesses.' },
+      { name: 'Manufacturing & Sourcing', detail: 'Finding manufacturing partners, suppliers, or contract production on the other side.' }
+    ],
+    howEyebrow: 'How it works',
+    howTitle: 'From first contact to a closed deal',
+    steps: [
+      { label: 'Tell us what you need', body: 'Share what you\u2019re looking for, or what you have to offer — as a business or an individual, on either side.' },
+      { label: 'We find your match', body: 'We search our network on both sides for a serious, vetted counterpart worth your time.' },
+      { label: 'We support the introduction', body: 'We handle the introduction, translation, and early negotiation, so nothing gets lost in the gap between the two sides.' },
+      { label: 'Deal closes, commission applies', body: 'You agree terms directly with your match. Our commission is only due once a deal is actually made.' }
+    ],
+    splitEyebrow: 'Two sides, one office',
+    splitTitle: 'Which side are you on?',
+    dzCard: {
+      tag: 'ALGERIA',
+      title: 'For businesses & individuals in Algeria',
+      body: 'Looking for UK partners, buyers, suppliers, or investment? We introduce you to serious contacts on the other side and support things from first contact to signature.',
+      cta: 'Get in touch from Algeria'
+    },
+    ukCard: {
+      tag: 'UNITED KINGDOM',
+      title: 'For businesses & individuals in the UK',
+      body: 'Looking for partners, suppliers, or opportunities in Algeria? We connect you with vetted contacts and support the introduction and early negotiation.',
+      cta: 'Get in touch from the UK'
+    },
+    trustEyebrow: 'Why we go slowly',
+    trustTitle: 'Built to earn trust, not just close deals',
+    trust: [
+      'A small, hands-on team based on both sides — not a directory of strangers',
+      'We only earn when a genuine deal is made, or an ad is placed — nothing charged just to look',
+      'Correspondence and introductions in English, French, and Arabic',
+      'Growing carefully, one relationship at a time, on both sides of the bridge'
+    ],
+    adsBannerText: 'Businesses on both sides can advertise here.',
+    adsBannerCta: 'See advertisements',
+    contactEyebrow: 'Start a conversation',
+    contactTitle: 'Tell us which side you\u2019re on',
+    contactBody: 'A short conversation is usually enough to understand what you need and who we might introduce you to.',
+    formName: 'Name',
+    formCompany: 'Company (if any)',
+    formRole: 'I am based in...',
+    roleDz: 'Algeria',
+    roleUk: 'United Kingdom',
+    formIntent: 'I\u2019m looking to...',
+    intentOptions: ['Find a business partner', 'Find a supplier or buyer', 'Get matched with investment', 'Advertise my business'],
+    formMessage: 'What are you looking for, or what can you offer?',
+    formSubmit: 'Send inquiry',
+    footerNote: 'Atlas Bridge — a business bureau connecting Algeria and the UK.',
+    adsPageEyebrow: 'Both sides, one board',
+    adsPageTitle: 'Advertisements from Algeria and the UK',
+    adsPageBody: 'Businesses and individuals on either side can list here. Placements are arranged directly with our team and updated regularly.',
+    adsPlaceCta: 'Want to be listed? Get in touch',
+    newsPageEyebrow: 'Between the two countries',
+    newsPageTitle: 'News & agreements',
+    newsPageBody: 'Updates on trade agreements, regulations, and cooperation between Algeria and the UK that affect how business gets done.',
+    contactStripHome: 'Back to contact form',
+    contactStripText: 'Have a question, or want to be introduced?'
+  },
+  fr: {
+    nav: ['Accueil', 'Annonces', 'Actualités', 'Contact'],
+    tagline: 'BUREAU D\u2019AFFAIRES',
+    dzLabel: 'ALGÉRIE',
+    ukLabel: 'ROYAUME-UNI',
+    heroTitle: 'L\u2019intermédiaire de confiance entre l\u2019Algérie et le Royaume-Uni.',
+    heroSub: 'Nous mettons en relation entreprises et particuliers des deux côtés, accompagnons la négociation, et ne prenons commission qu\u2019une fois l\u2019accord conclu. Lentement, une relation de confiance à la fois.',
+    ctaDz: 'Nous contacter depuis l\u2019Algérie',
+    ctaUk: 'Nous contacter depuis le UK',
+    stamp: 'MISE EN\nRELATION SÛRE',
+    officeNote: 'DOSSIER N° DZ–UK / 2026',
+    sectorEyebrow: 'Ce que nous mettons en relation',
+    sectorTitle: 'Toutes formes d\u2019affaires',
+    sectors: [
+      { name: 'Commerce & Produits', detail: 'Achat ou vente de biens entre les deux marchés, de l\u2019alimentaire aux produits de consommation et matières premières.' },
+      { name: 'Services & Conseil', detail: 'Services professionnels et expertise, partagés entre les deux pays.' },
+      { name: 'Investissement & Immobilier', detail: 'Mise en relation d\u2019investisseurs avec des opportunités, biens ou entreprises en croissance.' },
+      { name: 'Fabrication & Sourcing', detail: 'Recherche de partenaires de fabrication, fournisseurs, ou production sous contrat de l\u2019autre côté.' }
+    ],
+    howEyebrow: 'Comment ça marche',
+    howTitle: 'Du premier contact à l\u2019accord conclu',
+    steps: [
+      { label: 'Dites-nous ce dont vous avez besoin', body: 'Partagez ce que vous cherchez, ou ce que vous proposez — en tant qu\u2019entreprise ou particulier, des deux côtés.' },
+      { label: 'Nous trouvons votre correspondance', body: 'Nous cherchons dans notre réseau des deux côtés un interlocuteur sérieux et vérifié.' },
+      { label: 'Nous accompagnons la mise en relation', body: 'Nous gérons l\u2019introduction, la traduction, et les premières négociations, pour que rien ne se perde entre les deux côtés.' },
+      { label: 'Accord conclu, commission appliquée', body: 'Vous convenez des termes directement avec votre interlocuteur. Notre commission n\u2019est due qu\u2019une fois l\u2019accord réellement conclu.' }
+    ],
+    splitEyebrow: 'Deux côtés, un bureau',
+    splitTitle: 'De quel côté êtes-vous ?',
+    dzCard: {
+      tag: 'ALGÉRIE',
+      title: 'Pour les entreprises et particuliers en Algérie',
+      body: 'Vous cherchez des partenaires, acheteurs, fournisseurs ou investisseurs britanniques ? Nous vous mettons en relation avec des contacts sérieux et accompagnons jusqu\u2019à la signature.',
+      cta: 'Nous contacter depuis l\u2019Algérie'
+    },
+    ukCard: {
+      tag: 'ROYAUME-UNI',
+      title: 'Pour les entreprises et particuliers au Royaume-Uni',
+      body: 'Vous cherchez des partenaires, fournisseurs ou opportunités en Algérie ? Nous vous connectons à des contacts vérifiés et accompagnons la mise en relation.',
+      cta: 'Nous contacter depuis le UK'
+    },
+    trustEyebrow: 'Pourquoi nous allons doucement',
+    trustTitle: 'Conçu pour gagner la confiance, pas seulement conclure',
+    trust: [
+      'Une petite équipe engagée des deux côtés — pas un annuaire d\u2019inconnus',
+      'Nous ne gagnons que lorsqu\u2019un accord réel est conclu, ou qu\u2019une annonce est placée — rien pour simplement chercher',
+      'Correspondance et mises en relation en anglais, français et arabe',
+      'Une croissance prudente, une relation à la fois, des deux côtés du pont'
+    ],
+    adsBannerText: 'Les entreprises des deux côtés peuvent s\u2019annoncer ici.',
+    adsBannerCta: 'Voir les annonces',
+    contactEyebrow: 'Démarrer une conversation',
+    contactTitle: 'Dites-nous de quel côté vous êtes',
+    contactBody: 'Une courte conversation suffit généralement pour comprendre votre besoin et qui nous pourrions vous présenter.',
+    formName: 'Nom',
+    formCompany: 'Entreprise (le cas échéant)',
+    formRole: 'Je suis basé en...',
+    roleDz: 'Algérie',
+    roleUk: 'Royaume-Uni',
+    formIntent: 'Je cherche à...',
+    intentOptions: ['Trouver un partenaire d\u2019affaires', 'Trouver un fournisseur ou acheteur', 'Être mis en relation pour investir', 'Faire de la publicité pour mon entreprise'],
+    formMessage: 'Que cherchez-vous, ou que proposez-vous ?',
+    formSubmit: 'Envoyer la demande',
+    footerNote: 'Atlas Bridge — un bureau d\u2019affaires reliant l\u2019Algérie et le Royaume-Uni.',
+    adsPageEyebrow: 'Deux côtés, un seul espace',
+    adsPageTitle: 'Annonces d\u2019Algérie et du Royaume-Uni',
+    adsPageBody: 'Les entreprises et particuliers des deux côtés peuvent s\u2019annoncer ici. Les emplacements sont organisés directement avec notre équipe et mis à jour régulièrement.',
+    adsPlaceCta: 'Vous voulez être listé ? Contactez-nous',
+    newsPageEyebrow: 'Entre les deux pays',
+    newsPageTitle: 'Actualités & accords',
+    newsPageBody: 'Mises à jour sur les accords commerciaux, réglementations et coopérations entre l\u2019Algérie et le Royaume-Uni qui touchent la façon de faire des affaires.',
+    contactStripHome: 'Retour au formulaire de contact',
+    contactStripText: 'Une question, ou envie d\u2019être mis en relation ?'
+  },
+  ar: {
+    nav: ['الرئيسية', 'الإعلانات', 'الأخبار', 'اتصل بنا'],
+    tagline: 'مكتب أعمال',
+    dzLabel: 'الجزائر',
+    ukLabel: 'المملكة المتحدة',
+    heroTitle: 'الوسيط الموثوق بين الأعمال الجزائرية والبريطانية.',
+    heroSub: 'نُعرّف الشركات والأفراد من الجانبين على بعضهم، وندعم إتمام الصفقة، ولا نأخذ عمولة إلا عند إغلاقها. ببطء، علاقة موثوقة تلو الأخرى.',
+    ctaDz: 'تواصل معنا من الجزائر',
+    ctaUk: 'تواصل معنا من المملكة المتحدة',
+    stamp: 'تعارف\nموثوق',
+    officeNote: 'ملف رقم DZ–UK / 2026',
+    sectorEyebrow: 'ما نساعد في التعارف عليه',
+    sectorTitle: 'الأعمال بكل أشكالها',
+    sectors: [
+      { name: 'التجارة والمنتجات', detail: 'شراء أو بيع البضائع بين السوقين، من الأغذية إلى المنتجات الاستهلاكية والمواد الخام.' },
+      { name: 'الخدمات والاستشارات', detail: 'خدمات مهنية وخبرات تُقدَّم وتُتبادل بين البلدين.' },
+      { name: 'الاستثمار والعقارات', detail: 'ربط المستثمرين بالفرص أو العقارات أو الشركات النامية.' },
+      { name: 'التصنيع والتوريد', detail: 'إيجاد شركاء تصنيع أو موردين أو إنتاج بالتعاقد في الجانب الآخر.' }
+    ],
+    howEyebrow: 'كيف تعمل',
+    howTitle: 'من أول تواصل إلى إغلاق الصفقة',
+    steps: [
+      { label: 'أخبرنا بما تحتاجه', body: 'شاركنا ما تبحث عنه، أو ما تقدمه — كشركة أو فرد، من أي من الجانبين.' },
+      { label: 'نجد لك التطابق المناسب', body: 'نبحث في شبكتنا في الجانبين عن نظير جاد وموثوق يستحق وقتك.' },
+      { label: 'ندعم التعارف', body: 'نتولى التعريف والترجمة والمفاوضات الأولية، حتى لا يضيع شيء بين الجانبين.' },
+      { label: 'إغلاق الصفقة، وتُطبَّق العمولة', body: 'تتفقون على الشروط مباشرة مع نظيركم. عمولتنا لا تُستحق إلا بعد إتمام الصفقة فعلياً.' }
+    ],
+    splitEyebrow: 'جانبان، مكتب واحد',
+    splitTitle: 'في أي جانب أنت؟',
+    dzCard: {
+      tag: 'الجزائر',
+      title: 'للشركات والأفراد في الجزائر',
+      body: 'تبحث عن شركاء أو مشترين أو موردين أو استثمار من بريطانيا؟ نُعرّفك على جهات جادة في الجانب الآخر وندعمك حتى التوقيع.',
+      cta: 'تواصل معنا من الجزائر'
+    },
+    ukCard: {
+      tag: 'المملكة المتحدة',
+      title: 'للشركات والأفراد في المملكة المتحدة',
+      body: 'تبحث عن شركاء أو موردين أو فرص في الجزائر؟ نربطك بجهات موثوقة وندعم التعارف والمفاوضات الأولية.',
+      cta: 'تواصل معنا من المملكة المتحدة'
+    },
+    trustEyebrow: 'لماذا نتقدم ببطء',
+    trustTitle: 'مصمم لكسب الثقة، لا فقط لإغلاق الصفقات',
+    trust: [
+      'فريق صغير وملتزم على كلا الجانبين — لا دليل لأشخاص غرباء',
+      'لا نكسب إلا عند إتمام صفقة حقيقية أو نشر إعلان — لا رسوم مقابل البحث فقط',
+      'المراسلات والتعارف بالإنجليزية والفرنسية والعربية',
+      'نمو حذر، علاقة تلو الأخرى، على جانبَي الجسر'
+    ],
+    adsBannerText: 'يمكن للشركات من الجانبين الإعلان هنا.',
+    adsBannerCta: 'عرض الإعلانات',
+    contactEyebrow: 'ابدأ محادثة',
+    contactTitle: 'أخبرنا في أي جانب أنت',
+    contactBody: 'محادثة قصيرة عادة ما تكفي لفهم ما تحتاجه ومن قد نُعرّفك عليه.',
+    formName: 'الاسم',
+    formCompany: 'الشركة (إن وجدت)',
+    formRole: 'أنا مقيم في...',
+    roleDz: 'الجزائر',
+    roleUk: 'المملكة المتحدة',
+    formIntent: 'أبحث عن...',
+    intentOptions: ['إيجاد شريك أعمال', 'إيجاد مورد أو مشتري', 'التعارف على فرصة استثمارية', 'الإعلان عن عملي'],
+    formMessage: 'ما الذي تبحث عنه، أو ما الذي يمكنك تقديمه؟',
+    formSubmit: 'إرسال الطلب',
+    footerNote: 'أطلس بريدج — مكتب أعمال يربط الجزائر بالمملكة المتحدة.',
+    adsPageEyebrow: 'جانبان، لوحة واحدة',
+    adsPageTitle: 'إعلانات من الجزائر والمملكة المتحدة',
+    adsPageBody: 'يمكن للشركات والأفراد من الجانبين الإدراج هنا. تُنظَّم الإعلانات مباشرة مع فريقنا وتُحدَّث بانتظام.',
+    adsPlaceCta: 'تريد الإدراج؟ تواصل معنا',
+    newsPageEyebrow: 'بين البلدين',
+    newsPageTitle: 'الأخبار والاتفاقيات',
+    newsPageBody: 'تحديثات حول الاتفاقيات التجارية واللوائح والتعاون بين الجزائر والمملكة المتحدة التي تؤثر على طريقة إتمام الأعمال.',
+    contactStripHome: 'العودة إلى نموذج الاتصال',
+    contactStripText: 'لديك سؤال، أو تريد تعارفاً؟'
+  }
+};
 
+function FlagStrip() {
   return (
-    <div className="terminal" role="img" aria-label="Simulated QA test suite, all checks passing">
-      <div className="terminal-bar">
-        <span className="dot dot-red" />
-        <span className="dot dot-amber" />
-        <span className="dot dot-green" />
-        <span className="terminal-title">qa-consultation-suite.spec</span>
-      </div>
-      <div className="terminal-body">
-        <p className="terminal-cmd">$ run --suite=quality-first --consultant=younes</p>
-        {TERMINAL_LINES.slice(0, visibleLines).map((line, i) => (
-          <p className="terminal-line" key={i}>
-            <span className={`badge badge-${line.status}`}>
-              {line.status === 'pass' ? 'PASS' : 'FAIL'}
-            </span>
-            <span className="terminal-label">{line.label}</span>
-            <span className="terminal-value">{line.value}</span>
-          </p>
-        ))}
-        {visibleLines >= TERMINAL_LINES.length && (
-          <p className="terminal-summary">6 passed, 0 failed — suite ready for client engagement</p>
-        )}
-      </div>
+    <div className="flag-strip">
+      <span className="dz-green"></span>
+      <span className="dz-white"></span>
+      <span className="dz-red"></span>
+      <span className="uk-navy"></span>
+      <span className="uk-white"></span>
+      <span className="uk-red"></span>
     </div>
   );
 }
 
-function QualityFirstWebsite() {
+function ContactStrip({ t, onBack }) {
   return (
-    <div className="container">
-      <header className="header">
-        <div className="logo-container">
-          <div className="logo-mark">QF</div>
-          <div>
-            <h1 className="company-name">QualityFirst</h1>
-            <p className="tagline">QA Consultation, backed by 8+ years in the field</p>
+    <div className="contact-strip">
+      <p>{t.contactStripText}</p>
+      <button className="btn btn-submit" onClick={onBack}>{t.contactStripHome}</button>
+    </div>
+  );
+}
+
+function App() {
+  const [lang, setLang] = useState('en');
+  const [page, setPage] = useState('home');
+  const [scrollToContact, setScrollToContact] = useState(false);
+  const t = translations[lang];
+  const isRtl = lang === 'ar';
+
+  useEffect(() => {
+    if (page === 'home' && scrollToContact) {
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      setScrollToContact(false);
+    }
+  }, [page, scrollToContact]);
+
+  const goToContact = () => {
+    setPage('home');
+    setScrollToContact(true);
+  };
+
+  const navTargets = ['home', 'ads', 'news', 'contact'];
+
+  const handleNav = (target) => {
+    if (target === 'contact') {
+      goToContact();
+    } else {
+      setPage(target);
+      window.scrollTo(0, 0);
+    }
+  };
+
+  return (
+    <div className={`page-root ${isRtl ? 'rtl' : ''}`} dir={isRtl ? 'rtl' : 'ltr'}>
+      <header className="nav">
+        <div className="nav-brand" onClick={() => handleNav('home')} role="button" tabIndex={0}>
+          <span className="brand-mark">⛩</span>
+          <div className="brand-text">
+            <span className="brand-name">Atlas Bridge</span>
+            <span className="brand-tagline">{t.tagline}</span>
           </div>
         </div>
-        <nav className="nav">
-          <a href="#services">Services</a>
-          <a href="#about">Experience</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
+        <nav className="nav-links">
+          {t.nav.map((item, i) => (
+            <button
+              key={i}
+              className={`nav-link ${page === navTargets[i] ? 'nav-link-active' : ''}`}
+              onClick={() => handleNav(navTargets[i])}
+            >
+              {item}
+            </button>
+          ))}
         </nav>
+        <div className="lang-switch">
+          {['en', 'fr', 'ar'].map((l) => (
+            <button key={l} className={lang === l ? 'active' : ''} onClick={() => setLang(l)}>
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
       </header>
 
-      <section className="hero">
-        <div className="hero-copy">
-          <span className="eyebrow">QA Consultation</span>
-          <h2>
-            Quality problems are cheaper to catch<br />before your users find them.
-          </h2>
-          <p>
-            I've spent 8+ years inside QA teams and independent engagements — manual
-            testing, Cypress automation, JMeter performance work, and API validation —
-            so you get a second pair of eyes that already knows where software breaks.
-          </p>
-          <div className="hero-actions">
-            <a href="#contact" className="btn btn-primary">Book a consultation</a>
-            <a href="#services" className="btn btn-ghost">See what I test</a>
-          </div>
-        </div>
-        <TerminalPanel />
-      </section>
+      <FlagStrip />
 
-      <section className="stats">
-        <div className="stat">
-          <span className="stat-number">8+</span>
-          <span className="stat-label">Years in QA</span>
-        </div>
-        <div className="stat">
-          <span className="stat-number">Cypress</span>
-          <span className="stat-label">Automation & API testing</span>
-        </div>
-        <div className="stat">
-          <span className="stat-number">JMeter</span>
-          <span className="stat-label">Performance testing</span>
-        </div>
-        <div className="stat">
-          <span className="stat-number">EN·FR·AR</span>
-          <span className="stat-label">Client communication</span>
-        </div>
-      </section>
+      {page === 'home' && (
+        <div className="page">
+          <section className="hero">
+            <div className="office-note">{t.officeNote}</div>
+            <h1 className="hero-title">{t.heroTitle}</h1>
+            <p className="hero-sub">{t.heroSub}</p>
 
-      <section id="services" className="services">
-        <span className="eyebrow">Services</span>
-        <h3>QA consultation, scoped to what you actually need</h3>
-        <div className="card-grid">
-          <div className="card">
-            <h4>Test Strategy Consulting</h4>
-            <p>An outside audit of your current test coverage, risk areas, and where
-              manual effort should give way to automation.</p>
-          </div>
-          <div className="card">
-            <h4>Manual Testing</h4>
-            <p>Structured exploratory and scripted testing for web and API products,
-              with clear, reproducible bug reports.</p>
-          </div>
-          <div className="card">
-            <h4>Test Automation (Cypress)</h4>
-            <p>End-to-end and API test suites built to survive real product changes,
-              not just pass on day one.</p>
-          </div>
-          <div className="card">
-            <h4>Performance Testing (JMeter)</h4>
-            <p>Load and stress testing to find the ceiling before your users do,
-              with plain-language reporting for stakeholders.</p>
-          </div>
-        </div>
-      </section>
+            <div className="hero-actions">
+              <a href="#contact" className="btn btn-dz" onClick={(e) => { e.preventDefault(); goToContact(); }}>{t.ctaDz}</a>
+              <a href="#contact" className="btn btn-uk" onClick={(e) => { e.preventDefault(); goToContact(); }}>{t.ctaUk}</a>
+            </div>
 
-      <section id="about" className="about">
-        <span className="eyebrow">Experience</span>
-        <h3>8+ years finding what breaks, before release</h3>
-        <p className="about-body">
-          I work as an independent QA consultant after years testing production systems
-          — data aggregation pipelines, financial reporting tools, and customer-facing
-          applications. That background means I'm not just running scripts; I'm asking
-          whether the numbers, the states, and the edge cases actually hold up under
-          real conditions.
-        </p>
-        <ul className="about-list">
-          <li>Manual & exploratory testing across web and API products</li>
-          <li>Cypress automation for regression and API test suites</li>
-          <li>JMeter performance and load testing</li>
-          <li>Data integrity and aggregation validation</li>
-          <li>Clear, client-facing test reporting — no jargon, no ambiguity</li>
-        </ul>
-      </section>
+            <div className="manifest-split">
+              <div className="manifest-panel panel-dz">
+                <span className="panel-label">{t.dzLabel}</span>
+                <div className="panel-flag panel-flag-dz" aria-hidden="true" />
+              </div>
 
-      <section id="process" className="process">
-        <span className="eyebrow">Process</span>
-        <h3>How an engagement runs</h3>
-        <div className="process-grid">
-          <div className="process-step">
-            <span className="process-label">Scope</span>
-            <p>A short call to understand your product, release cadence, and where quality is slipping.</p>
-          </div>
-          <div className="process-step">
-            <span className="process-label">Test</span>
-            <p>Manual passes, automated suites, or performance runs — built around what you actually need covered.</p>
-          </div>
-          <div className="process-step">
-            <span className="process-label">Report</span>
-            <p>Findings delivered in plain language, prioritized by risk, with reproducible steps for every issue.</p>
-          </div>
-          <div className="process-step">
-            <span className="process-label">Handoff</span>
-            <p>Test suites and documentation left in a state your team can run and extend without me.</p>
-          </div>
-        </div>
-      </section>
+              <div className="manifest-seam">
+                <div className="stamp">
+                  {t.stamp.split('\n').map((line, i) => (
+                    <span key={i}>{line}</span>
+                  ))}
+                </div>
+              </div>
 
-      <section id="contact" className="contact">
-        <span className="eyebrow">Contact</span>
-        <h3>Start with a consultation</h3>
-        <div className="contact-grid">
-          <p>→ qualityfirst.test@gmail.com</p>
-          <p>→ 016665 304410</p>
-          <p>→ Evening availability, GMT</p>
+              <div className="manifest-panel panel-uk">
+                <span className="panel-label">{t.ukLabel}</span>
+                <div className="panel-flag panel-flag-uk" aria-hidden="true" />
+              </div>
+            </div>
+          </section>
+
+          <section className="sectors">
+            <span className="eyebrow">{t.sectorEyebrow}</span>
+            <h2>{t.sectorTitle}</h2>
+            <div className="cat-grid">
+              {t.sectors.map((s, i) => (
+                <div className="cat-card" key={i}>
+                  <h3>{s.name}</h3>
+                  <p>{s.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="how">
+            <span className="eyebrow">{t.howEyebrow}</span>
+            <h2>{t.howTitle}</h2>
+            <div className="steps-grid">
+              {t.steps.map((step, i) => (
+                <div className="step" key={i}>
+                  <span className="step-num">{String(i + 1).padStart(2, '0')}</span>
+                  <h3>{step.label}</h3>
+                  <p>{step.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="ads-banner">
+            <p>{t.adsBannerText}</p>
+            <button className="btn btn-uk" onClick={() => handleNav('ads')}>{t.adsBannerCta}</button>
+          </section>
+
+          <section className="split-cta">
+            <span className="eyebrow center">{t.splitEyebrow}</span>
+            <h2 className="center">{t.splitTitle}</h2>
+            <div className="split-grid">
+              <div className="split-card card-dz">
+                <span className="card-tag">{t.dzCard.tag}</span>
+                <h3>{t.dzCard.title}</h3>
+                <p>{t.dzCard.body}</p>
+                <a href="#contact" className="btn btn-submit" onClick={(e) => { e.preventDefault(); goToContact(); }}>{t.dzCard.cta}</a>
+              </div>
+              <div className="split-card card-uk">
+                <span className="card-tag">{t.ukCard.tag}</span>
+                <h3>{t.ukCard.title}</h3>
+                <p>{t.ukCard.body}</p>
+                <a href="#contact" className="btn btn-submit" onClick={(e) => { e.preventDefault(); goToContact(); }}>{t.ukCard.cta}</a>
+              </div>
+            </div>
+          </section>
+
+          <section className="trust">
+            <span className="eyebrow">{t.trustEyebrow}</span>
+            <h2>{t.trustTitle}</h2>
+            <ul className="trust-list">
+              {t.trust.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section id="contact" className="contact">
+            <span className="eyebrow">{t.contactEyebrow}</span>
+            <h2>{t.contactTitle}</h2>
+            <p className="contact-body">{t.contactBody}</p>
+
+            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              <div className="form-row">
+                <label>
+                  {t.formName}
+                  <input type="text" required />
+                </label>
+                <label>
+                  {t.formCompany}
+                  <input type="text" />
+                </label>
+              </div>
+              <label className="form-role">
+                {t.formRole}
+                <div className="role-options">
+                  <label><input type="radio" name="role" value="dz" defaultChecked /> {t.roleDz}</label>
+                  <label><input type="radio" name="role" value="uk" /> {t.roleUk}</label>
+                </div>
+              </label>
+              <label>
+                {t.formIntent}
+                <select defaultValue="">
+                  <option value="" disabled>—</option>
+                  {t.intentOptions.map((opt, i) => (
+                    <option key={i} value={opt}>{opt}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                {t.formMessage}
+                <textarea rows="4" required />
+              </label>
+              <button type="submit" className="btn btn-submit">{t.formSubmit}</button>
+            </form>
+          </section>
         </div>
-        <a href="mailto:qualityfirst.test@gmail.com" className="btn btn-primary">Email me</a>
-      </section>
+      )}
+
+      {page === 'ads' && (
+        <div className="page">
+          <section className="page-header">
+            <span className="eyebrow">{t.adsPageEyebrow}</span>
+            <h2>{t.adsPageTitle}</h2>
+            <p className="page-header-body">{t.adsPageBody}</p>
+          </section>
+
+          <section className="ads-grid">
+            {ads.map((ad, i) => (
+              <div className={`ad-card ad-card-${ad.country}`} key={i}>
+                <span className="ad-tag">{ad.country === 'dz' ? t.dzLabel : t.ukLabel} · {ad.category[lang]}</span>
+                <h3>{ad.title[lang]}</h3>
+                <p>{ad.body[lang]}</p>
+              </div>
+            ))}
+          </section>
+
+          <div className="place-ad-cta">
+            <button className="btn btn-submit" onClick={goToContact}>{t.adsPlaceCta}</button>
+          </div>
+
+          <ContactStrip t={t} onBack={goToContact} />
+        </div>
+      )}
+
+      {page === 'news' && (
+        <div className="page">
+          <section className="page-header">
+            <span className="eyebrow">{t.newsPageEyebrow}</span>
+            <h2>{t.newsPageTitle}</h2>
+            <p className="page-header-body">{t.newsPageBody}</p>
+          </section>
+
+          <section className="news-list">
+            {newsItems.map((item, i) => (
+              <div className="news-card" key={i}>
+                <span className="news-date">{item.date}</span>
+                <span className="news-tag">{item.tag[lang]}</span>
+                <h3>{item.title[lang]}</h3>
+                <p>{item.summary[lang]}</p>
+              </div>
+            ))}
+          </section>
+
+          <ContactStrip t={t} onBack={goToContact} />
+        </div>
+      )}
 
       <footer className="footer">
-        <p>&copy; 2026 QualityFirst — QA Consultation. All rights reserved.</p>
+        <p>{t.footerNote}</p>
       </footer>
     </div>
   );
 }
 
-export default QualityFirstWebsite;
+export default App;
