@@ -280,12 +280,8 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(transparent 44%, #fff 44% 56%, transparent 56%),
-    linear-gradient(90deg, transparent 44%, #fff 44% 56%, transparent 56%),
-    linear-gradient(45deg, transparent 47%, var(--dz-red) 47% 53%, transparent 53%),
-    linear-gradient(-45deg, transparent 47%, var(--dz-red) 47% 53%, transparent 53%);
-  opacity: 0.16;
+  background: linear-gradient(90deg, var(--uk-navy) 0 50%, var(--dz-red) 50% 100%);
+  opacity: 0.14;
   pointer-events: none;
 }
 
@@ -321,20 +317,12 @@ body {
 .rtl .panel-flag { right: auto; left: 1.5rem; }
 
 .panel-flag-dz {
-  background:
-    radial-gradient(circle at 50% 50%, var(--dz-red) 0 26%, transparent 27%),
-    conic-gradient(#ffffff 0deg 8deg, transparent 8deg 352deg, #ffffff 352deg 360deg),
-    linear-gradient(90deg, var(--dz-green) 0 50%, #ffffff 50% 100%);
+  background: linear-gradient(90deg, var(--dz-green) 0 50%, #ffffff 50% 100%);
   border: 1px solid rgba(255,255,255,0.4);
 }
 
 .panel-flag-uk {
-  background:
-    linear-gradient(45deg, transparent 44%, #ffffff 44% 56%, transparent 56%),
-    linear-gradient(-45deg, transparent 44%, #ffffff 44% 56%, transparent 56%),
-    linear-gradient(45deg, transparent 47%, var(--dz-red) 47% 53%, transparent 53%),
-    linear-gradient(-45deg, transparent 47%, var(--dz-red) 47% 53%, transparent 53%),
-    linear-gradient(var(--uk-navy), var(--uk-navy));
+  background: linear-gradient(90deg, var(--uk-navy) 0 34%, #ffffff 34% 67%, var(--dz-red) 67% 100%);
   border: 1px solid rgba(255,255,255,0.4);
 }
 
