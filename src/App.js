@@ -18,48 +18,9 @@ function whatsappLink(message) {
    ADVERTISEMENTS — edit this list to add/update listings.
    country: 'dz' or 'uk'
 ============================================================ */
-const ads = [
-  {
-    country: 'dz',
-    category: { en: 'Food & Beverage', fr: 'Agroalimentaire', ar: 'أغذية ومشروبات' },
-    title: { en: 'Cooperative seeking UK date distributor', fr: 'Coopérative cherche distributeur de dattes au UK', ar: 'تعاونية تبحث عن موزع تمور في بريطانيا' },
-    body: {
-      en: 'Established Biskra cooperative looking to place premium Deglet Nour with a UK wholesale partner.',
-      fr: 'Coopérative établie à Biskra cherchant un partenaire grossiste au Royaume-Uni pour ses dattes Deglet Nour premium.',
-      ar: 'تعاونية راسخة في بسكرة تبحث عن شريك جملة في بريطانيا لتوزيع دقلة نور الفاخرة.'
-    }
-  },
-  {
-    country: 'uk',
-    category: { en: 'Retail & Wholesale', fr: 'Commerce & Gros', ar: 'تجزئة وجملة' },
-    title: { en: 'UK grocery chain seeking Algerian suppliers', fr: 'Chaîne d\u2019épicerie UK cherche fournisseurs algériens', ar: 'سلسلة بقالة بريطانية تبحث عن موردين جزائريين' },
-    body: {
-      en: 'Regional UK grocery group open to new supplier relationships for produce and dairy.',
-      fr: 'Groupe d\u2019épicerie régional britannique ouvert à de nouveaux fournisseurs de produits et laitiers.',
-      ar: 'مجموعة بقالة إقليمية بريطانية منفتحة على علاقات جديدة مع موردي المنتجات والألبان.'
-    }
-  },
-  {
-    country: 'dz',
-    category: { en: 'Services', fr: 'Services', ar: 'خدمات' },
-    title: { en: 'Algiers consulting firm open to UK partnerships', fr: 'Cabinet de conseil à Alger ouvert à des partenariats UK', ar: 'مكتب استشارات في الجزائر العاصمة منفتح على شراكات بريطانية' },
-    body: {
-      en: 'Business consulting firm in Algiers seeking UK partners for joint client work.',
-      fr: 'Cabinet de conseil à Alger cherchant des partenaires britanniques pour des missions communes.',
-      ar: 'مكتب استشارات أعمال في الجزائر العاصمة يبحث عن شركاء بريطانيين لمشاريع مشتركة.'
-    }
-  },
-  {
-    country: 'uk',
-    category: { en: 'Investment', fr: 'Investissement', ar: 'استثمار' },
-    title: { en: 'UK investor exploring Algerian opportunities', fr: 'Investisseur UK explore des opportunités en Algérie', ar: 'مستثمر بريطاني يستكشف فرصاً في الجزائر' },
-    body: {
-      en: 'Private investor looking for introductions to growing Algerian businesses across sectors.',
-      fr: 'Investisseur privé cherchant des mises en relation avec des entreprises algériennes en croissance.',
-      ar: 'مستثمر خاص يبحث عن تعارف مع شركات جزائرية نامية في قطاعات متعددة.'
-    }
-  }
-];
+const ads = [];
+// Add real listings here as they come in, each shaped like:
+// { country: 'dz' | 'uk', category: {en,fr,ar}, title: {en,fr,ar}, body: {en,fr,ar} }
 
 /* ============================================================
    NEWS — edit this list to add/update articles.
@@ -167,6 +128,7 @@ const translations = {
     adsPageTitle: 'Advertisements from Algeria and the UK',
     adsPageBody: 'Businesses and individuals on either side can list here. Placements are arranged directly with our team and updated regularly.',
     adsPlaceCta: 'Want to be listed? Get in touch',
+    noAdsYet: 'No advertisements yet — check back soon, or be the first to list.',
     newsPageEyebrow: 'Between the two countries',
     newsPageTitle: 'News & agreements',
     newsPageBody: 'Updates on trade agreements, regulations, and cooperation between Algeria and the UK that affect how business gets done.',
@@ -244,6 +206,7 @@ const translations = {
     adsPageTitle: 'Annonces d\u2019Algérie et du Royaume-Uni',
     adsPageBody: 'Les entreprises et particuliers des deux côtés peuvent s\u2019annoncer ici. Les emplacements sont organisés directement avec notre équipe et mis à jour régulièrement.',
     adsPlaceCta: 'Vous voulez être listé ? Contactez-nous',
+    noAdsYet: 'Aucune annonce pour le moment — revenez bientôt, ou soyez le premier à vous annoncer.',
     newsPageEyebrow: 'Entre les deux pays',
     newsPageTitle: 'Actualités & accords',
     newsPageBody: 'Mises à jour sur les accords commerciaux, réglementations et coopérations entre l\u2019Algérie et le Royaume-Uni qui touchent la façon de faire des affaires.',
@@ -321,6 +284,7 @@ const translations = {
     adsPageTitle: 'إعلانات من الجزائر والمملكة المتحدة',
     adsPageBody: 'يمكن للشركات والأفراد من الجانبين الإدراج هنا. تُنظَّم الإعلانات مباشرة مع فريقنا وتُحدَّث بانتظام.',
     adsPlaceCta: 'تريد الإدراج؟ تواصل معنا',
+    noAdsYet: 'لا توجد إعلانات بعد — تحقق قريباً، أو كن أول من يُدرج إعلاناً.',
     newsPageEyebrow: 'بين البلدين',
     newsPageTitle: 'الأخبار والاتفاقيات',
     newsPageBody: 'تحديثات حول الاتفاقيات التجارية واللوائح والتعاون بين الجزائر والمملكة المتحدة التي تؤثر على طريقة إتمام الأعمال.',
@@ -511,7 +475,7 @@ function App() {
             <h2>{t.contactTitle}</h2>
             <p className="contact-body">{t.contactBody}</p>
 
-            <a
+            
               href={whatsappLink(t.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
@@ -568,13 +532,17 @@ function App() {
           </section>
 
           <section className="ads-grid">
-            {ads.map((ad, i) => (
-              <div className={`ad-card ad-card-${ad.country}`} key={i}>
-                <span className="ad-tag">{ad.country === 'dz' ? t.dzLabel : t.ukLabel} · {ad.category[lang]}</span>
-                <h3>{ad.title[lang]}</h3>
-                <p>{ad.body[lang]}</p>
-              </div>
-            ))}
+            {ads.length === 0 ? (
+              <p className="no-ads">{t.noAdsYet}</p>
+            ) : (
+              ads.map((ad, i) => (
+                <div className={`ad-card ad-card-${ad.country}`} key={i}>
+                  <span className="ad-tag">{ad.country === 'dz' ? t.dzLabel : t.ukLabel} · {ad.category[lang]}</span>
+                  <h3>{ad.title[lang]}</h3>
+                  <p>{ad.body[lang]}</p>
+                </div>
+              ))
+            )}
           </section>
 
           <div className="place-ad-cta">

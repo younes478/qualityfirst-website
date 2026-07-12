@@ -129,6 +129,13 @@ body {
 .ad-card h3 { font-family: var(--display); font-size: 1.15rem; margin: 0.5rem 0 0.6rem; }
 .ad-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin: 0; }
 
+.no-ads {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem 0;
+}
+
 .place-ad-cta { text-align: center; border-top: none; padding: 1rem 0 0; }
 
 /* News list */
