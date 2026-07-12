@@ -364,7 +364,9 @@ function App() {
     <div className={`page-root ${isRtl ? 'rtl' : ''}`} dir={isRtl ? 'rtl' : 'ltr'}>
       <header className="nav">
         <div className="nav-brand" onClick={() => handleNav('home')} role="button" tabIndex={0}>
-          <span className="brand-mark">⛩</span>
+          <svg className="brand-mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+            <path d="M2 26L11 10L15 17L19 8L30 26Z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+          </svg>
           <div className="brand-text">
             <span className="brand-name">Atlas Bridge</span>
             <span className="brand-tagline">{t.tagline}</span>
