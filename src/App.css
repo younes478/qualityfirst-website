@@ -531,8 +531,11 @@ section h2.center { text-align: center; margin: 0 auto 2.5rem; }
 @media (max-width: 900px) {
   .cat-grid, .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .split-grid { grid-template-columns: 1fr; }
-  .manifest-split { grid-template-columns: 1fr; }
-  .manifest-seam { width: 100%; padding: 1rem 0; }
+  .manifest-split { grid-template-columns: 1fr; row-gap: 0.25rem; }
+  .manifest-panel { justify-content: center !important; padding: 0.4rem 1rem; }
+  .panel-label { font-size: 1.5rem; }
+  .manifest-seam { width: 100%; padding: 0.75rem 0; }
+  .stamp { width: 64px; height: 64px; font-size: 0.55rem; }
   .nav-links { order: 3; width: 100%; justify-content: center; }
   .form-row { grid-template-columns: 1fr; }
 }
