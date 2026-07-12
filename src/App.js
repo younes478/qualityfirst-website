@@ -2,6 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 /* ============================================================
+   WHATSAPP CONTACT NUMBER
+   Replace with the full business number once you have it.
+   Format: country code + number, no spaces, no leading 0.
+   e.g. UK number 07774 123456 -> '447774123456'
+============================================================ */
+const WHATSAPP_NUMBER = '07774'; // TODO: placeholder, incomplete — update when you have the full number
+
+function whatsappLink(message) {
+  const digits = WHATSAPP_NUMBER.replace(/\D/g, '').replace(/^0/, '44');
+  return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
+}
+
+/* ============================================================
    ADVERTISEMENTS — edit this list to add/update listings.
    country: 'dz' or 'uk'
 ============================================================ */
@@ -137,6 +150,9 @@ const translations = {
     contactEyebrow: 'Start a conversation',
     contactTitle: 'Tell us which side you\u2019re on',
     contactBody: 'A short conversation is usually enough to understand what you need and who we might introduce you to.',
+    whatsappCta: 'Message us on WhatsApp',
+    whatsappMessage: 'Hello, I\u2019d like to get in touch about a business opportunity through Atlas Bridge.',
+    orDivider: 'or fill in the form',
     formName: 'Name',
     formCompany: 'Company (if any)',
     formRole: 'I am based in...',
@@ -211,6 +227,9 @@ const translations = {
     contactEyebrow: 'Démarrer une conversation',
     contactTitle: 'Dites-nous de quel côté vous êtes',
     contactBody: 'Une courte conversation suffit généralement pour comprendre votre besoin et qui nous pourrions vous présenter.',
+    whatsappCta: 'Contactez-nous sur WhatsApp',
+    whatsappMessage: 'Bonjour, je souhaite entrer en contact au sujet d\u2019une opportunité d\u2019affaires via Atlas Bridge.',
+    orDivider: 'ou remplissez le formulaire',
     formName: 'Nom',
     formCompany: 'Entreprise (le cas échéant)',
     formRole: 'Je suis basé en...',
@@ -285,6 +304,9 @@ const translations = {
     contactEyebrow: 'ابدأ محادثة',
     contactTitle: 'أخبرنا في أي جانب أنت',
     contactBody: 'محادثة قصيرة عادة ما تكفي لفهم ما تحتاجه ومن قد نُعرّفك عليه.',
+    whatsappCta: 'راسلنا عبر واتساب',
+    whatsappMessage: 'مرحباً، أرغب في التواصل بخصوص فرصة عمل عبر أطلس بريدج.',
+    orDivider: 'أو املأ النموذج',
     formName: 'الاسم',
     formCompany: 'الشركة (إن وجدت)',
     formRole: 'أنا مقيم في...',
@@ -407,7 +429,6 @@ function App() {
             <div className="manifest-split">
               <div className="manifest-panel panel-dz">
                 <span className="panel-label">{t.dzLabel}</span>
-                <div className="panel-flag panel-flag-dz" aria-hidden="true" />
               </div>
 
               <div className="manifest-seam">
@@ -420,7 +441,6 @@ function App() {
 
               <div className="manifest-panel panel-uk">
                 <span className="panel-label">{t.ukLabel}</span>
-                <div className="panel-flag panel-flag-uk" aria-hidden="true" />
               </div>
             </div>
           </section>
@@ -490,6 +510,17 @@ function App() {
             <span className="eyebrow">{t.contactEyebrow}</span>
             <h2>{t.contactTitle}</h2>
             <p className="contact-body">{t.contactBody}</p>
+
+            <a
+              href={whatsappLink(t.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp"
+            >
+              {t.whatsappCta}
+            </a>
+
+            <p className="or-divider">{t.orDivider}</p>
 
             <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-row">

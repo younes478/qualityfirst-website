@@ -247,6 +247,19 @@ body {
 .btn-uk:hover { background: #0F1830; }
 .btn-submit { background: var(--gold); color: #1B1812; border: none; cursor: pointer; }
 
+.btn-whatsapp {
+  background: #25D366;
+  color: #0b3d1f;
+  font-weight: 700;
+}
+.btn-whatsapp:hover { background: #1EBE5A; }
+
+.or-divider {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
 /* Manifest split hero visual */
 .manifest-split {
   display: grid;
