@@ -358,11 +358,7 @@ function App() {
         </div>
         <nav className="nav-links">
           {t.nav.map((item, i) => (
-            <button
-              key={i}
-              className={`nav-link ${page === navTargets[i] ? 'nav-link-active' : ''}`}
-              onClick={() => handleNav(navTargets[i])}
-            >
+            <button key={i} className={`nav-link ${page === navTargets[i] ? 'nav-link-active' : ''}`} onClick={() => handleNav(navTargets[i])}>
               {item}
             </button>
           ))}
@@ -475,12 +471,7 @@ function App() {
             <h2>{t.contactTitle}</h2>
             <p className="contact-body">{t.contactBody}</p>
 
-            
-              href={whatsappLink(t.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp"
-            >
+            <a href={whatsappLink(t.whatsappMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
               {t.whatsappCta}
             </a>
 
