@@ -87,7 +87,6 @@ const translations = {
     sectors: [
       { name: 'Trade & Products', detail: 'Buying or selling goods between the two markets, from food to consumer products and raw materials.' },
       { name: 'Services & Consulting', detail: 'Professional services and expertise, shared and delivered across the two countries.' },
-      { name: 'Investment & Real Estate', detail: 'Connecting investors with opportunities, property, or growing businesses.' },
       { name: 'Manufacturing & Sourcing', detail: 'Finding manufacturing partners, suppliers, or contract production on the other side.' }
     ],
     howEyebrow: 'How it works',
@@ -165,7 +164,6 @@ const translations = {
     sectors: [
       { name: 'Commerce & Produits', detail: 'Achat ou vente de biens entre les deux marchés, de l\u2019alimentaire aux produits de consommation et matières premières.' },
       { name: 'Services & Conseil', detail: 'Services professionnels et expertise, partagés entre les deux pays.' },
-      { name: 'Investissement & Immobilier', detail: 'Mise en relation d\u2019investisseurs avec des opportunités, biens ou entreprises en croissance.' },
       { name: 'Fabrication & Sourcing', detail: 'Recherche de partenaires de fabrication, fournisseurs, ou production sous contrat de l\u2019autre côté.' }
     ],
     howEyebrow: 'Comment ça marche',
@@ -243,7 +241,6 @@ const translations = {
     sectors: [
       { name: 'التجارة والمنتجات', detail: 'شراء أو بيع البضائع بين السوقين، من الأغذية إلى المنتجات الاستهلاكية والمواد الخام.' },
       { name: 'الخدمات والاستشارات', detail: 'خدمات مهنية وخبرات تُقدَّم وتُتبادل بين البلدين.' },
-      { name: 'الاستثمار والعقارات', detail: 'ربط المستثمرين بالفرص أو العقارات أو الشركات النامية.' },
       { name: 'التصنيع والتوريد', detail: 'إيجاد شركاء تصنيع أو موردين أو إنتاج بالتعاقد في الجانب الآخر.' }
     ],
     howEyebrow: 'كيف تعمل',
@@ -364,9 +361,9 @@ function App() {
     <div className={`page-root ${isRtl ? 'rtl' : ''}`} dir={isRtl ? 'rtl' : 'ltr'}>
       <header className="nav">
         <div className="nav-brand" onClick={() => handleNav('home')} role="button" tabIndex={0}>
-          <svg className="brand-mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
-            <path d="M2 26L11 10L15 17L19 8L30 26Z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-          </svg>
+          <div className="brand-mark">
+            <span className="brand-mark-a">A</span><span className="brand-mark-b">B</span>
+          </div>
           <div className="brand-text">
             <span className="brand-name">Atlas Bridge</span>
             <span className="brand-tagline">{t.tagline}</span>
