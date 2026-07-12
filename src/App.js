@@ -27,31 +27,45 @@ const ads = [];
 ============================================================ */
 const newsItems = [
   {
-    date: '2026-06',
-    tag: { en: 'Trade Agreement', fr: 'Accord commercial', ar: 'اتفاقية تجارية' },
+    date: '2026-03',
+    tag: { en: 'Cooperation', fr: 'Coopération', ar: 'تعاون' },
     title: {
-      en: 'UK and Algeria discuss expanded trade cooperation',
-      fr: 'Le Royaume-Uni et l\u2019Algérie discutent d\u2019une coopération commerciale élargie',
-      ar: 'المملكة المتحدة والجزائر تبحثان تعاوناً تجارياً موسعاً'
+      en: 'UK and Algeria discuss deeper cooperation as trade grows',
+      fr: 'Le Royaume-Uni et l\u2019Algérie discutent d\u2019une coopération renforcée alors que les échanges progressent',
+      ar: 'المملكة المتحدة والجزائر تبحثان تعاوناً أعمق مع نمو التبادل التجاري'
     },
     summary: {
-      en: 'Placeholder summary — replace with a short, plain-language note on what changed and what it means for businesses on both sides.',
-      fr: 'Résumé provisoire — à remplacer par une note courte expliquant ce qui a changé et ce que cela implique pour les entreprises des deux côtés.',
-      ar: 'ملخص مؤقت — استبدله بملاحظة قصيرة وواضحة حول ما تغيّر وما يعنيه ذلك للشركات في كلا الجانبين.'
+      en: 'Officials from both countries highlighted growing economic ties, noting bilateral trade has risen by around 11% over the past year, alongside talks on energy transition, migration, and education links.',
+      fr: 'Des responsables des deux pays ont souligné le renforcement des liens économiques, notant une hausse d\u2019environ 11 % des échanges bilatéraux sur l\u2019année écoulée, aux côtés de discussions sur la transition énergétique, la migration et l\u2019enseignement.',
+      ar: 'أكد مسؤولون من البلدين على تعزيز الروابط الاقتصادية، مشيرين إلى ارتفاع التبادل التجاري الثنائي بنحو 11% خلال العام الماضي، إلى جانب محادثات حول التحول الطاقوي والهجرة والتعليم.'
     }
   },
   {
-    date: '2026-05',
+    date: 'Ongoing',
     tag: { en: 'Regulation', fr: 'Réglementation', ar: 'تنظيم' },
     title: {
-      en: 'Update on import documentation requirements',
-      fr: 'Mise à jour des exigences documentaires à l\u2019import',
-      ar: 'تحديث حول متطلبات وثائق الاستيراد'
+      en: 'No standalone UK-Algeria trade agreement in place yet',
+      fr: 'Aucun accord commercial autonome entre le Royaume-Uni et l\u2019Algérie pour le moment',
+      ar: 'لا يوجد حتى الآن اتفاق تجارة حر مستقل بين المملكة المتحدة والجزائر'
     },
     summary: {
-      en: 'Placeholder summary — use this space for regulatory changes that affect how deals get structured.',
-      fr: 'Résumé provisoire — utilisez cet espace pour les changements réglementaires affectant la structuration des accords.',
-      ar: 'ملخص مؤقت — استخدم هذه المساحة للتغييرات التنظيمية التي تؤثر على كيفية هيكلة الصفقات.'
+      en: 'Since Brexit, trade between the two countries has continued without a dedicated free trade agreement — a continuity deal was offered but has not been signed by either side. Businesses should check current tariff and customs rules rather than assume EU-era terms still apply.',
+      fr: 'Depuis le Brexit, les échanges entre les deux pays se poursuivent sans accord de libre-échange dédié — un accord de continuité avait été proposé mais n\u2019a été signé par aucune des deux parties. Les entreprises doivent vérifier les règles douanières actuelles plutôt que de supposer que les conditions de l\u2019ère européenne s\u2019appliquent encore.',
+      ar: 'منذ خروج بريطانيا من الاتحاد الأوروبي، يستمر التبادل التجاري بين البلدين دون اتفاق تجارة حرة مخصص — إذ عُرض اتفاق استمرارية لكن لم يوقعه أي من الطرفين. يُنصح الشركات بالتحقق من القواعد الجمركية الحالية بدلاً من افتراض استمرار شروط الحقبة الأوروبية.'
+    }
+  },
+  {
+    date: 'Q1 2025',
+    tag: { en: 'Trade Data', fr: 'Données commerciales', ar: 'بيانات تجارية' },
+    title: {
+      en: 'UK exports to Algeria top £650 million',
+      fr: 'Les exportations britanniques vers l\u2019Algérie dépassent 650 millions de livres',
+      ar: 'صادرات المملكة المتحدة إلى الجزائر تتجاوز 650 مليون جنيه إسترليني'
+    },
+    summary: {
+      en: 'UK exports to Algeria reached roughly £657 million over the four quarters to Q1 2025, with a double taxation agreement in place between the two countries to ease cross-border business.',
+      fr: 'Les exportations britanniques vers l\u2019Algérie ont atteint environ 657 millions de livres sur les quatre trimestres jusqu\u2019au premier trimestre 2025, avec une convention de double imposition en vigueur entre les deux pays pour faciliter les affaires transfrontalières.',
+      ar: 'بلغت صادرات المملكة المتحدة إلى الجزائر نحو 657 مليون جنيه إسترليني خلال الأرباع الأربعة المنتهية بالربع الأول من 2025، مع وجود اتفاقية لتجنب الازدواج الضريبي بين البلدين لتسهيل الأعمال عبر الحدود.'
     }
   }
 ];
