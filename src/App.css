@@ -69,6 +69,7 @@ body {
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: -0.05em;
+  direction: ltr;
 }
 .brand-mark-a { color: var(--dz-red); }
 .brand-mark-b { color: var(--uk-navy); }
