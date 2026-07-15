@@ -475,6 +475,34 @@ section h2.center { text-align: center; margin: 0 auto 2.5rem; }
 .split-card .btn { background: var(--gold); color: #1B1812; }
 .split-card .btn:hover { background: #A67722; }
 
+/* Values */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.value-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.4);
+  border-top: 3px solid var(--gold);
+}
+
+.value-card h3 {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  margin: 0 0 0.6rem;
+}
+
+.value-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* Trust */
 .trust-list {
   list-style: none;
@@ -566,7 +594,7 @@ section h2.center { text-align: center; margin: 0 auto 2.5rem; }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .cat-grid, .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-grid, .steps-grid, .values-grid { grid-template-columns: repeat(2, 1fr); }
   .split-grid { grid-template-columns: 1fr; }
   .manifest-split { grid-template-columns: 1fr; row-gap: 0.25rem; }
   .manifest-panel { justify-content: center !important; padding: 0.4rem 1rem; }
@@ -578,5 +606,22 @@ section h2.center { text-align: center; margin: 0 auto 2.5rem; }
 }
 
 @media (max-width: 560px) {
-  .cat-grid, .steps-grid { grid-template-columns: 1fr; }
+  .cat-grid, .steps-grid, .values-grid { grid-template-columns: 1fr; }
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+.social-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-bottom: 1px solid transparent;
+}
+.social-links a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
 }

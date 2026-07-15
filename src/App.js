@@ -113,6 +113,14 @@ const translations = {
     },
     trustEyebrow: 'Why we go slowly',
     trustTitle: 'Built to earn trust, not just close deals',
+    valuesEyebrow: 'What we stand for',
+    valuesTitle: 'Our values',
+    values: [
+      { name: 'Trust', detail: 'Earned slowly, one deal at a time.' },
+      { name: 'Quality', detail: 'Careful vetting on both sides, not quick matches.' },
+      { name: 'Reliable', detail: 'We follow through until the deal is actually done.' },
+      { name: 'Hard Working', detail: 'A hands-on team, not just a directory.' }
+    ],
     trust: [
       'A small, hands-on team based on both sides — not a directory of strangers',
       'We only earn when a genuine deal is made, or an ad is placed — nothing charged just to look',
@@ -190,6 +198,14 @@ const translations = {
     },
     trustEyebrow: 'Pourquoi nous allons doucement',
     trustTitle: 'Conçu pour gagner la confiance, pas seulement conclure',
+    valuesEyebrow: 'Ce que nous défendons',
+    valuesTitle: 'Nos valeurs',
+    values: [
+      { name: 'Confiance', detail: 'Gagnée lentement, affaire après affaire.' },
+      { name: 'Qualité', detail: 'Vérification rigoureuse des deux côtés, pas de mise en relation hâtive.' },
+      { name: 'Fiabilité', detail: 'Nous suivons jusqu\u2019à ce que l\u2019accord soit réellement conclu.' },
+      { name: 'Travail acharné', detail: 'Une équipe engagée sur le terrain, pas un simple annuaire.' }
+    ],
     trust: [
       'Une petite équipe engagée des deux côtés — pas un annuaire d\u2019inconnus',
       'Nous ne gagnons que lorsqu\u2019un accord réel est conclu, ou qu\u2019une annonce est placée — rien pour simplement chercher',
@@ -267,6 +283,14 @@ const translations = {
     },
     trustEyebrow: 'لماذا نتقدم ببطء',
     trustTitle: 'مصمم لكسب الثقة، لا فقط لإغلاق الصفقات',
+    valuesEyebrow: 'ما نؤمن به',
+    valuesTitle: 'قيمنا',
+    values: [
+      { name: 'الثقة', detail: 'نكسبها ببطء، صفقة تلو الأخرى.' },
+      { name: 'الجودة', detail: 'تدقيق دقيق من الجانبين، لا مجرد تعارف سريع.' },
+      { name: 'الموثوقية', detail: 'نتابع حتى إتمام الصفقة فعلياً.' },
+      { name: 'الاجتهاد', detail: 'فريق ملتزم ميدانياً، لا مجرد دليل.' }
+    ],
     trust: [
       'فريق صغير وملتزم على كلا الجانبين — لا دليل لأشخاص غرباء',
       'لا نكسب إلا عند إتمام صفقة حقيقية أو نشر إعلان — لا رسوم مقابل البحث فقط',
@@ -469,6 +493,19 @@ function App() {
             </div>
           </section>
 
+          <section className="values">
+            <span className="eyebrow">{t.valuesEyebrow}</span>
+            <h2>{t.valuesTitle}</h2>
+            <div className="values-grid">
+              {t.values.map((v, i) => (
+                <div className="value-card" key={i}>
+                  <h3>{v.name}</h3>
+                  <p>{v.detail}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section className="trust">
             <span className="eyebrow">{t.trustEyebrow}</span>
             <h2>{t.trustTitle}</h2>
@@ -582,6 +619,10 @@ function App() {
 
       <footer className="footer">
         <p>{t.footerNote}</p>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/company/REPLACE-ME" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/REPLACE-ME" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
       </footer>
     </div>
   );
